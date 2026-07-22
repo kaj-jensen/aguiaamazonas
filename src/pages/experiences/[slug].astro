@@ -16,5 +16,11 @@ const message = encodeURIComponent(`Hello Antonio, I am interested in the ${tour
     <aside><p class="eyebrow">What stays with you</p><ul>{tour.highlights.map((item)=><li>{item}</li>)}</ul></aside>
     <div class="itinerary"><p class="eyebrow">The experience</p><h2>A journey shaped<br/>by the living forest.</h2>{tour.itinerary.map((item)=><div class="itinerary-row"><b>{item.label}</b><p>{item.text}</p></div>)}</div>
   </section>
+  {tour.gallery && <section class="tour-gallery-section">
+    <div class="wrap">
+      <div class="tour-gallery-heading"><div><p class="eyebrow">Real moments</p><h2>A closer look at<br/>the journey.</h2></div><p>These photographs come from Águia Amazonas journeys around Jardim Maravilha—the waterways, forest activities and simple lodge life you will experience with Antonio and his local guides.</p></div>
+      <div class="tour-gallery">{tour.gallery.map((image) => <figure><img src={image.src} alt={image.alt} loading="lazy" /></figure>)}</div>
+    </div>
+  </section>}
   <section class="practical"><div class="wrap practical-grid"><div><p class="eyebrow">Included</p><ul>{tour.included.map((item)=><li>{item}</li>)}</ul></div><div><p class="eyebrow">What to bring</p><ul>{tour.bring.map((item)=><li>{item}</li>)}</ul></div><div class="book-panel"><p class="eyebrow light">Made for you</p><h2>Dates, pace and details are personal.</h2><p>Tell Antonio when you will be in Manaus, how many are travelling and what kind of experience you want.</p><a class="button pale" href={`https://wa.me/5592994587173?text=${message}`} target="_blank" rel="noreferrer">Talk on WhatsApp</a><a href="mailto:atnguide@hotmail.com" class="email-link">or email Antonio</a></div></div></section>
 </BaseLayout>

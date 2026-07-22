@@ -13,6 +13,7 @@ export type Tour = {
   summary: string;
   ptSummary: string;
   image: string;
+  gallery?: { src: string; alt: string; ptAlt: string }[];
   accent: string;
   highlights: string[];
   ptHighlights: string[];
@@ -75,6 +76,12 @@ export const tours: Tour[] = [
     summary: 'A compact immersion for travellers who want river journeys, forest knowledge and warm Amazonian hospitality without rushing.',
     ptSummary: 'Uma imersão compacta com passeios fluviais, conhecimento da floresta e a hospitalidade calorosa da Amazônia.',
     image: '/images/tours/amazon-canoe-wetland.webp',
+    gallery: [
+      { src: '/images/gallery/jardim-maravilha/river-journey.webp', alt: 'Guests travelling by canoe through an Amazon waterway', ptAlt: 'Visitantes viajando de canoa por um igarapé amazônico' },
+      { src: '/images/gallery/jardim-maravilha/forest-picnic.webp', alt: 'A relaxed forest picnic during the Jardim Maravilha journey', ptAlt: 'Piquenique descontraído na floresta durante a viagem ao Jardim Maravilha' },
+      { src: '/images/gallery/jardim-maravilha/caiman-encounter.webp', alt: 'A guided evening wildlife encounter with a young caiman', ptAlt: 'Encontro noturno guiado com um pequeno jacaré' },
+      { src: '/images/gallery/jardim-maravilha/guest-room.webp', alt: 'A simple guest room at the forest lodge', ptAlt: 'Quarto simples na pousada da floresta' },
+    ],
     accent: '#56c596',
     highlights: ['Guesthouse in the forest', 'River and canoe journeys', 'Wildlife after dark', 'Local food and hospitality'],
     ptHighlights: ['Pousada cercada pela floresta', 'Passeios de rio e canoa', 'Fauna depois do anoitecer', 'Comida e hospitalidade local'],
@@ -106,6 +113,12 @@ export const tours: Tour[] = [
     summary: 'Slow down at a simple forest guesthouse and discover the waterways, wildlife and daily rhythms of Rio Preto da Eva.',
     ptSummary: 'Viva o ritmo da floresta em uma pousada acolhedora e descubra os rios, a fauna e a vida de Rio Preto da Eva.',
     image: '/images/tours/jardim-maravilha-riverside.jpg',
+    gallery: [
+      { src: '/images/gallery/jardim-maravilha/group-canoe.webp', alt: 'Guests and their local guide exploring by canoe', ptAlt: 'Visitantes e guia local explorando a região de canoa' },
+      { src: '/images/gallery/jardim-maravilha/forest-picnic.webp', alt: 'Lunch prepared and shared beneath the rainforest canopy', ptAlt: 'Almoço preparado e compartilhado sob a copa da floresta' },
+      { src: '/images/gallery/jardim-maravilha/forest-waterfall.webp', alt: 'Guests cooling off at a forest waterfall', ptAlt: 'Visitantes se refrescando em uma cachoeira na floresta' },
+      { src: '/images/gallery/jardim-maravilha/palm-craft.webp', alt: 'Learning a traditional palm craft with a local guide', ptAlt: 'Aprendendo artesanato tradicional com palmeiras e guia local' },
+    ],
     accent: '#75d18b',
     highlights: ['Three days away from the city', 'Forest and waterfall walks', 'Piranha fishing', 'Sunrise and nocturnal wildlife'],
     ptHighlights: ['Três dias longe da cidade', 'Caminhadas e saberes da floresta', 'Pesca de piranhas', 'Fauna ao amanhecer e à noite'],
@@ -139,6 +152,12 @@ export const tours: Tour[] = [
     summary: 'Four unhurried days of forest, river and community life—with the option to spend a night in a hammock camp in the jungle.',
     ptSummary: 'Quatro dias de floresta, rios e vida comunitária, com opção de pernoite em redes em um acampamento na selva.',
     image: '/images/tours/tupana-canoe.webp',
+    gallery: [
+      { src: '/images/gallery/jardim-maravilha/river-journey.webp', alt: 'Travelling deeper into the forest by motorised canoe', ptAlt: 'Viagem mais profunda na floresta em canoa motorizada' },
+      { src: '/images/gallery/jardim-maravilha/forest-waterfall.webp', alt: 'A guided walk ending at a secluded forest waterfall', ptAlt: 'Caminhada guiada até uma cachoeira isolada na floresta' },
+      { src: '/images/gallery/jardim-maravilha/night-caiman.webp', alt: 'A small group observing a caiman with their guide after dark', ptAlt: 'Pequeno grupo observando um jacaré com o guia durante a noite' },
+      { src: '/images/gallery/jardim-maravilha/palm-craft.webp', alt: 'Hands-on learning with materials gathered in the forest', ptAlt: 'Aprendizado prático com materiais coletados na floresta' },
+    ],
     accent: '#9bd36a',
     highlights: ['Complete lodge programme', 'Waterfall jungle walk', 'Optional forest camp', 'Hands-on survival knowledge'],
     ptHighlights: ['Programa completo na pousada', 'Caminhada até uma cachoeira', 'Acampamento opcional na floresta', 'Conhecimentos práticos de sobrevivência'],

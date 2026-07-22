@@ -19,6 +19,7 @@ This file records the source and intended role of externally licensed photograph
 - `public/images/people/antonio.webp` — Antonio João da Silva portrait migrated from the former Águia Amazonas WordPress media library.
 - `public/images/people/forest-texture.webp` — Rainforest detail migrated from the former Águia Amazonas WordPress media library.
 - `public/images/brand/original-logo.webp` — Original Águia Amazonas logo retained as an archive asset.
+- `public/images/gallery/jardim-maravilha/*.webp` — Eight original photographs from Águia Amazonas tours around Jardim Maravilha, migrated from the former WordPress product gallery. The set documents canoe travel, a forest picnic, waterfall visit, palm craft, wildlife encounters and lodge accommodation. Original archive files: `Amazon-tour-Aguia-Amazonas-Turismo-{1,2,9,10,15,19,20}-min-768x576.jpg` and `Pousada-Rio-Preto-da-Eva-1-768x1024.jpeg`.
 
 ## AI-generated gallery assets
 

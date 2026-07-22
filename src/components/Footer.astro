@@ -1,0 +1,20 @@
+---
+interface Props { lang?: 'en' | 'pt-BR' }
+const { lang = 'en' } = Astro.props;
+const isPt = lang === 'pt-BR';
+---
+<footer class="site-footer">
+  <div>
+    <p class="footer-kicker">Águia Amazonas Turismo</p>
+    <h2>{isPt ? 'A floresta é nossa casa.' : 'The rainforest is our home.'}</h2>
+  </div>
+  <div class="footer-contact">
+    <p>{isPt ? 'Planeje sua viagem diretamente com Antonio.' : 'Plan your journey directly with Antonio.'}</p>
+    <a href="https://wa.me/5592994587173" target="_blank" rel="noreferrer">+55 92 99458-7173</a>
+    <a href="mailto:atnguide@hotmail.com">atnguide@hotmail.com</a>
+  </div>
+  <div class="footer-bottom">
+    <span>Manaus · Amazonas · Brazil</span>
+    <span>© {new Date().getFullYear()} Águia Amazonas Turismo</span>
+  </div>
+</footer>

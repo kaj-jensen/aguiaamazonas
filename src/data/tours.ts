@@ -39,7 +39,7 @@ export const tours: Tour[] = [
     ptGroup: 'Privativo ou grupo pequeno',
     summary: 'Leave Manaus behind for jungle trails, river life, piranha fishing, pink dolphins and a night-time caiman encounter.',
     ptSummary: 'Saia de Manaus para trilhas na selva, vida ribeirinha, pesca de piranhas, botos e uma experiência noturna com jacarés.',
-    image: '/images/tours/rio-negro-bridge.webp',
+    image: '/images/tours/full-day-amazon-river.webp',
     accent: '#e9b949',
     highlights: ['Jungle hike with a local guide', 'Amazonian lunch', 'Pink dolphins and piranha fishing', 'Sunset and caiman spotting'],
     ptHighlights: ['Caminhada na selva com guia local', 'Almoço amazônico', 'Botos e pesca de piranhas', 'Pôr do sol e focagem de jacarés'],

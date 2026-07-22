@@ -4,6 +4,7 @@ This file records the source and intended role of externally licensed photograph
 
 ## Tour photography
 
+- `public/images/tours/full-day-amazon-river.webp` — “Exploring the Amazon River in a Small Boat” by Jean Gc. Photographed in Manaus, Amazonas. Source: https://www.pexels.com/photo/exploring-the-amazon-river-in-a-small-boat-28587126/. Licensed under the Pexels license: https://www.pexels.com/license/
 - `public/images/tours/tupana-canoe.webp` — “Woman on Amazon River / Tupana River, Brasil – Rain Forest – Jungle” by Stephanie Morcinek. Photographed at Amazon Tupana Lodge, Manaus, Amazonas. Source: https://unsplash.com/photos/eJAJcErhh5s. Licensed under the Unsplash License: https://unsplash.com/license
 - `public/images/tours/rio-negro-action.webp` — “River Adventure in the Amazon Rainforest” by Jean Gc. Photographed on the Rio Negro in Manaus, Amazonas. Source: https://www.pexels.com/photo/river-adventure-in-the-amazon-rainforest-28587123/. Licensed under the Pexels license: https://www.pexels.com/license/
 - `public/images/tours/manaus-river-community.webp` — “River Life in Manaus, Amazon Brazil” by Mário Andrioli. Photographed in Manaus, Amazonas. Source: https://www.pexels.com/photo/river-life-in-manaus-amazon-brazil-34614872/. Licensed under the Pexels license: https://www.pexels.com/license/

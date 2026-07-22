@@ -1,11 +1,11 @@
 ---
 import type { Tour } from '../data/tours';
-interface Props { tour: Tour; lang?: 'en' | 'pt-BR'; featured?: boolean }
-const { tour, lang = 'en', featured = false } = Astro.props;
+interface Props { tour: Tour; lang?: 'en' | 'pt-BR' }
+const { tour, lang = 'en' } = Astro.props;
 const isPt = lang === 'pt-BR';
 const href = isPt ? `/pt/experiencias/${tour.ptSlug}/` : `/experiences/${tour.slug}/`;
 ---
-<article class:list={['tour-card', { featured }]} style={`--accent:${tour.accent}`}>
+<article class="tour-card" style={`--accent:${tour.accent}`}>
   <a href={href} class="tour-image" aria-label={isPt ? tour.ptName : tour.name}>
     <img src={tour.image} alt={isPt ? tour.ptName : tour.name} loading="lazy" />
     <span>{tour.duration}</span>

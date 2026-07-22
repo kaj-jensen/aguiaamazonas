@@ -1,6 +1,7 @@
 export type Tour = {
   slug: string;
   ptSlug: string;
+  kind: 'day' | 'lodge' | 'cruise' | 'wild';
   name: string;
   ptName: string;
   eyebrow: string;
@@ -20,6 +21,7 @@ export const tours: Tour[] = [
   {
     slug: 'full-day-tour-from-manaus',
     ptSlug: 'um-dia-de-adventura',
+    kind: 'day',
     name: 'Full Day Amazon Experience',
     ptName: 'Um dia de aventura na Amazônia',
     eyebrow: 'Day expedition',
@@ -42,6 +44,7 @@ export const tours: Tour[] = [
   {
     slug: '2-day-amazon-experience-at-jardim-maravilha-guesthouse',
     ptSlug: '2-dias-no-sitio-jardim-maravilha',
+    kind: 'lodge',
     name: 'Jardim Maravilha Escape',
     ptName: 'Experiência no Sítio Jardim Maravilha',
     eyebrow: 'Jungle lodge',
@@ -49,7 +52,7 @@ export const tours: Tour[] = [
     group: 'Made to measure',
     summary: 'A compact immersion for travellers who want river journeys, forest knowledge and warm Amazonian hospitality without rushing.',
     ptSummary: 'Uma imersão compacta com passeios fluviais, conhecimento da floresta e a hospitalidade calorosa da Amazônia.',
-    image: 'https://www.aguiaamazonas.com.br/wp-content/uploads/2026/03/Experiencia-de-sobrevivencia-na-floresta-amazonica-33-768x1365.jpeg',
+    image: 'https://www.aguiaamazonas.com.br/wp-content/uploads/2026/03/Experiencia-de-sobrevivencia-na-floresta-amazonica-25-768x1365.jpeg',
     accent: '#56c596',
     highlights: ['Guesthouse in the forest', 'River and canoe journeys', 'Wildlife after dark', 'Local food and hospitality'],
     itinerary: [
@@ -62,6 +65,7 @@ export const tours: Tour[] = [
   {
     slug: '3-days-2-nights-at-rio-preto-da-eva-lodge',
     ptSlug: '3-dias-2-noites-no-sitio-jardim-maravilha',
+    kind: 'lodge',
     name: 'Jardim Maravilha Discovery',
     ptName: 'Descoberta do Sítio Jardim Maravilha',
     eyebrow: 'Jungle lodge',
@@ -83,6 +87,7 @@ export const tours: Tour[] = [
   {
     slug: '4-days-3-nights-at-jardim-maravilha-lodge',
     ptSlug: '4-dias-3-noites-no-sitio-jardim-maravilha',
+    kind: 'lodge',
     name: 'Deep Amazon Lodge Journey',
     ptName: 'Jornada profunda na floresta',
     eyebrow: 'Jungle lodge',
@@ -90,7 +95,7 @@ export const tours: Tour[] = [
     group: 'Private or small group',
     summary: 'Four unhurried days of forest, river and community life—with the option to spend a night in a hammock camp in the jungle.',
     ptSummary: 'Quatro dias de floresta, rios e vida comunitária, com opção de pernoite em redes em um acampamento na selva.',
-    image: 'https://www.aguiaamazonas.com.br/wp-content/uploads/2026/03/Experiencia-de-sobrevivencia-na-floresta-amazonica-14-768x1365.jpeg',
+    image: 'https://www.aguiaamazonas.com.br/wp-content/uploads/2023/05/Amazon-tour-Aguia-Amazonas-Turismo-20-min.jpg',
     accent: '#9bd36a',
     highlights: ['Complete lodge programme', 'Waterfall jungle walk', 'Optional forest camp', 'Hands-on survival knowledge'],
     itinerary: [
@@ -105,6 +110,7 @@ export const tours: Tour[] = [
   {
     slug: 'amazon-cruise-3-days-2-nights',
     ptSlug: 'cruzeiro-3-dias-2-noites',
+    kind: 'cruise',
     name: 'Rio Negro Explorer Cruise',
     ptName: 'Cruzeiro explorador pelo Rio Negro',
     eyebrow: 'River expedition',
@@ -126,6 +132,7 @@ export const tours: Tour[] = [
   {
     slug: 'amazon-cruise-4-days-3-nights',
     ptSlug: 'cruzeiro-4-dias-3-noites',
+    kind: 'cruise',
     name: 'Anavilhanas Expedition Cruise',
     ptName: 'Cruzeiro de expedição em Anavilhanas',
     eyebrow: 'River expedition',
@@ -148,6 +155,7 @@ export const tours: Tour[] = [
   {
     slug: 'amazon-jungle-survival-experience',
     ptSlug: 'experiencia-de-sobrevivencia-na-floresta-amazonica',
+    kind: 'wild',
     name: 'Amazon Survival Experience',
     ptName: 'Experiência de sobrevivência na Amazônia',
     eyebrow: 'True wilderness',
@@ -155,7 +163,7 @@ export const tours: Tour[] = [
     group: 'Private',
     summary: 'Learn practical rainforest skills with guides who grew up here. Raw, respectful and shaped around your ability and ambition.',
     ptSummary: 'Aprenda técnicas reais da floresta com guias que cresceram aqui, em uma expedição adaptada ao seu preparo e objetivo.',
-    image: 'https://www.aguiaamazonas.com.br/wp-content/uploads/2026/03/Experiencia-de-sobrevivencia-na-floresta-amazonica-38-768x1365.jpeg',
+    image: '/images/amazon-river-hero.png',
     accent: '#ef7d4f',
     highlights: ['Build a forest camp', 'Find and prepare food safely', 'Navigation and medicinal plants', 'Nocturnal wildlife observation'],
     itinerary: [

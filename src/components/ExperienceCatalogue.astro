@@ -1,0 +1,90 @@
+---
+import TourCard from './TourCard.astro';
+import { tours } from '../data/tours';
+
+interface Props { lang?: 'en' | 'pt-BR' }
+const { lang = 'en' } = Astro.props;
+const isPt = lang === 'pt-BR';
+
+const groups = [
+  {
+    id: 'day',
+    number: '01',
+    title: isPt ? 'Comece por um dia' : 'Begin with a day',
+    subtitle: isPt ? 'Uma imersão completa saindo de Manaus.' : 'A complete immersion from Manaus.',
+    kind: 'day',
+  },
+  {
+    id: 'lodge',
+    number: '02',
+    title: isPt ? 'Durma na floresta' : 'Stay in the forest',
+    subtitle: isPt ? 'Dois, três ou quatro dias no Jardim Maravilha.' : 'Two, three or four days at Jardim Maravilha.',
+    kind: 'lodge',
+  },
+  {
+    id: 'cruise',
+    number: '03',
+    title: isPt ? 'Viaje pelos rios' : 'Travel by river',
+    subtitle: isPt ? 'O Rio Negro e Anavilhanas em barco regional.' : 'The Rio Negro and Anavilhanas by regional boat.',
+    kind: 'cruise',
+  },
+  {
+    id: 'wild',
+    number: '04',
+    title: isPt ? 'Vá mais fundo' : 'Go deeper',
+    subtitle: isPt ? 'Uma expedição privada de sobrevivência.' : 'A private rainforest survival expedition.',
+    kind: 'wild',
+  },
+] as const;
+---
+
+<section class="experience-section" id={isPt ? 'experiencias' : 'experiences'}>
+  <div class="section-head wrap">
+    <div><p class="eyebrow">{isPt ? 'Escolha seu caminho' : 'Choose your way in'}</p><h2>{isPt ? <>Sete jornadas.<br/>Uma floresta viva.</> : <>Seven journeys.<br/>One living forest.</>}</h2></div>
+    <p>{isPt ? 'Escolha primeiro como deseja viver a Amazônia; depois compare o tempo e o ritmo que combinam com você.' : 'Choose how you want to experience the Amazon first—then compare the time and pace that fit you.'}</p>
+  </div>
+
+  <nav class="journey-jump wrap" aria-label={isPt ? 'Tipos de experiência' : 'Experience types'}>
+    {groups.map((group) => <a href={`#${group.id}`}><span>{group.number}</span>{group.title}</a>)}
+  </nav>
+
+  <div class="journey-groups wrap">
+    {groups.map((group) => {
+      const items = tours.filter((tour) => tour.kind === group.kind);
+      return (
+        <section class="journey-group" id={group.id}>
+          <header><span>{group.number}</span><h3>{group.title}</h3><p>{group.subtitle}</p></header>
+          <div class:list={['journey-cards', { single: items.length === 1 }]}>
+            {items.map((tour) => <TourCard tour={tour} lang={lang} />)}
+          </div>
+        </section>
+      );
+    })}
+  </div>
+</section>
+
+<style is:global>
+  @media (min-width: 901px) {
+    .journey-cards .tour-card {
+      height: 660px;
+    }
+  }
+</style>
+
+<section class="tripadvisor-section">
+  <div class="tripadvisor-intro">
+    <div class="tripadvisor-mark" aria-hidden="true"><span>●</span><span>●</span></div>
+    <div>
+      <p class="eyebrow">Tripadvisor</p>
+      <h2>{isPt ? 'Histórias de quem foi.' : 'Stories from those who went.'}</h2>
+      <div class="rating-row"><span class="rating-dots" aria-label="Excellent Tripadvisor ratings">● ● ● ● ●</span><b>{isPt ? '150+ avaliações de viajantes' : '150+ traveller reviews'}</b></div>
+    </div>
+    <a class="button trip-button" href="https://www.tripadvisor.com/Attraction_Review-g303235-d7940404-Reviews-Aguia_Amazonas_Turismo_Day_Tours-Manaus_Amazon_River_State_of_Amazonas.html" target="_blank" rel="noreferrer">{isPt ? 'Ler todas as avaliações' : 'Read all reviews'} ↗</a>
+  </div>
+  <div class="review-grid">
+    <article><span>“</span><p>{isPt ? 'Antonio nos deixou confortáveis e seguros desde o início. Uma experiência inesquecível para toda a família.' : 'Antonio made us feel comfortable and safe from the start. An unforgettable experience for our whole family.'}</p><footer><b>Maren R</b><small>Tripadvisor · May 2026</small></footer></article>
+    <article><span>“</span><p>{isPt ? 'Uma experiência única e muito autêntica na Amazônia, com atividades bem planejadas e acolhimento caloroso.' : 'A unique and truly authentic Amazon experience, with thoughtful daily activities and a wonderfully warm welcome.'}</p><footer><b>Roam37002819858</b><small>Tripadvisor · March 2026</small></footer></article>
+    <article><span>“</span><p>{isPt ? 'Seis dias incríveis com Antonio na selva. Recomendo absolutamente.' : 'Six amazing days with Antonio in the jungle. Absolutely, highly recommended.'}</p><footer><b>Henry N</b><small>Tripadvisor · May 2026</small></footer></article>
+  </div>
+  <a class="leave-review" href="https://www.tripadvisor.com/UserReviewEdit-g303235-d7940404-Aguia_Amazonas_Turismo_Day_Tours-Manaus_Amazon_River_State_of_Amazonas.html" target="_blank" rel="noreferrer">{isPt ? 'Já viajou com Antonio? Escreva uma avaliação no Tripadvisor' : 'Already travelled with Antonio? Write a Tripadvisor review'} →</a>
+</section>

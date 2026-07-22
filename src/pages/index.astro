@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import TourCard from '../components/TourCard.astro';
-import { tours } from '../data/tours';
+import ExperienceCatalogue from '../components/ExperienceCatalogue.astro';
 const heroImage = '/images/amazon-river-hero.png';
 ---
 <BaseLayout title="Águia Amazonas" description="Private and small-group Amazon rainforest journeys from Manaus with Antonio and experienced local guides." image={heroImage}>
@@ -24,12 +23,7 @@ const heroImage = '/images/amazon-river-hero.png';
     <div class="intro-copy"><p>Águia Amazonas creates intimate journeys for travellers who want to understand the forest—not simply pass through it.</p><p>Every route is shaped by the river, the season and you. Antonio works with guides from Amazon communities whose knowledge comes from a lifetime here.</p></div>
   </section>
 
-  <section class="experience-section" id="experiences">
-    <div class="section-head wrap"><div><p class="eyebrow">Choose your way in</p><h2>Seven journeys.<br/>One living forest.</h2></div><p>From one extraordinary day outside Manaus to a private survival expedition deep in the forest.</p></div>
-    <div class="tour-grid wrap">
-      {tours.map((tour, index) => <TourCard tour={tour} featured={index === 0 || index === 5} />)}
-    </div>
-  </section>
+  <ExperienceCatalogue />
 
   <section class="antonio-band">
     <div class="antonio-portrait"><img src="https://www.aguiaamazonas.com.br/wp-content/uploads/2013/07/antonio-joao-da-silva.jpg" alt="Antonio, founder of Águia Amazonas" /><span>ANTONIO</span></div>

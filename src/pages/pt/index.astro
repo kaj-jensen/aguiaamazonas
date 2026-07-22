@@ -1,11 +1,10 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import TourCard from '../../components/TourCard.astro';
-import { tours } from '../../data/tours';
+import ExperienceCatalogue from '../../components/ExperienceCatalogue.astro';
 const heroImage = '/images/amazon-river-hero.png';
 ---
 <BaseLayout title="Águia Amazonas" description="Experiências autênticas na Floresta Amazônica saindo de Manaus com Antonio e guias locais experientes." image={heroImage} lang="pt-BR">
   <section class="hero" style={`--hero:url('${heroImage}')`}><div class="hero-shade"></div><div class="hero-content"><p class="eyebrow light">Nascido na Amazônia · Guiando desde 2003</p><h1>Vá além<br/><em>do conhecido.</em></h1><p class="hero-lead">Jornadas personalizadas na floresta, expedições fluviais e experiências de sobrevivência com quem chama a Amazônia de lar.</p><div class="hero-actions"><a class="button primary" href="#experiencias">Encontre sua jornada</a><a class="button ghost" href="https://wa.me/5592994587173" target="_blank" rel="noreferrer">Fale com Antonio</a></div></div><div class="hero-note"><span>03°06′S</span><p>Manaus é a porta de entrada.<br/>A floresta é o destino.</p></div></section>
   <section class="intro wrap"><div><p class="eyebrow">Muito além de um pacote</p><h2>A Amazônia<br/>com alma humana.</h2></div><div class="intro-copy"><p>A Águia Amazonas cria jornadas íntimas para quem deseja compreender a floresta, e não apenas passar por ela.</p><p>Cada roteiro é moldado pelos rios, pela estação e por você. Antonio trabalha com guias de comunidades amazônicas que conhecem este lugar por toda a vida.</p></div></section>
-  <section class="experience-section" id="experiencias"><div class="section-head wrap"><div><p class="eyebrow">Escolha seu caminho</p><h2>Sete jornadas.<br/>Uma floresta viva.</h2></div><p>De um dia inesquecível saindo de Manaus a uma expedição privada de sobrevivência.</p></div><div class="tour-grid wrap">{tours.map((tour,index)=><TourCard tour={tour} lang="pt-BR" featured={index===0||index===5}/>)}</div></section>
+  <ExperienceCatalogue lang="pt-BR" />
 </BaseLayout>

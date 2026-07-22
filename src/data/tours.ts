@@ -241,7 +241,7 @@ export const tours: Tour[] = [
     ptGroup: 'Privativo',
     summary: 'Learn practical rainforest skills with guides who grew up here. Raw, respectful and shaped around your ability and ambition.',
     ptSummary: 'Aprenda técnicas reais da floresta com guias que cresceram aqui, em uma expedição adaptada ao seu preparo e objetivo.',
-    image: '/images/tours/deep-forest-stream.webp',
+    image: '/images/tours/amazon-jungle-river-unsplash.jpg',
     accent: '#ef7d4f',
     highlights: ['Build a forest camp', 'Find and prepare food safely', 'Navigation and medicinal plants', 'Nocturnal wildlife observation'],
     ptHighlights: ['Monte um acampamento na floresta', 'Encontre e prepare alimentos com segurança', 'Orientação e plantas medicinais', 'Observação noturna da fauna'],

@@ -20,6 +20,10 @@ This file records the source and intended role of externally licensed photograph
 - `public/images/people/forest-texture.webp` — Rainforest detail migrated from the former Águia Amazonas WordPress media library.
 - `public/images/brand/original-logo.webp` — Original Águia Amazonas logo retained as an archive asset.
 
+## AI-generated gallery assets
+
+- `public/images/gallery/amazon-flooded-forest-guide-ai.png` — Original AI-generated documentary-style concept image created for Águia Amazonas. It depicts an anonymous, unbranded guide walking through a flooded Amazon forest and is reserved for possible future gallery or editorial use.
+
 ## Editorial rules
 
 - Primary tour images must be sharp, inviting and geographically credible.

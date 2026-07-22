@@ -29,7 +29,7 @@ export const tours: Tour[] = [
     group: 'Private or small group',
     summary: 'Leave Manaus behind for jungle trails, river life, piranha fishing, pink dolphins and a night-time caiman encounter.',
     ptSummary: 'Saia de Manaus para trilhas na selva, vida ribeirinha, pesca de piranhas, botos e uma experiência noturna com jacarés.',
-    image: 'https://www.aguiaamazonas.com.br/wp-content/uploads/2026/03/Experiencia-de-sobrevivencia-na-floresta-amazonica-25-768x1365.jpeg',
+    image: '/images/tours/tupana-canoe.webp',
     accent: '#e9b949',
     highlights: ['Jungle hike with a local guide', 'Amazonian lunch', 'Pink dolphins and piranha fishing', 'Sunset and caiman spotting'],
     itinerary: [
@@ -52,7 +52,7 @@ export const tours: Tour[] = [
     group: 'Made to measure',
     summary: 'A compact immersion for travellers who want river journeys, forest knowledge and warm Amazonian hospitality without rushing.',
     ptSummary: 'Uma imersão compacta com passeios fluviais, conhecimento da floresta e a hospitalidade calorosa da Amazônia.',
-    image: 'https://www.aguiaamazonas.com.br/wp-content/uploads/2026/03/Experiencia-de-sobrevivencia-na-floresta-amazonica-25-768x1365.jpeg',
+    image: '/images/tours/rio-negro-action.webp',
     accent: '#56c596',
     highlights: ['Guesthouse in the forest', 'River and canoe journeys', 'Wildlife after dark', 'Local food and hospitality'],
     itinerary: [

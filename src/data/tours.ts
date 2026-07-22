@@ -105,7 +105,7 @@ export const tours: Tour[] = [
     ptGroup: 'Casais, famílias e amigos',
     summary: 'Slow down at a simple forest guesthouse and discover the waterways, wildlife and daily rhythms of Rio Preto da Eva.',
     ptSummary: 'Viva o ritmo da floresta em uma pousada acolhedora e descubra os rios, a fauna e a vida de Rio Preto da Eva.',
-    image: '/images/tours/manaus-river-community.webp',
+    image: '/images/tours/jardim-maravilha-riverside.jpg',
     accent: '#75d18b',
     highlights: ['Three days away from the city', 'Forest and waterfall walks', 'Piranha fishing', 'Sunrise and nocturnal wildlife'],
     ptHighlights: ['Três dias longe da cidade', 'Caminhadas e saberes da floresta', 'Pesca de piranhas', 'Fauna ao amanhecer e à noite'],

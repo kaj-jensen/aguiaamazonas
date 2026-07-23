@@ -35,7 +35,7 @@ const paceBand = (slug: string) => {
         <p>{isPt ? 'Uma experiência privativa de sobrevivência, adaptada ao seu preparo e conduzida pessoalmente por Antonio.' : 'A private survival experience shaped around your ability and personally led by Antonio.'}</p>
       </header>
       <div class="journey-cards single core-card">
-        <TourCard tour={coreTour} lang={lang} />
+        <TourCard tour={coreTour} lang={lang} signature />
       </div>
     </section>
   )}
@@ -160,6 +160,43 @@ const paceBand = (slug: string) => {
 
   .core-experience .tour-copy h3 {
     color: var(--ink);
+  }
+
+  .signature-pitch {
+    margin-top: 20px;
+  }
+
+  .signature-pitch > p {
+    margin: 0;
+    color: #52615b;
+    line-height: 1.65;
+  }
+
+  .signature-pitch ul {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    margin: 22px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .signature-pitch li {
+    position: relative;
+    padding: 13px 12px 13px 30px;
+    border-radius: 10px;
+    background: #eef2e8;
+    color: #183c31;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.35;
+  }
+
+  .signature-pitch li::before {
+    content: '✓';
+    position: absolute;
+    left: 12px;
+    color: #16865c;
   }
 
   .core-jump {
@@ -344,6 +381,10 @@ const paceBand = (slug: string) => {
     .core-experience > header {
       grid-template-columns: 1fr;
       gap: 10px;
+    }
+
+    .signature-pitch ul {
+      grid-template-columns: 1fr;
     }
 
     .tour-finder {

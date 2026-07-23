@@ -1,7 +1,7 @@
 ---
 import type { Tour } from '../data/tours';
-interface Props { tour: Tour; lang?: 'en' | 'pt-BR' }
-const { tour, lang = 'en' } = Astro.props;
+interface Props { tour: Tour; lang?: 'en' | 'pt-BR'; signature?: boolean }
+const { tour, lang = 'en', signature = false } = Astro.props;
 const isPt = lang === 'pt-BR';
 const href = isPt ? `/pt/experiencias/${tour.ptSlug}/` : `/experiences/${tour.slug}/`;
 ---
@@ -14,6 +14,20 @@ const href = isPt ? `/pt/experiencias/${tour.ptSlug}/` : `/experiences/${tour.sl
     <p class="eyebrow">{isPt ? tour.ptEyebrow : tour.eyebrow}</p>
     <h3><a href={href}>{isPt ? tour.ptName : tour.name}</a></h3>
     <p>{isPt ? tour.ptSummary : tour.summary}</p>
+    {signature && (
+      <div class="signature-pitch">
+        <p>
+          {isPt
+            ? 'Saia do caminho comum e aprenda a ler a floresta, montar acampamento e se orientar com confiança no coração da Amazônia. A expedição é privativa e adaptada ao seu ritmo — autêntica, desafiadora e sempre conduzida com cuidado.'
+            : 'Leave the ordinary trail behind and learn to read the forest, make camp and move confidently through the heart of the Amazon. Your private expedition is shaped around your pace—authentic, challenging and always guided with care.'}
+        </p>
+        <ul>
+          <li>{isPt ? 'Conduzida pessoalmente por Antonio' : 'Personally guided by Antonio'}</li>
+          <li>{isPt ? 'Roteiro privativo criado para você' : 'A private route shaped around you'}</li>
+          <li>{isPt ? 'Técnicas práticas e noites na floresta' : 'Practical skills and nights in the forest'}</li>
+        </ul>
+      </div>
+    )}
     <div class="tour-meta"><span>{isPt ? tour.ptGroup : tour.group}</span><a href={href}>{isPt ? 'Descobrir' : 'Explore'} <b>↗</b></a></div>
   </div>
 </article>

@@ -59,8 +59,8 @@ const travelAgencySchema = {
     {alternateEn && <link rel="alternate" hreflang="en" href={new URL(alternateEn, Astro.site)} />}
     {alternatePt && <link rel="alternate" hreflang="pt-BR" href={new URL(alternatePt, Astro.site)} />}
     {alternateEn && <link rel="alternate" hreflang="x-default" href={new URL(alternateEn, Astro.site)} />}
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="mask-icon" href="/favicon.svg" color="#0d6a43" />
+    <link rel="icon" href="/favicon.png" type="image/png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Águia Amazonas" />
     <meta property="og:locale" content={locale} />

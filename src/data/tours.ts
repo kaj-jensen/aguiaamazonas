@@ -138,7 +138,7 @@ export const tours: Tour[] = [
     gallery: [
       { src: '/images/gallery/jardim-maravilha/group-canoe.webp', alt: 'Guests exploring the Rio Preto da Eva region by canoe', ptAlt: 'Visitantes explorando a região de Rio Preto da Eva de canoa' },
       { src: '/images/gallery/jardim-maravilha/forest-waterfall.webp', alt: 'Guests cooling off at a forest waterfall', ptAlt: 'Visitantes se refrescando em uma cachoeira na floresta' },
-      { src: '/images/gallery/jardim-maravilha-extra/quiet-canoe.webp', alt: 'A quiet canoe crossing beneath the rainforest canopy', ptAlt: 'Canoa navegando em silêncio sob a copa da floresta' },
+      { src: '/images/gallery/jardim-maravilha-extra/amazon-canoe-manaus.webp', alt: 'A local canoe crossing a calm Amazon waterway near Manaus', ptAlt: 'Canoa local atravessando um igarapé tranquilo próximo a Manaus' },
       { src: '/images/gallery/jardim-maravilha-extra/forest-waterfall.webp', alt: 'A secluded forest waterfall reached during the lodge journey', ptAlt: 'Cachoeira isolada alcançada durante a experiência na pousada' },
     ],
     accent: '#75d18b',
@@ -227,7 +227,7 @@ export const tours: Tour[] = [
       { src: '/images/gallery/cruise-3-day/river-boat-1.jpg', alt: 'The regional river boat used for the three-day Rio Negro cruise', ptAlt: 'Barco regional usado no cruzeiro de três dias pelo Rio Negro' },
       { src: '/images/gallery/cruise-3-day/river-boat-2.jpg', alt: 'A traditional Amazon cruise boat moored beside the forest', ptAlt: 'Barco tradicional amazônico atracado junto à floresta' },
       { src: '/images/gallery/cruise-3-day/river-boat-3.jpg', alt: 'The cruise boat ready to explore the waterways beyond Manaus', ptAlt: 'Barco pronto para explorar os rios além de Manaus' },
-      { src: '/images/gallery/cruise-3-day/river-boat-4.jpg', alt: 'Side view of a regional Amazon expedition vessel', ptAlt: 'Vista lateral de uma embarcação regional de expedição amazônica' },
+      { src: '/images/gallery/cruise-3-day/amazon-river-canoe.webp', alt: 'A solitary canoe travelling along the edge of the Amazon rainforest', ptAlt: 'Canoa navegando junto à margem da floresta amazônica' },
     ],
     accent: '#49b8c8',
     highlights: ['Meeting of the Waters', 'Cabin or hammock sleeping', 'Pink dolphins and piranhas', 'Indigenous family visit'],
@@ -269,7 +269,7 @@ export const tours: Tour[] = [
     gallery: [
       { src: '/images/gallery/cruise-4-day/cabin-1.jpg', alt: 'A private cabin prepared for the Anavilhanas expedition', ptAlt: 'Cabine privativa preparada para a expedição em Anavilhanas' },
       { src: '/images/gallery/cruise-4-day/cabin-2.jpg', alt: 'The expedition vessel that carries guests deeper into the Rio Negro', ptAlt: 'Embarcação de expedição que leva os visitantes pelo Rio Negro' },
-      { src: '/images/gallery/cruise-4-day/cabin-3.jpg', alt: 'Comfortable sleeping quarters aboard the four-day cruise', ptAlt: 'Acomodação confortável a bordo do cruzeiro de quatro dias' },
+      { src: '/images/gallery/cruise-4-day/piranha-closeup.webp', alt: 'A close view of a piranha caught and released during the Rio Negro expedition', ptAlt: 'Piranha observada de perto durante a expedição pelo Rio Negro antes de ser devolvida ao rio' },
       { src: '/images/gallery/cruise-4-day/cabin-4.jpg', alt: 'A bright cabin and dining space inside the regional boat', ptAlt: 'Cabine iluminada e espaço de refeições no barco regional' },
     ],
     accent: '#5ab6e6',

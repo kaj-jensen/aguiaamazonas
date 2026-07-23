@@ -22,6 +22,20 @@ const content = isPt ? {
     ['Julho–setembro', 'Vazante', 'As águas começam a baixar. Trilhas e margens reaparecem gradualmente, combinando atividades fluviais e terrestres.'],
     ['Outubro–novembro', 'Seca', 'Praias fluviais e mais terreno ficam expostos. É uma boa fase para caminhadas, acampamentos e observação em terra firme.'],
   ],
+  wildlifeTitle: 'Quando observar a vida selvagem',
+  wildlifeLead: 'Não existe um único “mês dos animais”. A fauna está presente o ano inteiro, mas água, chuva, calor e horário mudam onde e como procurá-la.',
+  wildlife: [
+    ['Amanhecer e entardecer', 'Saídas cedo e no fim da tarde costumam oferecer temperaturas mais amenas, mais sons da floresta e boas oportunidades para observar aves, macacos e vida às margens do rio.'],
+    ['Na cheia', 'Canoas alcançam igapós e canais entre árvores. A observação acontece muito pela água, em silêncio, com atenção às copas e margens.'],
+    ['Na vazante e seca', 'Praias, trilhas e margens reaparecem. A atividade se concentra de outra forma perto de canais e pontos de água remanescentes.'],
+    ['Observar, nunca prometer', 'Animais selvagens não são atrações programadas. Um bom guia lê rastros, sons e movimentos sem perseguir, tocar ou alimentar a fauna.'],
+  ],
+  familyTitle: 'A Amazônia com crianças',
+  familyText: 'Uma viagem em família funciona melhor quando o ritmo é definido pelas crianças, não pelo programa mais longo. Antonio pode ajustar duração, horários, caminhadas e tempo de canoa antes da reserva.',
+  familyPoints: ['Informe idade, experiência ao ar livre e conforto na água.', 'Prefira uma primeira noite em Manaus antes de uma saída muito cedo.', 'Leve roupa seca acessível, lanches familiares e medicamentos habituais.', 'Crianças devem permanecer sob supervisão de um responsável em barcos, trilhas e margens.'],
+  arrivalTitle: 'Chegando por Manaus',
+  arrivalText: 'O Aeroporto Internacional Eduardo Gomes (MAO) é a principal chegada aérea. Manaus é o ponto para descansar, organizar bagagem e começar os traslados terrestres e fluviais.',
+  arrivalSteps: [['01', 'Chegue com margem', 'Antes de uma expedição longa, uma noite em Manaus reduz o risco de perder a saída por atraso de voo.'], ['02', 'Confirme o encontro', 'Envie hotel, número do voo e horário de chegada. Antonio confirma onde e quando encontrará você.'], ['03', 'Separe o essencial', 'Mantenha documentos, medicamentos, roupa leve e uma troca básica na bagagem de mão.']],
   chooseTitle: 'Escolha a Amazônia que combina com você',
   choose: [
     ['Um dia além de Manaus', 'Para quem tem pouco tempo e quer reunir floresta, rio, almoço local e atividades de fauna em um dia completo.', '/images/tours/full-day-amazon-river.webp'],
@@ -40,6 +54,8 @@ const content = isPt ? {
   healthTitle: 'Saúde e preparação',
   health: 'Procure uma clínica de medicina do viajante com antecedência. Recomendações oficiais incluem atenção à febre amarela e avaliação individual do risco de malária no Amazonas. Vacinas, medicamentos e necessidades pessoais devem ser decididos com um profissional de saúde.',
   healthLink: 'Consultar recomendações atuais do CDC',
+  safetyTitle: 'Segurança na floresta e no rio',
+  safety: [['Siga o guia', 'Não se afaste em trilhas, margens ou durante observações noturnas.'], ['Colete e calçado', 'Use o equipamento indicado e calçado fechado quando solicitado.'], ['Calor e hidratação', 'Beba água regularmente e avise cedo sobre mal-estar, alergias ou limitações.'], ['Roteiro flexível', 'Chuva, vento, nível do rio e segurança podem alterar a ordem ou duração das atividades.']],
   respectTitle: 'Viaje com respeito',
   respect: ['Escolha grupos pequenos e um guia com profundo conhecimento local.', 'Nunca espere ou pressione por contato inadequado com animais.', 'Peça permissão antes de fotografar pessoas e comunidades.', 'Leve de volta todo resíduo não orgânico.', 'Aceite que clima, água e fauna podem mudar o roteiro.'],
   faqTitle: 'Perguntas frequentes',
@@ -48,7 +64,10 @@ const content = isPt ? {
     ['É preciso saber nadar?', 'Não para todas as atividades. Conte ao Antonio seu nível de conforto na água para que o roteiro e os equipamentos sejam ajustados.'],
     ['Animais são garantidos?', 'Não. A fauna é selvagem e os encontros dependem da estação, do horário e da sorte. A experiência de Antonio aumenta as chances sem perturbar os animais.'],
     ['A viagem é adequada para crianças?', 'Muitos roteiros podem ser adaptados para famílias. Idade, mobilidade, duração e expectativas devem ser conversadas antes da reserva.'],
+    ['Devo dormir em Manaus antes do passeio?', 'É recomendável antes de expedições com saída cedo ou quando o voo chega no mesmo dia. Uma margem reduz o impacto de atrasos e permite organizar a bagagem.'],
+    ['Cheia ou seca: qual é melhor?', 'Nenhuma é melhor em tudo. A cheia favorece canais e floresta alagada; a seca revela praias, margens e mais caminhos em terra. Escolha pela experiência desejada.'],
   ],
+  sourcesTitle: 'Fontes oficiais para planejar',
   ctaTitle: 'Planeje pela estação, não contra ela.',
   ctaText: 'Diga quando você chega a Manaus, quantas pessoas viajam e o que mais deseja viver. Antonio sugere o melhor roteiro para aquele momento da floresta.',
 } : {
@@ -70,6 +89,20 @@ const content = isPt ? {
     ['July–September', 'Falling water', 'Water levels recede and trails and riverbanks gradually return, creating a versatile mix of river and land activities.'],
     ['October–November', 'Low water', 'River beaches and more dry ground are exposed. This period suits hiking, forest camps and terra-firme exploration.'],
   ],
+  wildlifeTitle: 'When to watch for wildlife',
+  wildlifeLead: 'There is no single “animal month.” Wildlife is present throughout the year, but water, rain, heat and time of day change where and how you look for it.',
+  wildlife: [
+    ['Dawn and dusk', 'Early and late outings bring cooler temperatures, a richer forest soundscape and good opportunities to watch birds, monkeys and life along the river margins.'],
+    ['During high water', 'Canoes can enter flooded forest and channels between trees. Wildlife watching becomes a quiet search from the water, focused on the canopy and banks.'],
+    ['During falling and low water', 'Beaches, trails and river margins return. Activity is redistributed around channels and remaining water sources.'],
+    ['Observe—never promise', 'Wild animals are not scheduled attractions. A good guide reads tracks, sounds and movement without chasing, touching or feeding wildlife.'],
+  ],
+  familyTitle: 'The Amazon with children',
+  familyText: 'Family travel works best when the pace is shaped around the children—not the longest possible programme. Antonio can adjust duration, walking time, departure hours and canoe time before booking.',
+  familyPoints: ['Share each child’s age, outdoor experience and confidence around water.', 'Consider a first night in Manaus before a very early departure.', 'Keep dry clothing, familiar snacks and regular medication easy to reach.', 'Children need direct adult supervision around boats, trails and riverbanks.'],
+  arrivalTitle: 'Arriving through Manaus',
+  arrivalText: 'Eduardo Gomes International Airport (MAO) is the principal air gateway. Manaus is the place to rest, organise luggage and begin road and river transfers.',
+  arrivalSteps: [['01', 'Build in a buffer', 'Before a longer expedition, one night in Manaus reduces the risk of a delayed flight disrupting departure.'], ['02', 'Confirm the meeting', 'Share your hotel, flight number and arrival time. Antonio confirms exactly where and when to meet.'], ['03', 'Keep essentials close', 'Carry documents, medication, light clothing and one basic change in your hand luggage.']],
   chooseTitle: 'Choose the Amazon that fits you',
   choose: [
     ['One day beyond Manaus', 'For limited time: combine forest, river travel, a local lunch and wildlife-focused activities in one complete day.', '/images/tours/full-day-amazon-river.webp'],
@@ -88,6 +121,8 @@ const content = isPt ? {
   healthTitle: 'Health and preparation',
   health: 'Speak with a travel-health professional well before departure. Current official guidance highlights yellow-fever vaccination and an individual assessment of malaria risk for Amazonas. Vaccination, preventive medicine and personal health decisions belong with a qualified clinician.',
   healthLink: 'Check current CDC guidance',
+  safetyTitle: 'Safety in the forest and on the river',
+  safety: [['Stay with your guide', 'Do not separate from the group on trails, riverbanks or night observations.'], ['Life jackets and footwear', 'Use the supplied safety equipment and closed footwear whenever requested.'], ['Heat and hydration', 'Drink regularly and mention illness, allergies or physical limitations early.'], ['A flexible itinerary', 'Rain, wind, river levels and safety may change the order or duration of activities.']],
   respectTitle: 'Travel with respect',
   respect: ['Choose small groups and a guide with deep local knowledge.', 'Never expect or pressure anyone for inappropriate wildlife contact.', 'Ask before photographing people or communities.', 'Carry all non-organic waste back with you.', 'Accept that weather, water and wildlife may change the plan.'],
   faqTitle: 'Frequently asked questions',
@@ -96,7 +131,10 @@ const content = isPt ? {
     ['Do I need to be able to swim?', 'Not for every activity. Tell Antonio how comfortable you are around water so the route and safety equipment can be adjusted.'],
     ['Are wildlife sightings guaranteed?', 'No. Wildlife is wild, and encounters depend on season, time and chance. Antonio’s experience improves the possibilities without disturbing animals.'],
     ['Is the Amazon suitable for children?', 'Many journeys can be adapted for families. Age, mobility, duration and expectations should be discussed before booking.'],
+    ['Should I sleep in Manaus before the tour?', 'It is sensible before early departures or when your flight arrives on the same day. A buffer protects the journey from delays and gives you time to organise luggage.'],
+    ['High water or low water: which is better?', 'Neither is better at everything. High water opens flooded channels; low water reveals beaches, banks and more land-based routes. Choose according to the experience you want.'],
   ],
+  sourcesTitle: 'Official planning sources',
   ctaTitle: 'Plan with the season, not against it.',
   ctaText: 'Share when you reach Manaus, how many people are travelling and what matters most to you. Antonio will suggest the journey that suits that moment in the forest.',
 };
@@ -123,9 +161,11 @@ const faqSchema = {
 
 <nav class="guide-nav wrap" aria-label={isPt ? 'Seções do guia' : 'Guide sections'}>
   <a href="#understand">{isPt ? 'Entenda a região' : 'Understand the region'}</a>
-  <a href="#seasons">{isPt ? 'Melhor época' : 'Best time'}</a>
+  <a href="#seasons">{isPt ? 'Águas e fauna' : 'Water & wildlife'}</a>
+  <a href="#families">{isPt ? 'Famílias' : 'Families'}</a>
+  <a href="#arriving">{isPt ? 'Chegada' : 'Arriving'}</a>
   <a href="#packing">{isPt ? 'O que levar' : 'What to pack'}</a>
-  <a href="#health">{isPt ? 'Saúde' : 'Health'}</a>
+  <a href="#health">{isPt ? 'Saúde e segurança' : 'Health & safety'}</a>
 </nav>
 
 <section class="guide-intro wrap" id="understand">
@@ -138,6 +178,31 @@ const faqSchema = {
     <div class="guide-section-head"><div><p class="eyebrow light">{isPt ? 'O pulso das águas' : 'The pulse of the water'}</p><h2>{content.seasonTitle}</h2></div><p>{content.seasonLead}</p></div>
     <div class="season-grid">{content.seasons.map(([months, title, text], index) => <article><span>0{index + 1}</span><small>{months}</small><h3>{title}</h3><p>{text}</p></article>)}</div>
   </div>
+</section>
+
+<section class="wildlife-section wrap" id="wildlife">
+  <div class="guide-section-head">
+    <div><p class="eyebrow">{isPt ? 'A floresta está viva' : 'The forest is alive'}</p><h2>{content.wildlifeTitle}</h2></div>
+    <p>{content.wildlifeLead}</p>
+  </div>
+  <div class="wildlife-grid">
+    {content.wildlife.map(([title, text], index) => <article><span>{String(index + 1).padStart(2, '0')}</span><h3>{title}</h3><p>{text}</p></article>)}
+  </div>
+</section>
+
+<section class="family-arrival">
+  <article id="families">
+    <p class="eyebrow light">{isPt ? 'Viagem em família' : 'Family travel'}</p>
+    <h2>{content.familyTitle}</h2>
+    <p>{content.familyText}</p>
+    <ul>{content.familyPoints.map((point) => <li>{point}</li>)}</ul>
+  </article>
+  <article id="arriving">
+    <p class="eyebrow">{isPt ? 'Sua porta de entrada' : 'Your gateway'}</p>
+    <h2>{content.arrivalTitle}</h2>
+    <p>{content.arrivalText}</p>
+    <div class="arrival-steps">{content.arrivalSteps.map(([number, title, text]) => <div><b>{number}</b><span><strong>{title}</strong>{text}</span></div>)}</div>
+  </article>
 </section>
 
 <section class="journey-styles wrap">
@@ -163,6 +228,10 @@ const faqSchema = {
     <div><p class="eyebrow light">{isPt ? 'Prepare-se bem' : 'Prepare well'}</p><h2>{content.healthTitle}</h2></div>
     <div><p>{content.health}</p><a href="https://wwwnc.cdc.gov/travel/destinations/traveler/none/brazil" target="_blank" rel="noreferrer">{content.healthLink} ↗</a></div>
   </div>
+  <div class="wrap safety-grid">
+    <div><p class="eyebrow light">{isPt ? 'Decisões inteligentes' : 'Good decisions'}</p><h2>{content.safetyTitle}</h2></div>
+    <div>{content.safety.map(([title, text]) => <article><h3>{title}</h3><p>{text}</p></article>)}</div>
+  </div>
 </section>
 
 <section class="respect-section wrap">
@@ -174,6 +243,12 @@ const faqSchema = {
   <p class="eyebrow">{isPt ? 'Dúvidas práticas' : 'Practical answers'}</p>
   <h2>{content.faqTitle}</h2>
   <div>{content.faqs.map(([question, answer]) => <details><summary>{question}</summary><p>{answer}</p></details>)}</div>
+  <aside class="guide-sources">
+    <p>{content.sourcesTitle}</p>
+    <a href="https://www.sgb.gov.br/w/28-boletim-de-alerta-hidrologico-da-bacia-do-amazonas" target="_blank" rel="noreferrer">{isPt ? 'Monitoramento dos rios · SGB' : 'River monitoring · Geological Survey of Brazil'} ↗</a>
+    <a href="https://www.amazonastur.am.gov.br/meio-ambiente-amazonastur-reforca-protecao-aos-animais-silvestres-no-turismo-com-campanha-nunca-toque-observe/" target="_blank" rel="noreferrer">{isPt ? 'Turismo e proteção da fauna · Amazonastur' : 'Tourism and wildlife protection · Amazonastur'} ↗</a>
+    <a href="https://wwwnc.cdc.gov/travel/destinations/traveler/none/brazil" target="_blank" rel="noreferrer">{isPt ? 'Saúde do viajante · CDC' : 'Traveller health · CDC'} ↗</a>
+  </aside>
 </section>
 
 <section class="guide-cta">
@@ -184,7 +259,7 @@ const faqSchema = {
 <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>
 
 <style>
-  .guide-hero{display:grid;grid-template-columns:1.08fr .92fr;min-height:680px;background:#08261e;color:#fff}.guide-hero-image{min-height:620px;overflow:hidden}.guide-hero-image img{width:100%;height:100%;object-fit:cover}.guide-hero-copy{display:flex;justify-content:center;flex-direction:column;padding:70px 6vw}.guide-hero h1{margin:0 0 26px;font-family:var(--display);font-size:clamp(58px,7vw,108px);line-height:.86;letter-spacing:-.05em}.guide-hero-copy>p:not(.eyebrow){max-width:650px;color:#cfddd7;font-size:19px}.guide-hero-copy>div{display:flex;gap:12px;margin-top:24px}.guide-ghost{border:1px solid #698079;color:#fff}.guide-nav{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid #cfcdc3}.guide-nav a{padding:20px 10px;text-align:center;font-size:12px;font-weight:700;border-right:1px solid #cfcdc3}.guide-nav a:last-child{border:0}.guide-intro{display:grid;grid-template-columns:1fr 1fr;gap:8vw;padding-block:82px}.guide-intro h2,.guide-section-head h2,.packing-intro h2,.health-section h2,.respect-section h2,.guide-faq h2,.guide-cta h2{font-family:var(--display);font-size:clamp(42px,5vw,72px);line-height:1.03;letter-spacing:-.035em;margin:0}.guide-intro>div:last-child{font-size:19px;color:#526059}.guide-intro>div:last-child p:first-child{font-size:24px;color:var(--ink)}.water-cycle{padding:78px 0;background:#08372d;color:#fff}.guide-section-head{display:grid;grid-template-columns:1.3fr .7fr;gap:50px;align-items:end;margin-bottom:38px}.guide-section-head>p{margin:0;color:#bfd0c9;font-size:18px}.season-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #668179}.season-grid article{padding:28px 24px 10px;border-right:1px solid #668179}.season-grid article:last-child{border:0}.season-grid span{font-family:var(--display);font-size:34px;color:var(--sun)}.season-grid small{display:block;margin:22px 0 4px;color:#9fbbb1;text-transform:uppercase;letter-spacing:.12em}.season-grid h3{font-family:var(--display);font-size:27px;margin:0 0 12px}.season-grid p{color:#c8d7d1}.journey-styles{padding-block:84px}.style-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}.style-grid article{display:grid;grid-template-columns:44% 56%;min-height:300px;background:var(--sand)}.style-grid img{width:100%;height:100%;object-fit:cover}.style-grid article>div{padding:30px;align-self:center}.style-grid h3{font-family:var(--display);font-size:28px;line-height:1.1}.style-grid p{color:#5c6963}.packing-section{padding:72px 0;background:#eeece4}.packing-layout{display:grid;grid-template-columns:minmax(340px,.82fr) minmax(0,1.18fr);gap:clamp(38px,5vw,76px);align-items:stretch}.packing-visual{position:relative;min-height:650px;margin:0;overflow:hidden;background:#183b31}.packing-visual img{width:100%;height:100%;object-fit:cover}.packing-visual:after{content:'';position:absolute;inset:58% 0 0;background:linear-gradient(transparent,rgba(5,31,24,.82))}.packing-visual figcaption{position:absolute;z-index:1;left:30px;bottom:26px;color:#fff;font-family:var(--display);font-size:30px;line-height:1.05}.packing-content{display:flex;flex-direction:column;justify-content:center}.packing-intro{max-width:660px}.packing-intro>p:last-child{margin:20px 0 0;color:#56635d;font-size:18px;line-height:1.65}.packing-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:32px}.packing-grid article{min-height:190px;padding:23px 24px;background:#fff;border-top:3px solid var(--canopy);box-shadow:0 14px 36px rgba(20,43,35,.06)}.packing-grid span{font-family:var(--display);font-size:25px;color:var(--coral)}.packing-grid h3{font-family:var(--display);font-size:24px;margin:13px 0 8px}.packing-grid p{margin:0;color:#5e6a64;font-size:15px;line-height:1.55}.health-section{padding:72px 0;background:#cf6b49;color:#fff}.health-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:8vw;align-items:center}.health-grid>div:last-child{font-size:18px}.health-grid a{display:inline-block;margin-top:14px;padding-bottom:4px;border-bottom:1px solid #fff;font-weight:700}.respect-section{display:grid;grid-template-columns:.85fr 1.15fr;gap:8vw;padding-block:82px}.respect-section ol{margin:0;padding:0;list-style:none;counter-reset:respect}.respect-section li{counter-increment:respect;padding:16px 0;border-top:1px solid #d0d0c8;font-size:18px}.respect-section li:before{content:'0' counter(respect);font-family:var(--display);color:var(--canopy);margin-right:22px}.guide-faq{padding-bottom:84px}.guide-faq>div{margin-top:28px;border-top:1px solid #cccac0}.guide-faq details{border-bottom:1px solid #cccac0;padding:20px 0}.guide-faq summary{cursor:pointer;font-family:var(--display);font-size:23px;font-weight:600}.guide-faq details p{max-width:780px;margin:14px 0 0;color:#58655f}.guide-cta{display:grid;grid-template-columns:1.1fr .9fr;background:#08261e;color:#fff}.guide-cta>div{padding:76px 7vw;display:flex;flex-direction:column;justify-content:center}.guide-cta>div>p:not(.eyebrow){color:#c6d6cf;font-size:18px}.guide-cta .button{align-self:flex-start;margin-top:18px}.guide-cta img{width:100%;height:100%;min-height:480px;object-fit:cover}
-  @media(max-width:900px){.guide-hero,.guide-intro,.guide-section-head,.packing-layout,.health-grid,.respect-section,.guide-cta{grid-template-columns:1fr}.guide-hero{min-height:0}.guide-hero-image{min-height:380px}.guide-hero-copy{padding:48px 24px}.guide-hero h1{font-size:58px}.guide-nav{grid-template-columns:1fr 1fr}.guide-nav a:nth-child(2){border-right:0}.guide-intro,.journey-styles,.respect-section{padding-block:58px}.season-grid,.style-grid{grid-template-columns:1fr}.season-grid article{border-right:0;border-bottom:1px solid #668179}.style-grid article{grid-template-columns:1fr}.style-grid img{height:260px}.guide-section-head{gap:16px}.packing-section{padding:50px 0}.packing-visual{min-height:420px}.health-section{padding:58px 0}.guide-cta img{min-height:320px}}
-  @media(max-width:620px){.packing-grid{grid-template-columns:1fr}.packing-grid article{min-height:0}.packing-visual{min-height:340px}.packing-visual figcaption{left:22px;bottom:20px;font-size:26px}}
+  .guide-hero{display:grid;grid-template-columns:1.08fr .92fr;min-height:680px;background:#08261e;color:#fff}.guide-hero-image{min-height:620px;overflow:hidden}.guide-hero-image img{width:100%;height:100%;object-fit:cover}.guide-hero-copy{display:flex;justify-content:center;flex-direction:column;padding:70px 6vw}.guide-hero h1{margin:0 0 26px;font-family:var(--display);font-size:clamp(58px,7vw,108px);line-height:.86;letter-spacing:-.05em}.guide-hero-copy>p:not(.eyebrow){max-width:650px;color:#cfddd7;font-size:19px}.guide-hero-copy>div{display:flex;gap:12px;margin-top:24px}.guide-ghost{border:1px solid #698079;color:#fff}.guide-nav{display:grid;grid-template-columns:repeat(6,1fr);border-bottom:1px solid #cfcdc3}.guide-nav a{padding:20px 8px;text-align:center;font-size:11px;font-weight:700;border-right:1px solid #cfcdc3}.guide-nav a:last-child{border:0}.guide-intro{display:grid;grid-template-columns:1fr 1fr;gap:8vw;padding-block:82px}.guide-intro h2,.guide-section-head h2,.family-arrival h2,.packing-intro h2,.health-section h2,.respect-section h2,.guide-faq h2,.guide-cta h2{font-family:var(--display);font-size:clamp(42px,5vw,72px);line-height:1.03;letter-spacing:-.035em;margin:0}.guide-intro>div:last-child{font-size:19px;color:#526059}.guide-intro>div:last-child p:first-child{font-size:24px;color:var(--ink)}.water-cycle{padding:78px 0;background:#08372d;color:#fff}.guide-section-head{display:grid;grid-template-columns:1.3fr .7fr;gap:50px;align-items:end;margin-bottom:38px}.guide-section-head>p{margin:0;color:#66736d;font-size:18px}.water-cycle .guide-section-head>p{color:#bfd0c9}.season-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #668179}.season-grid article{padding:28px 24px 10px;border-right:1px solid #668179}.season-grid article:last-child{border:0}.season-grid span{font-family:var(--display);font-size:34px;color:var(--sun)}.season-grid small{display:block;margin:22px 0 4px;color:#9fbbb1;text-transform:uppercase;letter-spacing:.12em}.season-grid h3{font-family:var(--display);font-size:27px;margin:0 0 12px}.season-grid p{color:#c8d7d1}.wildlife-section{padding-block:78px}.wildlife-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #c9cbc3}.wildlife-grid article{padding:25px 24px 8px;border-right:1px solid #c9cbc3}.wildlife-grid article:last-child{border:0}.wildlife-grid span{font-family:var(--display);font-size:27px;color:var(--coral)}.wildlife-grid h3{font-family:var(--display);font-size:25px;line-height:1.1;margin:18px 0 10px}.wildlife-grid p{color:#5e6b65;font-size:14px}.family-arrival{display:grid;grid-template-columns:1fr 1fr}.family-arrival>article{padding:64px 6vw}.family-arrival>article:first-child{background:#0b3b2e;color:#fff}.family-arrival>article:first-child>p:not(.eyebrow){color:#c4d3cd}.family-arrival>article:last-child{background:#e9b949}.family-arrival>article>p:not(.eyebrow){margin:20px 0;color:#344c43;font-size:17px}.family-arrival ul{padding:0;margin:25px 0 0;list-style:none}.family-arrival li{padding:12px 0;border-top:1px solid rgba(255,255,255,.2);color:#d7e2dd}.family-arrival li:before{content:'✦';margin-right:10px;color:var(--sun)}.arrival-steps{margin-top:24px}.arrival-steps>div{display:grid;grid-template-columns:45px 1fr;gap:14px;padding:15px 0;border-top:1px solid rgba(7,28,22,.22)}.arrival-steps b{font-family:var(--display);font-size:23px}.arrival-steps strong{display:block;font-family:var(--display);font-size:20px}.arrival-steps span{color:#344c43;font-size:14px}.journey-styles{padding-block:84px}.style-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}.style-grid article{display:grid;grid-template-columns:44% 56%;min-height:300px;background:var(--sand)}.style-grid img{width:100%;height:100%;object-fit:cover}.style-grid article>div{padding:30px;align-self:center}.style-grid h3{font-family:var(--display);font-size:28px;line-height:1.1}.style-grid p{color:#5c6963}.packing-section{padding:72px 0;background:#eeece4}.packing-layout{display:grid;grid-template-columns:minmax(340px,.82fr) minmax(0,1.18fr);gap:clamp(38px,5vw,76px);align-items:stretch}.packing-visual{position:relative;min-height:650px;margin:0;overflow:hidden;background:#183b31}.packing-visual img{width:100%;height:100%;object-fit:cover}.packing-visual:after{content:'';position:absolute;inset:58% 0 0;background:linear-gradient(transparent,rgba(5,31,24,.82))}.packing-visual figcaption{position:absolute;z-index:1;left:30px;bottom:26px;color:#fff;font-family:var(--display);font-size:30px;line-height:1.05}.packing-content{display:flex;flex-direction:column;justify-content:center}.packing-intro{max-width:660px}.packing-intro>p:last-child{margin:20px 0 0;color:#56635d;font-size:18px;line-height:1.65}.packing-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:32px}.packing-grid article{min-height:190px;padding:23px 24px;background:#fff;border-top:3px solid var(--canopy);box-shadow:0 14px 36px rgba(20,43,35,.06)}.packing-grid span{font-family:var(--display);font-size:25px;color:var(--coral)}.packing-grid h3{font-family:var(--display);font-size:24px;margin:13px 0 8px}.packing-grid p{margin:0;color:#5e6a64;font-size:15px;line-height:1.55}.health-section{padding:72px 0;background:#cf6b49;color:#fff}.health-grid,.safety-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:8vw;align-items:center}.health-grid>div:last-child{font-size:18px}.health-grid a{display:inline-block;margin-top:14px;padding-bottom:4px;border-bottom:1px solid #fff;font-weight:700}.safety-grid{align-items:start;margin-top:58px;padding-top:48px;border-top:1px solid rgba(255,255,255,.35)}.safety-grid>div:last-child{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.25)}.safety-grid article{padding:20px;background:#bd5638}.safety-grid h3{font-family:var(--display);font-size:21px;margin:0 0 7px}.safety-grid article p{margin:0;color:#ffe6dd;font-size:13px}.respect-section{display:grid;grid-template-columns:.85fr 1.15fr;gap:8vw;padding-block:82px}.respect-section ol{margin:0;padding:0;list-style:none;counter-reset:respect}.respect-section li{counter-increment:respect;padding:16px 0;border-top:1px solid #d0d0c8;font-size:18px}.respect-section li:before{content:'0' counter(respect);font-family:var(--display);color:var(--canopy);margin-right:22px}.guide-faq{padding-bottom:84px}.guide-faq>div{margin-top:28px;border-top:1px solid #cccac0}.guide-faq details{border-bottom:1px solid #cccac0;padding:20px 0}.guide-faq summary{cursor:pointer;font-family:var(--display);font-size:23px;font-weight:600}.guide-faq details p{max-width:780px;margin:14px 0 0;color:#58655f}.guide-sources{display:flex;flex-wrap:wrap;gap:10px 20px;margin-top:28px;padding:20px 0;border-top:1px solid #cccac0}.guide-sources p{width:100%;margin:0;color:#67736d;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}.guide-sources a{font-size:13px;font-weight:700;color:var(--canopy)}.guide-cta{display:grid;grid-template-columns:1.1fr .9fr;background:#08261e;color:#fff}.guide-cta>div{padding:76px 7vw;display:flex;flex-direction:column;justify-content:center}.guide-cta>div>p:not(.eyebrow){color:#c6d6cf;font-size:18px}.guide-cta .button{align-self:flex-start;margin-top:18px}.guide-cta img{width:100%;height:100%;min-height:480px;object-fit:cover}
+  @media(max-width:900px){.guide-hero,.guide-intro,.guide-section-head,.family-arrival,.packing-layout,.health-grid,.safety-grid,.respect-section,.guide-cta{grid-template-columns:1fr}.guide-hero{min-height:0}.guide-hero-image{min-height:380px}.guide-hero-copy{padding:48px 24px}.guide-hero h1{font-size:58px}.guide-nav{grid-template-columns:repeat(3,1fr)}.guide-nav a:nth-child(3){border-right:0}.guide-intro,.wildlife-section,.journey-styles,.respect-section{padding-block:58px}.season-grid,.wildlife-grid,.style-grid{grid-template-columns:1fr}.season-grid article,.wildlife-grid article{border-right:0;border-bottom:1px solid #668179}.wildlife-grid article{border-color:#c9cbc3}.family-arrival>article{padding:52px 24px}.style-grid article{grid-template-columns:1fr}.style-grid img{height:260px}.guide-section-head{gap:16px}.packing-section{padding:50px 0}.packing-visual{min-height:420px}.health-section{padding:58px 0}.safety-grid{gap:24px}.guide-cta img{min-height:320px}}
+  @media(max-width:620px){.guide-nav{grid-template-columns:1fr 1fr}.guide-nav a:nth-child(3){border-right:1px solid #cfcdc3}.guide-nav a:nth-child(even){border-right:0}.packing-grid,.safety-grid>div:last-child{grid-template-columns:1fr}.packing-grid article{min-height:0}.packing-visual{min-height:340px}.packing-visual figcaption{left:22px;bottom:20px;font-size:26px}}
 </style>

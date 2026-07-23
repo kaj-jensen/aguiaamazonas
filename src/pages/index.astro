@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ExperienceCatalogue from '../components/ExperienceCatalogue.astro';
+import BookingExpectations from '../components/BookingExpectations.astro';
 import { tours } from '../data/tours';
 const heroImage = '/images/amazon-river-hero.png';
 const tourListSchema = {
@@ -38,6 +39,7 @@ const tourListSchema = {
   </section>
 
   <ExperienceCatalogue />
+  <BookingExpectations />
 
   <section class="guide-promo">
     <img src="/images/home/travel-guide-flooded-forest.webp" alt="View from a canoe entering the seasonally flooded Amazon forest" loading="lazy" />

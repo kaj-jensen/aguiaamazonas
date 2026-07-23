@@ -140,7 +140,7 @@ const paceBand = (slug: string) => {
     margin-bottom: 24px;
   }
 
-  .core-experience h3 {
+  .core-experience > header h3 {
     margin: 6px 0 0;
     color: #fffaf0;
     font-size: clamp(34px, 4vw, 58px);
@@ -156,6 +156,10 @@ const paceBand = (slug: string) => {
   .core-experience .tour-card {
     border-radius: 20px;
     overflow: hidden;
+  }
+
+  .core-experience .tour-copy h3 {
+    color: var(--ink);
   }
 
   .core-jump {
@@ -281,17 +285,40 @@ const paceBand = (slug: string) => {
   }
 
   @media (min-width: 901px) {
-    .journey-cards .tour-card {
-      height: 610px;
+    .core-card.journey-cards.single {
+      grid-template-columns: minmax(0, 1fr);
     }
 
-    .journey-cards.single {
-      grid-template-columns: 1fr;
-    }
-
-    .journey-cards.single .tour-image {
+    .core-card .tour-card {
+      display: grid;
+      grid-template-columns: minmax(360px, .9fr) minmax(0, 1.1fr);
       height: auto;
-      aspect-ratio: 16 / 7;
+      min-height: 390px;
+    }
+
+    .core-card .tour-image {
+      height: 100%;
+      min-height: 390px;
+      aspect-ratio: auto;
+    }
+
+    .core-card .tour-copy {
+      padding: clamp(32px, 4vw, 58px);
+      justify-content: center;
+    }
+
+    .core-card .tour-copy h3 {
+      font-size: clamp(34px, 3.2vw, 50px);
+    }
+
+    .core-card .tour-copy > p:not(.eyebrow) {
+      flex: 0;
+      font-size: 17px;
+      line-height: 1.65;
+    }
+
+    .core-card .tour-meta {
+      margin-top: 24px;
     }
   }
 

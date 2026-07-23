@@ -24,7 +24,7 @@ const message = encodeURIComponent(`Hello Antonio, I am interested in the ${tour
   </section>
   {tour.gallery && <section class="tour-gallery-section">
     <div class="wrap">
-      <div class="tour-gallery-heading"><div><p class="eyebrow">Real moments</p><h2>A closer look at<br/>the journey.</h2></div><p>These photographs come from Águia Amazonas journeys around Jardim Maravilha—the waterways, forest activities and simple lodge life you will experience with Antonio and his local guides.</p></div>
+      <div class="tour-gallery-heading"><div><p class="eyebrow">Real moments</p><h2>A closer look at<br/>the journey.</h2></div><p>Photographs from Águia Amazonas journeys show the places, activities and atmosphere that make this particular experience distinctive.</p></div>
       <div class="tour-gallery">{tour.gallery.map((image) => <figure><img src={image.src} alt={image.alt} loading="lazy" /></figure>)}</div>
     </div>
   </section>}

@@ -14,7 +14,7 @@ const message = encodeURIComponent(`Olá Antonio, tenho interesse em ${tour.ptNa
   <section class="tour-body wrap"><aside><p class="eyebrow">Momentos marcantes</p><ul>{tour.ptHighlights.map((item)=><li>{item}</li>)}</ul></aside><div class="itinerary"><p class="eyebrow">A experiência</p><h2>Uma jornada guiada<br/>pela floresta viva.</h2>{tour.ptItinerary.map((item)=><div class="itinerary-row"><b>{item.label}</b><p>{item.text}</p></div>)}</div></section>
   {tour.gallery && <section class="tour-gallery-section">
     <div class="wrap">
-      <div class="tour-gallery-heading"><div><p class="eyebrow">Momentos reais</p><h2>Veja a jornada<br/>mais de perto.</h2></div><p>Estas fotografias foram feitas em viagens da Águia Amazonas pelo Jardim Maravilha: os rios, as atividades na floresta e a vida simples na pousada que você conhecerá com Antonio e seus guias locais.</p></div>
+      <div class="tour-gallery-heading"><div><p class="eyebrow">Momentos reais</p><h2>Veja a jornada<br/>mais de perto.</h2></div><p>Fotografias das viagens da Águia Amazonas mostram os lugares, as atividades e a atmosfera que tornam esta experiência especial.</p></div>
       <div class="tour-gallery">{tour.gallery.map((image) => <figure><img src={image.src} alt={image.ptAlt} loading="lazy" /></figure>)}</div>
     </div>
   </section>}

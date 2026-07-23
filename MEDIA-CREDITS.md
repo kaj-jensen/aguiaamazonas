@@ -21,6 +21,10 @@ This file records the source and intended role of externally licensed photograph
 - `public/images/brand/original-logo.webp` — Original Águia Amazonas logo retained as an archive asset.
 - `public/images/gallery/jardim-maravilha/*.webp` — Eight original photographs from Águia Amazonas tours around Jardim Maravilha, migrated from the former WordPress product gallery. The set documents canoe travel, a forest picnic, waterfall visit, palm craft, wildlife encounters and lodge accommodation. Original archive files: `Amazon-tour-Aguia-Amazonas-Turismo-{1,2,9,10,15,19,20}-min-768x576.jpg` and `Pousada-Rio-Preto-da-Eva-1-768x1024.jpeg`.
 
+- `public/images/gallery/full-day/*` - Four photographs migrated from the former Full Day Tour NextGEN gallery. They document forest skills, a giant rainforest tree, a guided walk and a squirrel monkey encounter.
+- `public/images/gallery/cruise-3-day/*` and `public/images/gallery/cruise-4-day/*` - Eight different photographs migrated from the former Amazon cruise gallery. The three-day set presents the regional vessels; the four-day set presents cabins and onboard accommodation.
+- `public/images/gallery/jardim-maravilha-extra/*`, `public/images/gallery/survival/*` and `public/images/gallery/jau-safari/*` - Twelve different photographs migrated from the former Amazon Jungle Survival Experience gallery and assigned according to the activity shown. They document waterfalls, canoe travel, camps, practical forest skills and extended expedition life.
+
 ## AI-generated gallery assets
 
 - `public/images/gallery/amazon-flooded-forest-guide-ai.png` — Original AI-generated documentary-style concept image created for Águia Amazonas. It depicts an anonymous, unbranded guide walking through a flooded Amazon forest and is reserved for possible future gallery or editorial use.

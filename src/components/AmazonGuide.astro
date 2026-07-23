@@ -1,0 +1,187 @@
+---
+interface Props { lang?: 'en' | 'pt-BR' }
+const { lang = 'en' } = Astro.props;
+const isPt = lang === 'pt-BR';
+const home = isPt ? '/pt/' : '/';
+const content = isPt ? {
+  eyebrow: 'Guia de viagem · Amazônia brasileira',
+  title: 'A floresta muda.\nA viagem também.',
+  lead: 'Viajar pela Amazônia brasileira é entrar em um mundo guiado pela água, pelo clima e pelo conhecimento de quem vive aqui. Este guia ajuda você a escolher a época, o ritmo e a experiência certa.',
+  start: 'Explorar as experiências',
+  ask: 'Perguntar ao Antonio',
+  introTitle: 'O que significa viajar pela Amazônia?',
+  intro: [
+    'Manaus é a grande porta de entrada para o estado do Amazonas. A partir da cidade, estradas e rios levam a florestas de terra firme, igapós, comunidades ribeirinhas, pousadas simples e áreas remotas.',
+    'Uma boa viagem não é uma lista de animais garantidos. É uma sequência de encontros: o som ao amanhecer, o nível do rio, uma planta explicada pelo guia, uma canoa silenciosa e a percepção de que a floresta tem seu próprio tempo.',
+  ],
+  seasonTitle: 'Qual é a melhor época para visitar?',
+  seasonLead: 'A Amazônia pode ser visitada durante todo o ano. A pergunta mais útil é: que tipo de paisagem e atividade você quer viver?',
+  seasons: [
+    ['Dezembro–abril', 'Águas subindo', 'Mais chuva e rios em elevação. Ótima época para passeios de barco, igarapés e uma floresta intensamente verde.'],
+    ['Maio–junho', 'Cheia', 'Níveis altos permitem navegar entre árvores em áreas alagadas. A paisagem aquática está em seu auge.'],
+    ['Julho–setembro', 'Vazante', 'As águas começam a baixar. Trilhas e margens reaparecem gradualmente, combinando atividades fluviais e terrestres.'],
+    ['Outubro–novembro', 'Seca', 'Praias fluviais e mais terreno ficam expostos. É uma boa fase para caminhadas, acampamentos e observação em terra firme.'],
+  ],
+  chooseTitle: 'Escolha a Amazônia que combina com você',
+  choose: [
+    ['Um dia além de Manaus', 'Para quem tem pouco tempo e quer reunir floresta, rio, almoço local e atividades de fauna em um dia completo.', '/images/tours/full-day-amazon-river.webp'],
+    ['Durma na floresta', 'Dois a quatro dias dão tempo para amanheceres, caminhadas, cachoeiras, canoas e o ritmo tranquilo de uma pousada.', '/images/tours/tupana-canoe.webp'],
+    ['Navegue pelo Rio Negro', 'Cruzeiros regionais unem deslocamento, hospedagem e exploração; o caminho faz parte da experiência.', '/images/tours/manaus-traditional-boats.webp'],
+    ['Aprenda com a floresta', 'A experiência de sobrevivência ensina acampamento, fogo, orientação e plantas com guias locais experientes.', '/images/tours/amazon-jungle-river-unsplash.jpg'],
+  ],
+  packTitle: 'O que levar para a Amazônia',
+  packIntro: 'Leve pouco, mas leve certo. Uma mochila organizada torna os traslados de barco mais fáceis e mantém você confortável na umidade.',
+  pack: [
+    ['Roupa', 'Camisas leves de manga longa, calças compridas de secagem rápida, roupa de banho, roupa seca para dormir e uma camada leve para noites no barco.'],
+    ['Calçado', 'Tênis ou bota fechada já amaciada, além de sandália firme para pousada ou barco. Evite estrear calçados na viagem.'],
+    ['Proteção', 'Repelente, protetor solar, chapéu, capa de chuva compacta, garrafa reutilizável e saco impermeável para eletrônicos.'],
+    ['Equipamento útil', 'Lanterna de cabeça, bateria externa, binóculos, câmera, pequenos sacos organizadores e medicamentos pessoais.'],
+  ],
+  healthTitle: 'Saúde e preparação',
+  health: 'Procure uma clínica de medicina do viajante com antecedência. Recomendações oficiais incluem atenção à febre amarela e avaliação individual do risco de malária no Amazonas. Vacinas, medicamentos e necessidades pessoais devem ser decididos com um profissional de saúde.',
+  healthLink: 'Consultar recomendações atuais do CDC',
+  respectTitle: 'Viaje com respeito',
+  respect: ['Escolha grupos pequenos e guias locais.', 'Nunca espere ou pressione por contato inadequado com animais.', 'Peça permissão antes de fotografar pessoas e comunidades.', 'Leve de volta todo resíduo não orgânico.', 'Aceite que clima, água e fauna podem mudar o roteiro.'],
+  faqTitle: 'Perguntas frequentes',
+  faqs: [
+    ['Quantos dias devo reservar?', 'Três ou quatro dias oferecem um ótimo equilíbrio para uma primeira viagem. Um dia funciona para agendas curtas; seis dias ou mais permitem chegar a áreas realmente remotas.'],
+    ['É preciso saber nadar?', 'Não para todas as atividades. Conte ao Antonio seu nível de conforto na água para que o roteiro e os equipamentos sejam ajustados.'],
+    ['Animais são garantidos?', 'Não. A fauna é selvagem e os encontros dependem da estação, do horário e da sorte. Guias experientes aumentam as chances sem perturbar os animais.'],
+    ['A viagem é adequada para crianças?', 'Muitos roteiros podem ser adaptados para famílias. Idade, mobilidade, duração e expectativas devem ser conversadas antes da reserva.'],
+  ],
+  ctaTitle: 'Planeje pela estação, não contra ela.',
+  ctaText: 'Diga quando você chega a Manaus, quantas pessoas viajam e o que mais deseja viver. Antonio sugere o melhor roteiro para aquele momento da floresta.',
+} : {
+  eyebrow: 'Travel guide · Brazilian Amazon',
+  title: 'The forest changes.\nSo should your journey.',
+  lead: 'Travel in the Brazilian Amazon means entering a world shaped by water, weather and the knowledge of people who live here. This guide helps you choose the right season, pace and experience.',
+  start: 'Explore the journeys',
+  ask: 'Ask Antonio',
+  introTitle: 'What is Amazon travel really about?',
+  intro: [
+    'Manaus is the principal gateway to the state of Amazonas. From the city, roads and rivers lead towards terra-firme forest, seasonally flooded igapó, riverside communities, simple lodges and remote protected landscapes.',
+    'A meaningful journey is not a checklist of guaranteed animals. It is a sequence of encounters: the sound before sunrise, the height of the river, a plant explained by your guide, a silent canoe and the realisation that the forest keeps its own time.',
+  ],
+  seasonTitle: 'When is the best time to visit?',
+  seasonLead: 'The Amazon can be visited throughout the year. The more useful question is: which landscape and activities do you want to experience?',
+  seasons: [
+    ['December–April', 'Rising water', 'More rain and steadily rising rivers. Excellent for boat journeys, narrow creeks and an intensely green forest.'],
+    ['May–June', 'High water', 'High river levels make it possible to navigate between trees in flooded forest. The aquatic landscape is at its most expansive.'],
+    ['July–September', 'Falling water', 'Water levels recede and trails and riverbanks gradually return, creating a versatile mix of river and land activities.'],
+    ['October–November', 'Low water', 'River beaches and more dry ground are exposed. This period suits hiking, forest camps and terra-firme exploration.'],
+  ],
+  chooseTitle: 'Choose the Amazon that fits you',
+  choose: [
+    ['One day beyond Manaus', 'For limited time: combine forest, river travel, a local lunch and wildlife-focused activities in one complete day.', '/images/tours/full-day-amazon-river.webp'],
+    ['Sleep in the forest', 'Two to four days make room for sunrises, walks, waterfalls, canoe journeys and the gentle rhythm of a lodge.', '/images/tours/tupana-canoe.webp'],
+    ['Travel along the Rio Negro', 'Regional cruises combine transport, accommodation and exploration—the journey itself becomes part of the experience.', '/images/tours/manaus-traditional-boats.webp'],
+    ['Learn with the forest', 'The survival experience teaches camp craft, fire, navigation and useful plants with knowledgeable local guides.', '/images/tours/amazon-jungle-river-unsplash.jpg'],
+  ],
+  packTitle: 'What to pack for the Amazon',
+  packIntro: 'Pack lightly, but pack deliberately. A compact bag makes boat transfers easier and helps you remain comfortable in persistent heat and humidity.',
+  pack: [
+    ['Clothing', 'Light long-sleeved shirts, quick-drying trousers, swimwear, dry sleep clothes and one light layer for evenings aboard a boat.'],
+    ['Footwear', 'Broken-in closed shoes or light hiking boots, plus secure sandals for the lodge or boat. Do not debut new footwear here.'],
+    ['Protection', 'Insect repellent, sunscreen, a brimmed hat, compact rain jacket, reusable bottle and a dry bag for electronics.'],
+    ['Useful equipment', 'Head torch, power bank, binoculars, camera, small packing bags and enough personal medication for the journey.'],
+  ],
+  healthTitle: 'Health and preparation',
+  health: 'Speak with a travel-health professional well before departure. Current official guidance highlights yellow-fever vaccination and an individual assessment of malaria risk for Amazonas. Vaccination, preventive medicine and personal health decisions belong with a qualified clinician.',
+  healthLink: 'Check current CDC guidance',
+  respectTitle: 'Travel with respect',
+  respect: ['Choose small groups and local guides.', 'Never expect or pressure guides for inappropriate wildlife contact.', 'Ask before photographing people or communities.', 'Carry all non-organic waste back with you.', 'Accept that weather, water and wildlife may change the plan.'],
+  faqTitle: 'Frequently asked questions',
+  faqs: [
+    ['How many days should I allow?', 'Three or four days offers an excellent first-visit balance. One day works for tight schedules; six days or more creates time to reach genuinely remote country.'],
+    ['Do I need to be able to swim?', 'Not for every activity. Tell Antonio how comfortable you are around water so the route and safety equipment can be adjusted.'],
+    ['Are wildlife sightings guaranteed?', 'No. Wildlife is wild, and encounters depend on season, time and chance. Skilled guides improve the possibilities without disturbing animals.'],
+    ['Is the Amazon suitable for children?', 'Many journeys can be adapted for families. Age, mobility, duration and expectations should be discussed before booking.'],
+  ],
+  ctaTitle: 'Plan with the season, not against it.',
+  ctaText: 'Share when you reach Manaus, how many people are travelling and what matters most to you. Antonio will suggest the journey that suits that moment in the forest.',
+};
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: content.faqs.map(([question, answer]) => ({
+    '@type': 'Question',
+    name: question,
+    acceptedAnswer: { '@type': 'Answer', text: answer },
+  })),
+};
+---
+
+<section class="guide-hero">
+  <div class="guide-hero-image"><img src="/images/amazon-river-hero.png" alt={isPt ? 'Rio e floresta na Amazônia brasileira' : 'River and rainforest in the Brazilian Amazon'} /></div>
+  <div class="guide-hero-copy">
+    <p class="eyebrow light">{content.eyebrow}</p>
+    <h1>{content.title.split('\n').map((line) => <>{line}<br /></>)}</h1>
+    <p>{content.lead}</p>
+    <div><a class="button primary" href={`${home}#${isPt ? 'experiencias' : 'experiences'}`}>{content.start}</a><a class="button guide-ghost" href="https://wa.me/5592994587173" target="_blank" rel="noreferrer">{content.ask}</a></div>
+  </div>
+</section>
+
+<nav class="guide-nav wrap" aria-label={isPt ? 'Seções do guia' : 'Guide sections'}>
+  <a href="#understand">{isPt ? 'Entenda a região' : 'Understand the region'}</a>
+  <a href="#seasons">{isPt ? 'Melhor época' : 'Best time'}</a>
+  <a href="#packing">{isPt ? 'O que levar' : 'What to pack'}</a>
+  <a href="#health">{isPt ? 'Saúde' : 'Health'}</a>
+</nav>
+
+<section class="guide-intro wrap" id="understand">
+  <div><p class="eyebrow">{isPt ? 'Antes de partir' : 'Before you go'}</p><h2>{content.introTitle}</h2></div>
+  <div>{content.intro.map((paragraph) => <p>{paragraph}</p>)}</div>
+</section>
+
+<section class="water-cycle" id="seasons">
+  <div class="wrap">
+    <div class="guide-section-head"><div><p class="eyebrow light">{isPt ? 'O pulso das águas' : 'The pulse of the water'}</p><h2>{content.seasonTitle}</h2></div><p>{content.seasonLead}</p></div>
+    <div class="season-grid">{content.seasons.map(([months, title, text], index) => <article><span>0{index + 1}</span><small>{months}</small><h3>{title}</h3><p>{text}</p></article>)}</div>
+  </div>
+</section>
+
+<section class="journey-styles wrap">
+  <div class="guide-section-head"><div><p class="eyebrow">{isPt ? 'Seu tipo de viagem' : 'Your kind of journey'}</p><h2>{content.chooseTitle}</h2></div></div>
+  <div class="style-grid">{content.choose.map(([title, text, image]) => <article><img src={image} alt={title} loading="lazy" /><div><h3>{title}</h3><p>{text}</p></div></article>)}</div>
+</section>
+
+<section class="guide-photo-break">
+  <img src="/images/gallery/full-day/squirrel-monkey.jpg" alt={isPt ? 'Macaco-de-cheiro na floresta amazônica' : 'Squirrel monkey in the Amazon forest'} loading="lazy" />
+  <img src="/images/gallery/jardim-maravilha/forest-waterfall.webp" alt={isPt ? 'Cachoeira na floresta próxima a Manaus' : 'Forest waterfall near Manaus'} loading="lazy" />
+  <img src="/images/tours/rio-negro-sunset.webp" alt={isPt ? 'Pôr do sol no Rio Negro' : 'Sunset over the Rio Negro'} loading="lazy" />
+</section>
+
+<section class="packing-section wrap" id="packing">
+  <div class="packing-intro"><p class="eyebrow">{isPt ? 'Mochila inteligente' : 'Pack intelligently'}</p><h2>{content.packTitle}</h2><p>{content.packIntro}</p></div>
+  <div class="packing-grid">{content.pack.map(([title, text], index) => <article><span>0{index + 1}</span><h3>{title}</h3><p>{text}</p></article>)}</div>
+</section>
+
+<section class="health-section" id="health">
+  <div class="wrap health-grid">
+    <div><p class="eyebrow light">{isPt ? 'Prepare-se bem' : 'Prepare well'}</p><h2>{content.healthTitle}</h2></div>
+    <div><p>{content.health}</p><a href="https://wwwnc.cdc.gov/travel/destinations/traveler/none/brazil" target="_blank" rel="noreferrer">{content.healthLink} ↗</a></div>
+  </div>
+</section>
+
+<section class="respect-section wrap">
+  <div><p class="eyebrow">{isPt ? 'Deixe uma pegada leve' : 'Leave a light footprint'}</p><h2>{content.respectTitle}</h2></div>
+  <ol>{content.respect.map((item) => <li>{item}</li>)}</ol>
+</section>
+
+<section class="guide-faq wrap">
+  <p class="eyebrow">{isPt ? 'Dúvidas práticas' : 'Practical answers'}</p>
+  <h2>{content.faqTitle}</h2>
+  <div>{content.faqs.map(([question, answer]) => <details><summary>{question}</summary><p>{answer}</p></details>)}</div>
+</section>
+
+<section class="guide-cta">
+  <div><p class="eyebrow light">{isPt ? 'Uma viagem pessoal' : 'A personal journey'}</p><h2>{content.ctaTitle}</h2><p>{content.ctaText}</p><a class="button primary" href="https://wa.me/5592994587173" target="_blank" rel="noreferrer">{content.ask}</a></div>
+  <img src="/images/tours/amazon-river-aerial.webp" alt={isPt ? 'Vista aérea do rio e floresta amazônica' : 'Aerial view of Amazon river and rainforest'} loading="lazy" />
+</section>
+
+<script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>
+
+<style>
+  .guide-hero{display:grid;grid-template-columns:1.08fr .92fr;min-height:680px;background:#08261e;color:#fff}.guide-hero-image{min-height:620px;overflow:hidden}.guide-hero-image img{width:100%;height:100%;object-fit:cover}.guide-hero-copy{display:flex;justify-content:center;flex-direction:column;padding:70px 6vw}.guide-hero h1{margin:0 0 26px;font-family:var(--display);font-size:clamp(58px,7vw,108px);line-height:.86;letter-spacing:-.05em}.guide-hero-copy>p:not(.eyebrow){max-width:650px;color:#cfddd7;font-size:19px}.guide-hero-copy>div{display:flex;gap:12px;margin-top:24px}.guide-ghost{border:1px solid #698079;color:#fff}.guide-nav{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid #cfcdc3}.guide-nav a{padding:20px 10px;text-align:center;font-size:12px;font-weight:700;border-right:1px solid #cfcdc3}.guide-nav a:last-child{border:0}.guide-intro{display:grid;grid-template-columns:1fr 1fr;gap:8vw;padding-block:82px}.guide-intro h2,.guide-section-head h2,.packing-intro h2,.health-section h2,.respect-section h2,.guide-faq h2,.guide-cta h2{font-family:var(--display);font-size:clamp(42px,5vw,72px);line-height:1.03;letter-spacing:-.035em;margin:0}.guide-intro>div:last-child{font-size:19px;color:#526059}.guide-intro>div:last-child p:first-child{font-size:24px;color:var(--ink)}.water-cycle{padding:78px 0;background:#08372d;color:#fff}.guide-section-head{display:grid;grid-template-columns:1.3fr .7fr;gap:50px;align-items:end;margin-bottom:38px}.guide-section-head>p{margin:0;color:#bfd0c9;font-size:18px}.season-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #668179}.season-grid article{padding:28px 24px 10px;border-right:1px solid #668179}.season-grid article:last-child{border:0}.season-grid span{font-family:var(--display);font-size:34px;color:var(--sun)}.season-grid small{display:block;margin:22px 0 4px;color:#9fbbb1;text-transform:uppercase;letter-spacing:.12em}.season-grid h3{font-family:var(--display);font-size:27px;margin:0 0 12px}.season-grid p{color:#c8d7d1}.journey-styles{padding-block:84px}.style-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}.style-grid article{display:grid;grid-template-columns:44% 56%;min-height:300px;background:var(--sand)}.style-grid img{width:100%;height:100%;object-fit:cover}.style-grid article>div{padding:30px;align-self:center}.style-grid h3{font-family:var(--display);font-size:28px;line-height:1.1}.style-grid p{color:#5c6963}.guide-photo-break{display:grid;grid-template-columns:1fr 1.2fr 1fr;height:390px}.guide-photo-break img{width:100%;height:100%;object-fit:cover}.packing-section{display:grid;grid-template-columns:.8fr 1.2fr;gap:7vw;padding-block:84px}.packing-intro>p:last-child{margin-top:22px;color:#5a6761;font-size:18px}.packing-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.packing-grid article{padding:26px;background:var(--sand)}.packing-grid span{font-family:var(--display);font-size:27px;color:var(--coral)}.packing-grid h3{font-family:var(--display);font-size:25px;margin:18px 0 9px}.packing-grid p{margin:0;color:#5e6a64}.health-section{padding:72px 0;background:#cf6b49;color:#fff}.health-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:8vw;align-items:center}.health-grid>div:last-child{font-size:18px}.health-grid a{display:inline-block;margin-top:14px;padding-bottom:4px;border-bottom:1px solid #fff;font-weight:700}.respect-section{display:grid;grid-template-columns:.85fr 1.15fr;gap:8vw;padding-block:82px}.respect-section ol{margin:0;padding:0;list-style:none;counter-reset:respect}.respect-section li{counter-increment:respect;padding:16px 0;border-top:1px solid #d0d0c8;font-size:18px}.respect-section li:before{content:'0' counter(respect);font-family:var(--display);color:var(--canopy);margin-right:22px}.guide-faq{padding-bottom:84px}.guide-faq>div{margin-top:28px;border-top:1px solid #cccac0}.guide-faq details{border-bottom:1px solid #cccac0;padding:20px 0}.guide-faq summary{cursor:pointer;font-family:var(--display);font-size:23px;font-weight:600}.guide-faq details p{max-width:780px;margin:14px 0 0;color:#58655f}.guide-cta{display:grid;grid-template-columns:1.1fr .9fr;background:#08261e;color:#fff}.guide-cta>div{padding:76px 7vw;display:flex;flex-direction:column;justify-content:center}.guide-cta>div>p:not(.eyebrow){color:#c6d6cf;font-size:18px}.guide-cta .button{align-self:flex-start;margin-top:18px}.guide-cta img{width:100%;height:100%;min-height:480px;object-fit:cover}
+  @media(max-width:900px){.guide-hero,.guide-intro,.guide-section-head,.packing-section,.health-grid,.respect-section,.guide-cta{grid-template-columns:1fr}.guide-hero{min-height:0}.guide-hero-image{min-height:380px}.guide-hero-copy{padding:48px 24px}.guide-hero h1{font-size:58px}.guide-nav{grid-template-columns:1fr 1fr}.guide-nav a:nth-child(2){border-right:0}.guide-intro,.journey-styles,.packing-section,.respect-section{padding-block:58px}.season-grid,.style-grid,.packing-grid{grid-template-columns:1fr}.season-grid article{border-right:0;border-bottom:1px solid #668179}.style-grid article{grid-template-columns:1fr}.style-grid img{height:260px}.guide-photo-break{height:auto;grid-template-columns:1fr}.guide-photo-break img{height:280px}.guide-section-head{gap:16px}.health-section{padding:58px 0}.guide-cta img{min-height:320px}}
+</style>

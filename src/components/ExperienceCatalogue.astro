@@ -6,41 +6,17 @@ interface Props { lang?: 'en' | 'pt-BR' }
 const { lang = 'en' } = Astro.props;
 const isPt = lang === 'pt-BR';
 const coreTour = tours.find((tour) => tour.slug === 'amazon-jungle-survival-experience');
-const hiddenFromCatalogue = new Set([
-  'amazon-cruise-4-days-3-nights',
-  'amazon-jungle-survival-experience',
-]);
-
-const groups = [
-  {
-    id: 'day',
-    number: '01',
-    title: isPt ? 'Comece por um dia' : 'Begin with a day',
-    subtitle: isPt ? 'Uma imersão completa saindo de Manaus.' : 'A complete immersion from Manaus.',
-    kind: 'day',
-  },
-  {
-    id: 'lodge',
-    number: '02',
-    title: isPt ? 'Durma na floresta' : 'Stay in the forest',
-    subtitle: isPt ? 'Dois, três ou quatro dias no Jardim Maravilha.' : 'Two, three or four days at Jardim Maravilha.',
-    kind: 'lodge',
-  },
-  {
-    id: 'cruise',
-    number: '03',
-    title: isPt ? 'Viaje pelos rios' : 'Travel by river',
-    subtitle: isPt ? 'Uma expedição de três dias pelo Rio Negro.' : 'A three-day expedition along the Rio Negro.',
-    kind: 'cruise',
-  },
-  {
-    id: 'wild',
-    number: '04',
-    title: isPt ? 'Vá mais fundo' : 'Go deeper',
-    subtitle: isPt ? 'Sobrevivência ou uma expedição remota ao Jaú.' : 'Survival skills or a remote expedition into Jaú.',
-    kind: 'wild',
-  },
-] as const;
+const durationBand = (slug: string) => {
+  if (slug === 'full-day-tour-from-manaus') return 'day';
+  if (slug.includes('2-day') || slug.includes('3-days') || slug.includes('3-days-2') || slug.includes('cruise-3')) return 'short';
+  if (slug.includes('4-days') || slug.includes('cruise-4') || slug.includes('survival')) return 'medium';
+  return 'long';
+};
+const paceBand = (slug: string) => {
+  if (slug.includes('survival') || slug.includes('safari')) return 'adventure';
+  if (slug.includes('cruise') || slug.includes('full-day')) return 'active';
+  return 'relaxed';
+};
 ---
 
 <section class="experience-section" id={isPt ? 'experiencias' : 'experiences'}>
@@ -48,11 +24,6 @@ const groups = [
     <div><p class="eyebrow">{isPt ? 'Escolha sua experiência' : 'Choose your experience'}</p><h2>{isPt ? 'Encontre sua viagem pela Amazônia.' : 'Find your Amazon journey.'}</h2></div>
     <p>{isPt ? 'Compare passeios de um dia, pousadas, cruzeiros e expedições.' : 'Compare day tours, lodge stays, cruises and expeditions.'}</p>
   </div>
-
-  <nav class="journey-jump wrap" aria-label={isPt ? 'Tipos de experiência' : 'Experience types'}>
-    <a href="#core-experience" class="core-jump"><span>★</span>{isPt ? 'Experiência essencial' : 'Core experience'}</a>
-    {groups.map((group) => <a href={`#${group.id}`}><span>{group.number}</span>{group.title}</a>)}
-  </nav>
 
   {coreTour && (
     <section class="core-experience wrap" id="core-experience">
@@ -69,19 +40,62 @@ const groups = [
     </section>
   )}
 
-  <div class="journey-groups wrap">
-    {groups.map((group) => {
-      const items = tours.filter((tour) => tour.kind === group.kind && !hiddenFromCatalogue.has(tour.slug));
-      return (
-        <section class="journey-group" id={group.id}>
-          <header><span>{group.number}</span><h3>{group.title}</h3><p>{group.subtitle}</p></header>
-          <div class:list={['journey-cards', { single: items.length === 1 }]}>
-            {items.map((tour) => <TourCard tour={tour} lang={lang} />)}
-          </div>
-        </section>
-      );
-    })}
-  </div>
+  <section class="tour-finder wrap" aria-labelledby="tour-finder-title">
+    <div class="finder-heading">
+      <div><p class="eyebrow">{isPt ? 'Encontre a viagem certa' : 'Find your fit'}</p><h3 id="tour-finder-title">{isPt ? 'Compare todas as experiências.' : 'Compare every experience.'}</h3></div>
+      <p id="tour-result-count" aria-live="polite">{tours.length} {isPt ? 'experiências' : 'experiences'}</p>
+    </div>
+    <div class="finder-controls" data-tour-finder>
+      <label>
+        <span>{isPt ? 'Pesquisar' : 'Search'}</span>
+        <input type="search" name="query" placeholder={isPt ? 'Ex.: botos, canoa ou cachoeira' : 'Try dolphins, canoe or waterfall'} />
+      </label>
+      <label>
+        <span>{isPt ? 'Tipo de viagem' : 'Journey type'}</span>
+        <select name="kind">
+          <option value="all">{isPt ? 'Todos os tipos' : 'All types'}</option>
+          <option value="day">{isPt ? 'Passeio de um dia' : 'Day tour'}</option>
+          <option value="lodge">{isPt ? 'Pousada na floresta' : 'Jungle lodge'}</option>
+          <option value="cruise">{isPt ? 'Cruzeiro fluvial' : 'River cruise'}</option>
+          <option value="wild">{isPt ? 'Expedição' : 'Expedition'}</option>
+        </select>
+      </label>
+      <label>
+        <span>{isPt ? 'Duração' : 'Duration'}</span>
+        <select name="duration">
+          <option value="all">{isPt ? 'Qualquer duração' : 'Any duration'}</option>
+          <option value="day">{isPt ? 'Um dia' : 'One day'}</option>
+          <option value="short">{isPt ? '2–3 dias' : '2–3 days'}</option>
+          <option value="medium">{isPt ? '4–5 dias' : '4–5 days'}</option>
+          <option value="long">{isPt ? '6 dias ou mais' : '6+ days'}</option>
+        </select>
+      </label>
+      <label>
+        <span>{isPt ? 'Ritmo' : 'Pace'}</span>
+        <select name="pace">
+          <option value="all">{isPt ? 'Qualquer ritmo' : 'Any pace'}</option>
+          <option value="relaxed">{isPt ? 'Tranquilo' : 'Relaxed'}</option>
+          <option value="active">{isPt ? 'Ativo' : 'Active'}</option>
+          <option value="adventure">{isPt ? 'Aventura intensa' : 'Deep adventure'}</option>
+        </select>
+      </label>
+      <button type="button" data-reset>{isPt ? 'Limpar filtros' : 'Clear filters'}</button>
+    </div>
+    <div class="finder-grid">
+      {tours.map((tour) => (
+        <div
+          class="tour-filter-item"
+          data-kind={tour.kind}
+          data-duration={durationBand(tour.slug)}
+          data-pace={paceBand(tour.slug)}
+          data-search={`${tour.name} ${tour.ptName} ${tour.summary} ${tour.ptSummary} ${tour.highlights.join(' ')} ${tour.ptHighlights.join(' ')}`.toLocaleLowerCase()}
+        >
+          <TourCard tour={tour} lang={lang} />
+        </div>
+      ))}
+    </div>
+    <p class="finder-empty" hidden>{isPt ? 'Nenhuma viagem corresponde a esses filtros. Limpe um filtro ou fale com Antonio para criar um roteiro personalizado.' : 'No journey matches those filters. Clear a filter or ask Antonio to shape a custom route.'}</p>
+  </section>
 </section>
 
 <style is:global>
@@ -148,6 +162,124 @@ const groups = [
     color: #ef7d4f;
   }
 
+  .tour-finder {
+    padding-top: 58px;
+  }
+
+  .finder-heading {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    align-items: end;
+    margin-bottom: 22px;
+  }
+
+  .finder-heading h3 {
+    margin: 0;
+    font-family: var(--display);
+    font-size: clamp(34px, 4vw, 56px);
+    line-height: 1.02;
+  }
+
+  .finder-heading > p {
+    margin: 0 0 6px;
+    color: #66736d;
+    font-weight: 700;
+  }
+
+  .finder-controls {
+    display: grid;
+    grid-template-columns: minmax(250px, 1.5fr) repeat(3, minmax(150px, .75fr)) auto;
+    gap: 12px;
+    padding: 20px;
+    border: 1px solid #cbc7ba;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, .55);
+  }
+
+  .finder-controls label {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .finder-controls label span {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: #5d6a64;
+  }
+
+  .finder-controls input,
+  .finder-controls select {
+    width: 100%;
+    min-height: 48px;
+    border: 1px solid #c9c5b8;
+    border-radius: 8px;
+    background: #fff;
+    color: var(--ink);
+    font: inherit;
+    font-size: 14px;
+    padding: 0 13px;
+  }
+
+  .finder-controls button {
+    align-self: end;
+    min-height: 48px;
+    padding: 0 17px;
+    border: 0;
+    border-radius: 8px;
+    background: var(--ink);
+    color: #fff;
+    font: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .finder-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+    margin-top: 26px;
+  }
+
+  .tour-filter-item,
+  .tour-filter-item .tour-card {
+    min-width: 0;
+    height: 100%;
+  }
+
+  .tour-filter-item .tour-card {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 12px 35px rgba(25, 36, 30, .07);
+  }
+
+  .tour-filter-item .tour-copy {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+  }
+
+  .tour-filter-item .tour-copy > p:not(.eyebrow) {
+    flex: 1;
+    min-height: 0;
+  }
+
+  .tour-filter-item[hidden] {
+    display: none;
+  }
+
+  .finder-empty {
+    margin: 26px 0 0;
+    padding: 28px;
+    border: 1px dashed #a8aaa0;
+    text-align: center;
+    color: #59665f;
+  }
+
   @media (min-width: 901px) {
     .journey-cards .tour-card {
       height: 610px;
@@ -186,8 +318,57 @@ const groups = [
       grid-template-columns: 1fr;
       gap: 10px;
     }
+
+    .tour-finder {
+      padding-top: 42px;
+    }
+
+    .finder-heading {
+      align-items: start;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .finder-controls,
+    .finder-grid {
+      grid-template-columns: 1fr;
+    }
   }
 </style>
+
+<script is:inline>
+  document.querySelectorAll('[data-tour-finder]').forEach((form) => {
+    const section = form.closest('.tour-finder');
+    const items = [...section.querySelectorAll('.tour-filter-item')];
+    const count = section.querySelector('#tour-result-count');
+    const empty = section.querySelector('.finder-empty');
+    const query = form.querySelector('[name="query"]');
+    const selects = [...form.querySelectorAll('select')];
+    const update = () => {
+      const term = query.value.trim().toLocaleLowerCase();
+      const values = Object.fromEntries(selects.map((select) => [select.name, select.value]));
+      let visible = 0;
+      items.forEach((item) => {
+        const matches =
+          (!term || item.dataset.search.includes(term)) &&
+          (values.kind === 'all' || item.dataset.kind === values.kind) &&
+          (values.duration === 'all' || item.dataset.duration === values.duration) &&
+          (values.pace === 'all' || item.dataset.pace === values.pace);
+        item.hidden = !matches;
+        if (matches) visible += 1;
+      });
+      count.textContent = `${visible} ${document.documentElement.lang === 'pt-BR' ? (visible === 1 ? 'experiência' : 'experiências') : (visible === 1 ? 'experience' : 'experiences')}`;
+      empty.hidden = visible !== 0;
+    };
+    form.addEventListener('input', update);
+    form.querySelector('[data-reset]').addEventListener('click', () => {
+      query.value = '';
+      selects.forEach((select) => select.value = 'all');
+      update();
+      query.focus();
+    });
+  });
+</script>
 
 <section class="tripadvisor-section">
   <div class="tripadvisor-intro">

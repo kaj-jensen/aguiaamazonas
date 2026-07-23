@@ -198,7 +198,7 @@ export const tours: Tour[] = [
     ptGroup: '4–8 viajantes',
     summary: 'Sleep in a cabin or hammock and follow the Rio Negro through flooded forest, giant water lilies and unforgettable wildlife encounters.',
     ptSummary: 'Durma em cabine ou rede e navegue pelo Rio Negro entre florestas alagadas, vitórias-régias e encontros com a fauna.',
-    image: '/images/tours/manaus-traditional-boats.webp',
+    image: '/images/tours/rio-negro-regional-boat.webp',
     gallery: [
       { src: '/images/gallery/cruise-3-day/river-boat-1.jpg', alt: 'The regional river boat used for the three-day Rio Negro cruise', ptAlt: 'Barco regional usado no cruzeiro de três dias pelo Rio Negro' },
       { src: '/images/gallery/cruise-3-day/river-boat-2.jpg', alt: 'A traditional Amazon cruise boat moored beside the forest', ptAlt: 'Barco tradicional amazônico atracado junto à floresta' },

@@ -376,7 +376,11 @@ const paceBand = (slug: string) => {
     <div>
       <p class="eyebrow">Tripadvisor</p>
       <h2>{isPt ? 'Histórias de quem foi.' : 'Stories from those who went.'}</h2>
-      <div class="rating-row"><span class="rating-dots" aria-label="Excellent Tripadvisor ratings">● ● ● ● ●</span><b>{isPt ? '150+ avaliações de viajantes' : '150+ traveller reviews'}</b></div>
+      <div class="rating-row">
+        <strong class="rating-score">4.9</strong>
+        <span class="rating-dots" aria-label={isPt ? 'Avaliação excelente no Tripadvisor' : 'Excellent Tripadvisor rating'}>● ● ● ● ●</span>
+        <b>{isPt ? 'com base em 156 avaliações' : 'based on 156 traveller reviews'}</b>
+      </div>
     </div>
     <a class="button trip-button" href="https://www.tripadvisor.com/Attraction_Review-g303235-d7940404-Reviews-Aguia_Amazonas_Turismo_Day_Tours-Manaus_Amazon_River_State_of_Amazonas.html" target="_blank" rel="noreferrer">{isPt ? 'Ler todas as avaliações' : 'Read all reviews'} ↗</a>
   </div>
@@ -385,5 +389,19 @@ const paceBand = (slug: string) => {
     <article><span>“</span><p>{isPt ? 'Uma experiência única e muito autêntica na Amazônia, com atividades bem planejadas e acolhimento caloroso.' : 'A unique and truly authentic Amazon experience, with thoughtful daily activities and a wonderfully warm welcome.'}</p><footer><b>Roam37002819858</b><small>Tripadvisor · March 2026</small></footer></article>
     <article><span>“</span><p>{isPt ? 'Seis dias incríveis com Antonio na selva. Recomendo absolutamente.' : 'Six amazing days with Antonio in the jungle. Absolutely, highly recommended.'}</p><footer><b>Henry N</b><small>Tripadvisor · May 2026</small></footer></article>
   </div>
-  <a class="leave-review" href="https://www.tripadvisor.com/UserReviewEdit-g303235-d7940404-Aguia_Amazonas_Turismo_Day_Tours-Manaus_Amazon_River_State_of_Amazonas.html" target="_blank" rel="noreferrer">{isPt ? 'Já viajou com Antonio? Escreva uma avaliação no Tripadvisor' : 'Already travelled with Antonio? Write a Tripadvisor review'} →</a>
+  <div class="review-action">
+    <img
+      src="/images/reviews/tripadvisor-review-qr.webp"
+      alt={isPt ? 'Código QR para avaliar a Águia Amazonas no Tripadvisor' : 'QR code to review Águia Amazonas on Tripadvisor'}
+      width="135"
+      height="200"
+      loading="lazy"
+    />
+    <div>
+      <p class="eyebrow">{isPt ? 'Já viajou com Antonio?' : 'Travelled with Antonio?'}</p>
+      <h3>{isPt ? 'Compartilhe sua experiência.' : 'Share your experience.'}</h3>
+      <p>{isPt ? 'Aponte a câmera para o código ou abra o Tripadvisor para deixar sua avaliação.' : 'Point your camera at the code or open Tripadvisor to leave your review.'}</p>
+      <a href="https://www.tripadvisor.com/UserReviewEdit-g303235-d7940404-Aguia_Amazonas_Turismo_Day_Tours-Manaus_Amazon_River_State_of_Amazonas.html" target="_blank" rel="noreferrer">{isPt ? 'Escrever uma avaliação' : 'Write a review'} ↗</a>
+    </div>
+  </div>
 </section>

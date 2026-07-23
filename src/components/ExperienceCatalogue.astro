@@ -39,9 +39,9 @@ const groups = [
 ---
 
 <section class="experience-section" id={isPt ? 'experiencias' : 'experiences'}>
-  <div class="section-head wrap">
-    <div><p class="eyebrow">{isPt ? 'Escolha seu caminho' : 'Choose your way in'}</p><h2>{isPt ? <>Oito jornadas.<br/>Uma floresta viva.</> : <>Eight journeys.<br/>One living forest.</>}</h2></div>
-    <p>{isPt ? 'Escolha primeiro como deseja viver a Amazônia; depois compare o tempo e o ritmo que combinam com você.' : 'Choose how you want to experience the Amazon first—then compare the time and pace that fit you.'}</p>
+  <div class="section-head catalogue-head wrap">
+    <div><p class="eyebrow">{isPt ? 'Escolha sua experiência' : 'Choose your experience'}</p><h2>{isPt ? 'Encontre sua viagem pela Amazônia.' : 'Find your Amazon journey.'}</h2></div>
+    <p>{isPt ? 'Compare passeios de um dia, pousadas, cruzeiros e expedições.' : 'Compare day tours, lodge stays, cruises and expeditions.'}</p>
   </div>
 
   <nav class="journey-jump wrap" aria-label={isPt ? 'Tipos de experiência' : 'Experience types'}>
@@ -64,6 +64,31 @@ const groups = [
 </section>
 
 <style is:global>
+  .experience-section {
+    padding-top: 46px;
+  }
+
+  .catalogue-head {
+    grid-template-columns: minmax(0, 1.5fr) minmax(280px, .7fr);
+    gap: 40px;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+
+  .catalogue-head .eyebrow {
+    margin-bottom: 8px;
+  }
+
+  .catalogue-head h2 {
+    font-size: clamp(34px, 4vw, 56px);
+    line-height: 1.05;
+  }
+
+  .catalogue-head > p {
+    margin: 0;
+    font-size: 16px;
+  }
+
   @media (min-width: 901px) {
     .journey-cards .tour-card {
       height: 610px;
@@ -76,6 +101,21 @@ const groups = [
     .journey-cards.single .tour-image {
       height: auto;
       aspect-ratio: 16 / 7;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .experience-section {
+      padding-top: 38px;
+    }
+
+    .catalogue-head {
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .catalogue-head h2 {
+      font-size: 38px;
     }
   }
 </style>

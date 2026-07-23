@@ -5,5 +5,8 @@ export default defineConfig({
   site: 'https://www.aguiaamazonas.com.br',
   output: 'static',
   trailingSlash: 'always',
+  build: {
+    inlineStylesheets: 'always',
+  },
   integrations: [sitemap()],
 });

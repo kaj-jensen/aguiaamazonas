@@ -54,6 +54,15 @@ const travelAgencySchema = {
     <meta name="description" content={description} />
     <meta name="robots" content="index,follow,max-image-preview:large" />
     <meta name="theme-color" content="#071c16" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap"
+      media="print"
+      onload="this.removeAttribute('media')"
+    />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" /></noscript>
     <link rel="canonical" href={canonical} />
     {alternateEn && <link rel="alternate" hreflang="en" href={new URL(alternateEn, Astro.site)} />}
     {alternatePt && <link rel="alternate" hreflang="pt-BR" href={new URL(alternatePt, Astro.site)} />}

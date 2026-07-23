@@ -4,10 +4,22 @@ interface Props { tour: Tour; lang?: 'en' | 'pt-BR'; signature?: boolean }
 const { tour, lang = 'en', signature = false } = Astro.props;
 const isPt = lang === 'pt-BR';
 const href = isPt ? `/pt/experiencias/${tour.ptSlug}/` : `/experiences/${tour.slug}/`;
+const imageSrcset = tour.imageSmall && tour.imageMedium
+  ? `${tour.imageSmall} 600w, ${tour.imageMedium} 1000w, ${tour.image} ${tour.imageWidth ?? 1400}w`
+  : undefined;
 ---
 <article class="tour-card" style={`--accent:${tour.accent}`}>
   <a href={href} class="tour-image" aria-label={isPt ? tour.ptName : tour.name}>
-    <img src={tour.image} alt={isPt ? tour.ptImageAlt : tour.imageAlt} loading="lazy" />
+    <img
+      src={tour.image}
+      srcset={imageSrcset}
+      sizes="(max-width: 900px) calc(100vw - 36px), (max-width: 1300px) 50vw, 430px"
+      width={tour.imageWidth}
+      height={tour.imageHeight}
+      alt={isPt ? tour.ptImageAlt : tour.imageAlt}
+      loading="lazy"
+      decoding="async"
+    />
     <span>{isPt ? tour.ptDuration : tour.duration}</span>
   </a>
   <div class="tour-copy">

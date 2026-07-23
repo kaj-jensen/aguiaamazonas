@@ -19,7 +19,7 @@ interface Props {
 const { title, description, image, imageAlt, lang = 'en', alternateEn, alternatePt } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const pageTitle = title === 'Águia Amazonas' ? title : `${title} | Águia Amazonas`;
-const socialImage = new URL(image ?? '/images/amazon-river-hero.png', Astro.site);
+const socialImage = new URL(image ?? '/images/amazon-river-hero.webp', Astro.site);
 const locale = lang === 'pt-BR' ? 'pt_BR' : 'en_US';
 const alternateLocale = lang === 'pt-BR' ? 'en_US' : 'pt_BR';
 const travelAgencySchema = {
@@ -28,7 +28,7 @@ const travelAgencySchema = {
   '@id': new URL('/#travel-agency', Astro.site).href,
   name: 'Águia Amazonas Turismo',
   url: new URL('/', Astro.site).href,
-  image: new URL('/images/amazon-river-hero.png', Astro.site).href,
+  image: new URL('/images/amazon-river-hero.webp', Astro.site).href,
   telephone: '+55 92 99458-7173',
   email: 'atnguide@hotmail.com',
   founder: {

@@ -16,6 +16,9 @@ What interests us most:
 Please help me plan the journey.`);
 const englishPath = `/experiences/${tour.slug}/`;
 const portuguesePath = `/pt/experiencias/${tour.ptSlug}/`;
+const imageSrcset = tour.imageSmall && tour.imageMedium
+  ? `${tour.imageSmall} 600w, ${tour.imageMedium} 1000w, ${tour.image} ${tour.imageWidth ?? 1400}w`
+  : undefined;
 const pageUrl = new URL(englishPath, Astro.site).href;
 const tourSchema = {
   '@context': 'https://schema.org',
@@ -54,7 +57,7 @@ const tourSchema = {
 <BaseLayout title={tour.name} description={tour.seoDescription} image={tour.image} imageAlt={tour.imageAlt} alternateEn={englishPath} alternatePt={portuguesePath}>
   <script is:inline type="application/ld+json" set:html={JSON.stringify(tourSchema)}></script>
   <section class="tour-hero" style={`--accent:${tour.accent}`}>
-    <div class="tour-hero-image"><img src={tour.image} alt={tour.imageAlt} /><div class="image-index">AMZ / {String(tours.indexOf(tour)+1).padStart(2,'0')}</div></div>
+    <div class="tour-hero-image"><img src={tour.image} srcset={imageSrcset} sizes="(max-width: 900px) 100vw, 50vw" width={tour.imageWidth} height={tour.imageHeight} alt={tour.imageAlt} fetchpriority="high" /><div class="image-index">AMZ / {String(tours.indexOf(tour)+1).padStart(2,'0')}</div></div>
     <div class="tour-hero-copy">
       <p class="eyebrow">{tour.eyebrow}</p><h1>{tour.name}</h1><p>{tour.summary}</p>
       <div class="tour-facts"><div><span>Duration</span><b>{tour.duration}</b></div><div><span>Style</span><b>{tour.group}</b></div></div>

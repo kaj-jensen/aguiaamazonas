@@ -38,10 +38,10 @@ const content = isPt ? {
   arrivalSteps: [['01', 'Chegue com margem', 'Antes de uma expedição longa, uma noite em Manaus reduz o risco de perder a saída por atraso de voo.'], ['02', 'Confirme o encontro', 'Envie hotel, número do voo e horário de chegada. Antonio confirma onde e quando encontrará você.'], ['03', 'Separe o essencial', 'Mantenha documentos, medicamentos, roupa leve e uma troca básica na bagagem de mão.']],
   chooseTitle: 'Escolha a Amazônia que combina com você',
   choose: [
-    ['Um dia além de Manaus', 'Para quem tem pouco tempo e quer reunir floresta, rio, almoço local e atividades de fauna em um dia completo.', '/images/tours/full-day-amazon-river.webp'],
+    ['Um dia além de Manaus', 'Para quem tem pouco tempo e quer reunir floresta, rio, almoço local e atividades de fauna em um dia completo.', '/images/tours/full-day-amazon-river-1000.webp'],
     ['Durma na floresta', 'Dois a quatro dias dão tempo para amanheceres, caminhadas, cachoeiras, canoas e o ritmo tranquilo de uma pousada.', '/images/tours/tupana-canoe.webp'],
     ['Navegue pelo Rio Negro', 'Cruzeiros regionais unem deslocamento, hospedagem e exploração; o caminho faz parte da experiência.', '/images/travel-guide/rio-negro-deck-journey.webp'],
-    ['Aprenda com a floresta', 'Com Antonio, a experiência de sobrevivência ensina acampamento, fogo, orientação e plantas úteis.', '/images/tours/amazon-jungle-river-unsplash.jpg'],
+    ['Aprenda com a floresta', 'Com Antonio, a experiência de sobrevivência ensina acampamento, fogo, orientação e plantas úteis.', '/images/tours/amazon-jungle-river-1000.webp'],
   ],
   packTitle: 'O que levar para a Amazônia',
   packIntro: 'Leve pouco, mas leve certo. Uma mochila organizada torna os traslados de barco mais fáceis e mantém você confortável na umidade.',
@@ -105,10 +105,10 @@ const content = isPt ? {
   arrivalSteps: [['01', 'Build in a buffer', 'Before a longer expedition, one night in Manaus reduces the risk of a delayed flight disrupting departure.'], ['02', 'Confirm the meeting', 'Share your hotel, flight number and arrival time. Antonio confirms exactly where and when to meet.'], ['03', 'Keep essentials close', 'Carry documents, medication, light clothing and one basic change in your hand luggage.']],
   chooseTitle: 'Choose the Amazon that fits you',
   choose: [
-    ['One day beyond Manaus', 'For limited time: combine forest, river travel, a local lunch and wildlife-focused activities in one complete day.', '/images/tours/full-day-amazon-river.webp'],
+    ['One day beyond Manaus', 'For limited time: combine forest, river travel, a local lunch and wildlife-focused activities in one complete day.', '/images/tours/full-day-amazon-river-1000.webp'],
     ['Sleep in the forest', 'Two to four days make room for sunrises, walks, waterfalls, canoe journeys and the gentle rhythm of a lodge.', '/images/tours/tupana-canoe.webp'],
     ['Travel along the Rio Negro', 'Regional cruises combine transport, accommodation and exploration—the journey itself becomes part of the experience.', '/images/travel-guide/rio-negro-deck-journey.webp'],
-    ['Learn with the forest', 'With Antonio, the survival experience teaches camp craft, fire, navigation and useful plants.', '/images/tours/amazon-jungle-river-unsplash.jpg'],
+    ['Learn with the forest', 'With Antonio, the survival experience teaches camp craft, fire, navigation and useful plants.', '/images/tours/amazon-jungle-river-1000.webp'],
   ],
   packTitle: 'What to pack for the Amazon',
   packIntro: 'Pack lightly, but pack deliberately. A compact bag makes boat transfers easier and helps you remain comfortable in persistent heat and humidity.',
@@ -150,7 +150,7 @@ const faqSchema = {
 ---
 
 <section class="guide-hero">
-  <div class="guide-hero-image"><img src="/images/amazon-river-hero.png" alt={isPt ? 'Rio e floresta na Amazônia brasileira' : 'River and rainforest in the Brazilian Amazon'} /></div>
+  <div class="guide-hero-image"><img src="/images/amazon-river-hero.webp" srcset="/images/amazon-river-hero-960.webp 960w, /images/amazon-river-hero.webp 1823w" sizes="100vw" width="1823" height="863" alt={isPt ? 'Rio e floresta na Amazônia brasileira' : 'River and rainforest in the Brazilian Amazon'} fetchpriority="high" /></div>
   <div class="guide-hero-copy">
     <p class="eyebrow light">{content.eyebrow}</p>
     <h1>{content.title.split('\n').map((line) => <>{line}<br /></>)}</h1>

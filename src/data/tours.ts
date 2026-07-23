@@ -15,6 +15,10 @@ export type Tour = {
   seoDescription: string;
   ptSeoDescription: string;
   image: string;
+  imageSmall?: string;
+  imageMedium?: string;
+  imageWidth?: number;
+  imageHeight?: number;
   imageAlt: string;
   ptImageAlt: string;
   gallery?: { src: string; alt: string; ptAlt: string }[];
@@ -47,6 +51,10 @@ export const tours: Tour[] = [
     seoDescription: 'Full-day Amazon rainforest tour from Manaus with Antonio: jungle walk, local lunch, pink dolphins, piranha fishing, sunset and caiman spotting.',
     ptSeoDescription: 'Passeio de um dia na Amazônia saindo de Manaus com Antonio: caminhada, almoço local, botos, pesca de piranhas, pôr do sol e jacarés.',
     image: '/images/tours/full-day-amazon-river.webp',
+    imageSmall: '/images/tours/full-day-amazon-river-600.webp',
+    imageMedium: '/images/tours/full-day-amazon-river-1000.webp',
+    imageWidth: 1800,
+    imageHeight: 1200,
     imageAlt: 'Small expedition boat travelling through the Amazon rainforest near Manaus',
     ptImageAlt: 'Pequeno barco de expedição navegando pela floresta amazônica perto de Manaus',
     gallery: [
@@ -308,7 +316,11 @@ export const tours: Tour[] = [
     ptSummary: 'Aprenda técnicas reais da floresta com Antonio e o apoio da comunidade local, em uma expedição adaptada ao seu preparo e objetivo.',
     seoDescription: 'Amazon jungle survival experience from Manaus with Antonio: three to five days of hammock camping, forest skills, waterfalls, fishing and canoeing.',
     ptSeoDescription: 'Experiência de sobrevivência na Amazônia com Antonio: três a cinco dias de acampamento em redes, técnicas da floresta, cachoeiras e canoagem.',
-    image: '/images/tours/amazon-jungle-river-unsplash.jpg',
+    image: '/images/tours/amazon-jungle-river-1400.webp',
+    imageSmall: '/images/tours/amazon-jungle-river-600.webp',
+    imageMedium: '/images/tours/amazon-jungle-river-1000.webp',
+    imageWidth: 1400,
+    imageHeight: 935,
     imageAlt: 'Remote Amazon river and rainforest setting for the jungle survival experience',
     ptImageAlt: 'Rio remoto e floresta amazônica onde acontece a experiência de sobrevivência',
     gallery: [

@@ -3,7 +3,7 @@ interface Props { lang?: 'en' | 'pt-BR' }
 const { lang = 'en' } = Astro.props;
 const isPt = lang === 'pt-BR';
 ---
-<footer class="site-footer">
+<footer class="site-footer" id="contact">
   <div>
     <p class="footer-kicker">Águia Amazonas Turismo</p>
     <h2>{isPt ? 'A floresta é nossa casa.' : 'The rainforest is our home.'}</h2>

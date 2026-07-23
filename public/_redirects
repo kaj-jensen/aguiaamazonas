@@ -18,5 +18,27 @@
 /the-pousada-4-days-3-nights/ /experiences/4-days-3-nights-at-jardim-maravilha-lodge/ 301
 /pacote-de-3-dias-e-2-noites-na-pousada/ /pt/experiencias/3-dias-2-noites-no-sitio-jardim-maravilha/ 301
 /pacote-de-4-dias-e-3-noites-na-pousada/ /pt/experiencias/4-dias-3-noites-no-sitio-jardim-maravilha/ 301
-/about/ /about/ 200
+
+# Indexed WordPress articles consolidated into the bilingual Amazon guide
+/2023/01/05/rio-negro-brazil/ /brazilian-amazon-travel-guide/#understand 301
+/2023/01/10/the-weather-in-the-brazilian-rain-forest/ /brazilian-amazon-travel-guide/#seasons 301
+/2023/01/12/animals-in-the-brazilian-rain-forest/ /brazilian-amazon-travel-guide/#wildlife 301
+/2023/02/15/quando-visitar-amazonas/ /pt/guia-de-viagem-amazonia-brasileira/#seasons 301
+/2023/06/16/best-time-to-travel-the-brazilian-amazon/ /brazilian-amazon-travel-guide/#seasons 301
+
+# Former information, contact and WooCommerce utility routes
 /sobre-nos/ /pt/sobre/ 301
+/about-us/ /about/ 301
+/contact/ /#contact 301
+/contact-us/ /#contact 301
+/contato/ /pt/#contact 301
+/ipanema-lodge/ /#experiences 301
+/shop/ /#experiences 301
+/cart/ /#experiences 301
+/checkout/ /#contact 301
+/my-account/ / 301
+/product-category/* /#experiences 301
+/product-tag/* /#experiences 301
+/category/* /brazilian-amazon-travel-guide/ 301
+/tag/* /#experiences 301
+/feed/ / 301

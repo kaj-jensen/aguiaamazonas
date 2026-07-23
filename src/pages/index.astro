@@ -20,7 +20,11 @@ const tourListSchema = {
 ---
 <BaseLayout title="Amazon Rainforest Tours from Manaus" description="Private and small-group Amazon rainforest journeys from Manaus with Antonio, your guide, working closely with the local community." image={heroImage} imageAlt="Amazon river and rainforest at golden hour" alternateEn="/" alternatePt="/pt/">
   <script is:inline type="application/ld+json" set:html={JSON.stringify(tourListSchema)}></script>
-  <section class="hero" style={`--hero:url('${heroImage}');--hero-mobile:url('${heroImageMobile}')`}>
+  <section class="hero">
+    <picture class="hero-media" aria-hidden="true">
+      <source media="(max-width: 900px)" srcset={heroImageMobile} />
+      <img src={heroImage} alt="" width="1823" height="863" fetchpriority="high" decoding="async" />
+    </picture>
     <div class="hero-shade"></div>
     <div class="hero-content">
       <p class="eyebrow light">Born in the Amazon · Guiding since 2003</p>

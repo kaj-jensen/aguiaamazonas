@@ -7,7 +7,13 @@ export function getStaticPaths() { return tours.map((tour) => ({ params: { slug:
 interface Props { tour: Tour }
 const { tour } = Astro.props;
 const detail = getTourDetail(tour.slug);
-const message = encodeURIComponent(`Hello Antonio, I am interested in the ${tour.name}. Please help me plan the journey.`);
+const message = encodeURIComponent(`Hello Antonio, I am interested in the ${tour.name}.
+
+My travel dates:
+Number of travellers:
+What interests us most:
+
+Please help me plan the journey.`);
 const englishPath = `/experiences/${tour.slug}/`;
 const portuguesePath = `/pt/experiencias/${tour.ptSlug}/`;
 const pageUrl = new URL(englishPath, Astro.site).href;
@@ -49,7 +55,16 @@ const tourSchema = {
   <script is:inline type="application/ld+json" set:html={JSON.stringify(tourSchema)}></script>
   <section class="tour-hero" style={`--accent:${tour.accent}`}>
     <div class="tour-hero-image"><img src={tour.image} alt={tour.imageAlt} /><div class="image-index">AMZ / {String(tours.indexOf(tour)+1).padStart(2,'0')}</div></div>
-    <div class="tour-hero-copy"><p class="eyebrow">{tour.eyebrow}</p><h1>{tour.name}</h1><p>{tour.summary}</p><div class="tour-facts"><div><span>Duration</span><b>{tour.duration}</b></div><div><span>Style</span><b>{tour.group}</b></div></div><a class="button primary" href={`https://wa.me/5592994587173?text=${message}`} target="_blank" rel="noreferrer">Plan this journey</a></div>
+    <div class="tour-hero-copy">
+      <p class="eyebrow">{tour.eyebrow}</p><h1>{tour.name}</h1><p>{tour.summary}</p>
+      <div class="tour-facts"><div><span>Duration</span><b>{tour.duration}</b></div><div><span>Style</span><b>{tour.group}</b></div></div>
+      <a class="button primary" href={`https://wa.me/5592994587173?text=${message}`} target="_blank" rel="noreferrer">Check availability with Antonio</a>
+      <div class="tour-booking-proof" aria-label="Why travellers book with Águia Amazonas">
+        <a href="https://www.tripadvisor.com/Attraction_Review-g303235-d7940404-Reviews-Aguia_Amazonas_Turismo_Day_Tours-Manaus_Amazon_River_State_of_Amazonas.html" target="_blank" rel="noreferrer"><strong>4.9 / 5</strong><span>Tripadvisor</span></a>
+        <div><strong>Since 2003</strong><span>Guiding in the Amazon</span></div>
+        <div><strong>Book direct</strong><span>Plan with Antonio</span></div>
+      </div>
+    </div>
   </section>
   <section class="tour-introduction wrap">
     <div class="tour-introduction-copy"><p class="eyebrow">The full picture</p><h2>What this journey<br/>is really like.</h2>{detail.introduction.map((paragraph) => <p>{paragraph}</p>)}</div>
@@ -65,5 +80,5 @@ const tourSchema = {
       <div class="tour-gallery">{tour.gallery.map((image) => <figure><img src={image.src} alt={image.alt} loading="lazy" /><figcaption>{image.alt}</figcaption></figure>)}</div>
     </div>
   </section>}
-  <section class="practical"><div class="wrap"><div class="practical-heading"><p class="eyebrow">Plan with confidence</p><h2>The useful details.</h2></div><div class="practical-list-grid"><div><p class="eyebrow">Included</p><ul>{tour.included.map((item)=><li>{item}</li>)}</ul></div><div><p class="eyebrow">Not included</p><ul>{detail.notIncluded.map((item)=><li>{item}</li>)}</ul></div><div><p class="eyebrow">What to bring</p><ul>{tour.bring.map((item)=><li>{item}</li>)}</ul></div></div><div class="practical-bottom"><div class="know-panel"><p class="eyebrow">Good to know</p><ul>{detail.goodToKnow.map((item)=><li>{item}</li>)}</ul></div><div class="book-panel"><p class="eyebrow light">Made for you</p><h2>Dates, pace and details are personal.</h2><p>Tell Antonio when you will be in Manaus, how many are travelling and what kind of experience you want.</p><a class="button pale" href={`https://wa.me/5592994587173?text=${message}`} target="_blank" rel="noreferrer">Talk on WhatsApp</a><a href="mailto:atnguide@hotmail.com" class="email-link">or email Antonio</a></div></div></div></section>
+  <section class="practical"><div class="wrap"><div class="practical-heading"><p class="eyebrow">Plan with confidence</p><h2>The useful details.</h2></div><div class="practical-list-grid"><div><p class="eyebrow">Included</p><ul>{tour.included.map((item)=><li>{item}</li>)}</ul></div><div><p class="eyebrow">Not included</p><ul>{detail.notIncluded.map((item)=><li>{item}</li>)}</ul></div><div><p class="eyebrow">What to bring</p><ul>{tour.bring.map((item)=><li>{item}</li>)}</ul></div></div><div class="practical-bottom"><div class="know-panel"><p class="eyebrow">Good to know</p><ul>{detail.goodToKnow.map((item)=><li>{item}</li>)}</ul></div><div class="book-panel"><p class="eyebrow light">Your next step</p><h2>Tell Antonio three things.</h2><p>Your dates, the number of travellers and what interests you most. Antonio will help shape the right route for the season and your group.</p><ol class="booking-prompts"><li><b>01</b> Travel dates</li><li><b>02</b> Group size</li><li><b>03</b> Interests</li></ol><a class="button pale" href={`https://wa.me/5592994587173?text=${message}`} target="_blank" rel="noreferrer">Check availability on WhatsApp</a><a href="mailto:atnguide@hotmail.com" class="email-link">or email Antonio</a></div></div></div></section>
 </BaseLayout>

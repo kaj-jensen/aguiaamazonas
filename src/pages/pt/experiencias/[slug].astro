@@ -6,7 +6,13 @@ export function getStaticPaths(){return tours.map((tour)=>({params:{slug:tour.pt
 interface Props { tour: Tour }
 const { tour } = Astro.props;
 const detail = getTourDetail(tour.slug);
-const message = encodeURIComponent(`Olá Antonio, tenho interesse em ${tour.ptName}. Pode me ajudar a planejar esta viagem?`);
+const message = encodeURIComponent(`Olá Antonio, tenho interesse em ${tour.ptName}.
+
+Datas da viagem:
+Número de viajantes:
+O que mais nos interessa:
+
+Pode me ajudar a planejar esta viagem?`);
 const englishPath = `/experiences/${tour.slug}/`;
 const portuguesePath = `/pt/experiencias/${tour.ptSlug}/`;
 const pageUrl = new URL(portuguesePath, Astro.site).href;
@@ -46,7 +52,19 @@ const tourSchema = {
 ---
 <BaseLayout title={tour.ptName} description={tour.ptSeoDescription} image={tour.image} imageAlt={tour.ptImageAlt} lang="pt-BR" alternateEn={englishPath} alternatePt={portuguesePath}>
   <script is:inline type="application/ld+json" set:html={JSON.stringify(tourSchema)}></script>
-  <section class="tour-hero" style={`--accent:${tour.accent}`}><div class="tour-hero-image"><img src={tour.image} alt={tour.ptImageAlt}/><div class="image-index">AMZ / {String(tours.indexOf(tour)+1).padStart(2,'0')}</div></div><div class="tour-hero-copy"><p class="eyebrow">{tour.ptEyebrow}</p><h1>{tour.ptName}</h1><p>{tour.ptSummary}</p><div class="tour-facts"><div><span>Duração</span><b>{tour.ptDuration}</b></div><div><span>Estilo</span><b>{tour.ptGroup}</b></div></div><a class="button primary" href={`https://wa.me/5592994587173?text=${message}`} target="_blank" rel="noreferrer">Planejar esta jornada</a></div></section>
+  <section class="tour-hero" style={`--accent:${tour.accent}`}>
+    <div class="tour-hero-image"><img src={tour.image} alt={tour.ptImageAlt}/><div class="image-index">AMZ / {String(tours.indexOf(tour)+1).padStart(2,'0')}</div></div>
+    <div class="tour-hero-copy">
+      <p class="eyebrow">{tour.ptEyebrow}</p><h1>{tour.ptName}</h1><p>{tour.ptSummary}</p>
+      <div class="tour-facts"><div><span>Duração</span><b>{tour.ptDuration}</b></div><div><span>Estilo</span><b>{tour.ptGroup}</b></div></div>
+      <a class="button primary" href={`https://wa.me/5592994587173?text=${message}`} target="_blank" rel="noreferrer">Consultar disponibilidade com Antonio</a>
+      <div class="tour-booking-proof" aria-label="Por que viajar com a Águia Amazonas">
+        <a href="https://www.tripadvisor.com/Attraction_Review-g303235-d7940404-Reviews-Aguia_Amazonas_Turismo_Day_Tours-Manaus_Amazon_River_State_of_Amazonas.html" target="_blank" rel="noreferrer"><strong>4,9 / 5</strong><span>Tripadvisor</span></a>
+        <div><strong>Desde 2003</strong><span>Guiando na Amazônia</span></div>
+        <div><strong>Contato direto</strong><span>Planeje com Antonio</span></div>
+      </div>
+    </div>
+  </section>
   <section class="tour-introduction wrap"><div class="tour-introduction-copy"><p class="eyebrow">A experiência completa</p><h2>Como esta viagem<br/>realmente acontece.</h2>{detail.ptIntroduction.map((paragraph) => <p>{paragraph}</p>)}</div><aside class="tour-fact-panel"><p class="eyebrow light">Visão geral</p>{detail.facts.map((fact) => <div><span>{fact.ptLabel}</span><b>{fact.ptValue}</b></div>)}</aside></section>
   <section class="tour-body wrap"><aside><p class="eyebrow">Momentos marcantes</p><ul>{tour.ptHighlights.map((item)=><li>{item}</li>)}</ul></aside><div class="itinerary"><p class="eyebrow">A experiência</p><h2>Uma jornada guiada<br/>pela floresta viva.</h2>{tour.ptItinerary.map((item)=><div class="itinerary-row"><b>{item.label}</b><p>{item.text}</p></div>)}</div></section>
   {tour.gallery && <section class="tour-gallery-section">
@@ -55,5 +73,5 @@ const tourSchema = {
       <div class="tour-gallery">{tour.gallery.map((image) => <figure><img src={image.src} alt={image.ptAlt} loading="lazy" /><figcaption>{image.ptAlt}</figcaption></figure>)}</div>
     </div>
   </section>}
-  <section class="practical"><div class="wrap"><div class="practical-heading"><p class="eyebrow">Planeje com confiança</p><h2>Informações úteis.</h2></div><div class="practical-list-grid"><div><p class="eyebrow">Incluído</p><ul>{tour.ptIncluded.map((item)=><li>{item}</li>)}</ul></div><div><p class="eyebrow">Não incluído</p><ul>{detail.ptNotIncluded.map((item)=><li>{item}</li>)}</ul></div><div><p class="eyebrow">O que levar</p><ul>{tour.ptBring.map((item)=><li>{item}</li>)}</ul></div></div><div class="practical-bottom"><div class="know-panel"><p class="eyebrow">Bom saber</p><ul>{detail.ptGoodToKnow.map((item)=><li>{item}</li>)}</ul></div><div class="book-panel"><p class="eyebrow light">Feito para você</p><h2>Datas, ritmo e detalhes são pessoais.</h2><p>Conte a Antonio quando estará em Manaus, quantas pessoas viajam e o que deseja viver.</p><a class="button pale" href={`https://wa.me/5592994587173?text=${message}`} target="_blank" rel="noreferrer">Conversar no WhatsApp</a><a href="mailto:atnguide@hotmail.com" class="email-link">ou envie um e-mail</a></div></div></div></section>
+  <section class="practical"><div class="wrap"><div class="practical-heading"><p class="eyebrow">Planeje com confiança</p><h2>Informações úteis.</h2></div><div class="practical-list-grid"><div><p class="eyebrow">Incluído</p><ul>{tour.ptIncluded.map((item)=><li>{item}</li>)}</ul></div><div><p class="eyebrow">Não incluído</p><ul>{detail.ptNotIncluded.map((item)=><li>{item}</li>)}</ul></div><div><p class="eyebrow">O que levar</p><ul>{tour.ptBring.map((item)=><li>{item}</li>)}</ul></div></div><div class="practical-bottom"><div class="know-panel"><p class="eyebrow">Bom saber</p><ul>{detail.ptGoodToKnow.map((item)=><li>{item}</li>)}</ul></div><div class="book-panel"><p class="eyebrow light">Próximo passo</p><h2>Conte três coisas ao Antonio.</h2><p>Suas datas, o número de viajantes e o que mais interessa ao grupo. Antonio ajudará a definir o roteiro certo para a estação e para vocês.</p><ol class="booking-prompts"><li><b>01</b> Datas</li><li><b>02</b> Tamanho do grupo</li><li><b>03</b> Interesses</li></ol><a class="button pale" href={`https://wa.me/5592994587173?text=${message}`} target="_blank" rel="noreferrer">Consultar pelo WhatsApp</a><a href="mailto:atnguide@hotmail.com" class="email-link">ou envie um e-mail</a></div></div></div></section>
 </BaseLayout>

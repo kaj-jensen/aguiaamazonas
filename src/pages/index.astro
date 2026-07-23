@@ -1,9 +1,23 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ExperienceCatalogue from '../components/ExperienceCatalogue.astro';
+import { tours } from '../data/tours';
 const heroImage = '/images/amazon-river-hero.png';
+const tourListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Amazon rainforest tours from Manaus',
+  numberOfItems: tours.length,
+  itemListElement: tours.map((tour, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: tour.name,
+    url: new URL(`/experiences/${tour.slug}/`, Astro.site).href,
+  })),
+};
 ---
-<BaseLayout title="Águia Amazonas" description="Private and small-group Amazon rainforest journeys from Manaus with Antonio, your guide, working closely with the local community." image={heroImage}>
+<BaseLayout title="Amazon Rainforest Tours from Manaus" description="Private and small-group Amazon rainforest journeys from Manaus with Antonio, your guide, working closely with the local community." image={heroImage} imageAlt="Amazon river and rainforest at golden hour" alternateEn="/" alternatePt="/pt/">
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(tourListSchema)}></script>
   <section class="hero" style={`--hero:url('${heroImage}')`}>
     <div class="hero-shade"></div>
     <div class="hero-content">

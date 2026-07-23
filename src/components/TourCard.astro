@@ -7,7 +7,7 @@ const href = isPt ? `/pt/experiencias/${tour.ptSlug}/` : `/experiences/${tour.sl
 ---
 <article class="tour-card" style={`--accent:${tour.accent}`}>
   <a href={href} class="tour-image" aria-label={isPt ? tour.ptName : tour.name}>
-    <img src={tour.image} alt={isPt ? tour.ptName : tour.name} loading="lazy" />
+    <img src={tour.image} alt={isPt ? tour.ptImageAlt : tour.imageAlt} loading="lazy" />
     <span>{isPt ? tour.ptDuration : tour.duration}</span>
   </a>
   <div class="tour-copy">

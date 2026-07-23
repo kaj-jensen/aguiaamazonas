@@ -7,9 +7,46 @@ interface Props { tour: Tour }
 const { tour } = Astro.props;
 const detail = getTourDetail(tour.slug);
 const message = encodeURIComponent(`Olá Antonio, tenho interesse em ${tour.ptName}. Pode me ajudar a planejar esta viagem?`);
+const englishPath = `/experiences/${tour.slug}/`;
+const portuguesePath = `/pt/experiencias/${tour.ptSlug}/`;
+const pageUrl = new URL(portuguesePath, Astro.site).href;
+const tourSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'TouristTrip',
+      '@id': `${pageUrl}#tour`,
+      name: tour.ptName,
+      description: tour.ptSeoDescription,
+      url: pageUrl,
+      inLanguage: 'pt-BR',
+      image: [tour.image, ...(tour.gallery ?? []).map((image) => image.src)].map((image) => new URL(image, Astro.site).href),
+      touristType: tour.kind === 'day' ? 'Passeio de um dia' : tour.kind === 'lodge' ? 'Estadia em pousada na floresta' : tour.kind === 'cruise' ? 'Cruzeiro fluvial na Amazônia' : 'Expedição de aventura',
+      provider: { '@id': new URL('/#travel-agency', Astro.site).href },
+      itinerary: {
+        '@type': 'ItemList',
+        itemListElement: tour.ptItinerary.map((item, index) => ({
+          '@type': 'ListItem',
+          position: index + 1,
+          name: item.label,
+          description: item.text,
+        })),
+      },
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Águia Amazonas', item: new URL('/pt/', Astro.site).href },
+        { '@type': 'ListItem', position: 2, name: 'Experiências na Amazônia', item: new URL('/pt/#experiencias', Astro.site).href },
+        { '@type': 'ListItem', position: 3, name: tour.ptName, item: pageUrl },
+      ],
+    },
+  ],
+};
 ---
-<BaseLayout title={tour.ptName} description={tour.ptSummary} image={tour.image} lang="pt-BR">
-  <section class="tour-hero" style={`--accent:${tour.accent}`}><div class="tour-hero-image"><img src={tour.image} alt={tour.ptName}/><div class="image-index">AMZ / {String(tours.indexOf(tour)+1).padStart(2,'0')}</div></div><div class="tour-hero-copy"><p class="eyebrow">{tour.ptEyebrow}</p><h1>{tour.ptName}</h1><p>{tour.ptSummary}</p><div class="tour-facts"><div><span>Duração</span><b>{tour.ptDuration}</b></div><div><span>Estilo</span><b>{tour.ptGroup}</b></div></div><a class="button primary" href={`https://wa.me/5592994587173?text=${message}`} target="_blank" rel="noreferrer">Planejar esta jornada</a></div></section>
+<BaseLayout title={tour.ptName} description={tour.ptSeoDescription} image={tour.image} imageAlt={tour.ptImageAlt} lang="pt-BR" alternateEn={englishPath} alternatePt={portuguesePath}>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(tourSchema)}></script>
+  <section class="tour-hero" style={`--accent:${tour.accent}`}><div class="tour-hero-image"><img src={tour.image} alt={tour.ptImageAlt}/><div class="image-index">AMZ / {String(tours.indexOf(tour)+1).padStart(2,'0')}</div></div><div class="tour-hero-copy"><p class="eyebrow">{tour.ptEyebrow}</p><h1>{tour.ptName}</h1><p>{tour.ptSummary}</p><div class="tour-facts"><div><span>Duração</span><b>{tour.ptDuration}</b></div><div><span>Estilo</span><b>{tour.ptGroup}</b></div></div><a class="button primary" href={`https://wa.me/5592994587173?text=${message}`} target="_blank" rel="noreferrer">Planejar esta jornada</a></div></section>
   <section class="tour-introduction wrap"><div class="tour-introduction-copy"><p class="eyebrow">A experiência completa</p><h2>Como esta viagem<br/>realmente acontece.</h2>{detail.ptIntroduction.map((paragraph) => <p>{paragraph}</p>)}</div><aside class="tour-fact-panel"><p class="eyebrow light">Visão geral</p>{detail.facts.map((fact) => <div><span>{fact.ptLabel}</span><b>{fact.ptValue}</b></div>)}</aside></section>
   <section class="tour-body wrap"><aside><p class="eyebrow">Momentos marcantes</p><ul>{tour.ptHighlights.map((item)=><li>{item}</li>)}</ul></aside><div class="itinerary"><p class="eyebrow">A experiência</p><h2>Uma jornada guiada<br/>pela floresta viva.</h2>{tour.ptItinerary.map((item)=><div class="itinerary-row"><b>{item.label}</b><p>{item.text}</p></div>)}</div></section>
   {tour.gallery && <section class="tour-gallery-section">

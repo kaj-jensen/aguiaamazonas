@@ -4,6 +4,8 @@ export type Tour = {
   kind: 'day' | 'lodge' | 'cruise' | 'wild';
   name: string;
   ptName: string;
+  seoTitle: string;
+  ptSeoTitle: string;
   eyebrow: string;
   ptEyebrow: string;
   duration: string;
@@ -40,6 +42,8 @@ export const tours: Tour[] = [
     kind: 'day',
     name: 'Full Day Amazon Experience',
     ptName: 'Um dia de aventura na Amazônia',
+    seoTitle: 'Full-Day Amazon Rainforest Tour from Manaus',
+    ptSeoTitle: 'Passeio de um dia na Amazônia saindo de Manaus',
     eyebrow: 'Day expedition',
     ptEyebrow: 'Expedição de um dia',
     duration: '1 full day',
@@ -89,6 +93,8 @@ export const tours: Tour[] = [
     kind: 'lodge',
     name: 'Jardim Maravilha Escape',
     ptName: 'Experiência no Sítio Jardim Maravilha',
+    seoTitle: '2-Day Amazon Jungle Lodge Tour from Manaus',
+    ptSeoTitle: 'Passeio de 2 dias em pousada na Amazônia saindo de Manaus',
     eyebrow: 'Jungle lodge',
     ptEyebrow: 'Pousada na floresta',
     duration: '2 days / 1 night',
@@ -130,6 +136,8 @@ export const tours: Tour[] = [
     kind: 'lodge',
     name: 'Jardim Maravilha Discovery',
     ptName: 'Descoberta do Sítio Jardim Maravilha',
+    seoTitle: '3-Day Amazon Jungle Lodge Tour from Manaus',
+    ptSeoTitle: 'Passeio de 3 dias em pousada na Amazônia saindo de Manaus',
     eyebrow: 'Jungle lodge',
     ptEyebrow: 'Pousada na floresta',
     duration: '3 days / 2 nights',
@@ -173,6 +181,8 @@ export const tours: Tour[] = [
     kind: 'lodge',
     name: 'Jardim Maravilha Deep Amazon Adventure',
     ptName: 'Aventura Amazônica no Jardim Maravilha',
+    seoTitle: '4-Day Amazon Jungle Tour and Lodge from Manaus',
+    ptSeoTitle: 'Passeio de 4 dias na Amazônia com pousada saindo de Manaus',
     eyebrow: 'Jungle lodge',
     ptEyebrow: 'Pousada na floresta',
     duration: '4 days / 3 nights',
@@ -218,6 +228,8 @@ export const tours: Tour[] = [
     kind: 'cruise',
     name: 'Rio Negro Explorer Cruise',
     ptName: 'Cruzeiro explorador pelo Rio Negro',
+    seoTitle: '3-Day Amazon River Cruise from Manaus',
+    ptSeoTitle: 'Cruzeiro de 3 dias na Amazônia saindo de Manaus',
     eyebrow: 'River expedition',
     ptEyebrow: 'Expedição fluvial',
     duration: '3 days / 2 nights',
@@ -261,6 +273,8 @@ export const tours: Tour[] = [
     kind: 'cruise',
     name: 'Anavilhanas Expedition Cruise',
     ptName: 'Cruzeiro de expedição em Anavilhanas',
+    seoTitle: '4-Day Amazon River Cruise from Manaus',
+    ptSeoTitle: 'Cruzeiro de 4 dias na Amazônia saindo de Manaus',
     eyebrow: 'River expedition',
     ptEyebrow: 'Expedição fluvial',
     duration: '4 days / 3 nights',
@@ -306,6 +320,8 @@ export const tours: Tour[] = [
     kind: 'wild',
     name: 'Amazon Survival Experience',
     ptName: 'Experiência de sobrevivência na Amazônia',
+    seoTitle: 'Amazon Jungle Survival Tour from Manaus',
+    ptSeoTitle: 'Expedição de sobrevivência na Amazônia saindo de Manaus',
     eyebrow: 'True wilderness',
     ptEyebrow: 'Floresta profunda',
     duration: 'Tailored expedition',
@@ -357,6 +373,8 @@ export const tours: Tour[] = [
     kind: 'wild',
     name: 'Jaú National Park Safari',
     ptName: 'Safari no Parque Nacional do Jaú',
+    seoTitle: 'Private Amazon Safari from Manaus to Jaú National Park',
+    ptSeoTitle: 'Safari privativo na Amazônia de Manaus ao Parque Nacional do Jaú',
     eyebrow: 'Remote expedition',
     ptEyebrow: 'Expedição remota',
     duration: '6–8 days',

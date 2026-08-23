@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PlanningArticle from '../../../components/PlanningArticle.astro';
+import { planningGuides, type PlanningGuide } from '../../../data/planningGuides';
+
+export function getStaticPaths() { return planningGuides.map((guide) => ({ params: { slug: guide.ptSlug }, props: { guide } })); }
+interface Props { guide: PlanningGuide }
+const { guide } = Astro.props;
+const englishPath = `/guide/${guide.slug}/`;
+const portuguesePath = `/pt/guia/${guide.ptSlug}/`;
+const pageUrl = new URL(portuguesePath, Astro.site).href;
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    { '@type': 'Article', headline: guide.ptTitle, description: guide.ptDescription, url: pageUrl, inLanguage: 'pt-BR', author: { '@type': 'Person', name: 'Antonio', jobTitle: 'Guia regional de turismo credenciado no Amazonas' }, publisher: { '@id': new URL('/#travel-agency', Astro.site).href }, mainEntityOfPage: pageUrl },
+    { '@type': 'BreadcrumbList', itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Águia Amazonas', item: new URL('/pt/', Astro.site).href },
+      { '@type': 'ListItem', position: 2, name: 'Guia de viagem da Amazônia', item: new URL('/pt/guia-de-viagem-amazonia-brasileira/', Astro.site).href },
+      { '@type': 'ListItem', position: 3, name: guide.ptTitle, item: pageUrl },
+    ] },
+  ],
+};
+---
+<BaseLayout title={guide.ptTitle} description={guide.ptDescription} lang="pt-BR" alternateEn={englishPath} alternatePt={portuguesePath}>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)}></script>
+  <PlanningArticle guide={guide} lang="pt-BR" />
+</BaseLayout>

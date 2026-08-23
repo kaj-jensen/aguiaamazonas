@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ExperienceCatalogue from '../components/ExperienceCatalogue.astro';
 import BookingExpectations from '../components/BookingExpectations.astro';
+import InstagramShowcase from '../components/InstagramShowcase.astro';
 import { tours } from '../data/tours';
 const heroImage = '/images/amazon-river-hero.webp';
 const heroImageMobile = '/images/amazon-river-hero-960.webp';
@@ -45,6 +46,7 @@ const tourListSchema = {
 
   <ExperienceCatalogue />
   <BookingExpectations />
+  <InstagramShowcase />
 
   <section class="guide-promo">
     <img src="/images/home/travel-guide-flooded-forest.webp" alt="View from a canoe entering the seasonally flooded Amazon forest" loading="lazy" />
@@ -52,7 +54,7 @@ const tourListSchema = {
   </section>
 
   <section class="antonio-band">
-    <div class="antonio-portrait"><img src="/images/people/antonio.webp" alt="Antonio, founder of Águia Amazonas" /><span>ANTONIO</span></div>
+    <div class="antonio-portrait antonio-guide-card"><img src="/images/people/antonio-guide-card-improved.png" width="1000" height="1573" alt="Antonio’s official Cadastur tourism guide card" loading="lazy" decoding="async" /><span>ANTONIO · LICENSED TOURISM GUIDE</span></div>
     <div class="antonio-copy"><p class="eyebrow light">Your host in the Amazon</p><blockquote>“This is my home and my life’s work. I want you to experience it with respect, curiosity and wonder.”</blockquote><p>Antonio · Founder and expedition guide</p><a class="text-link" href="/about/">Meet the people behind the journey →</a></div>
   </section>
 

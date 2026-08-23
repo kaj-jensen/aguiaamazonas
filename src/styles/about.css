@@ -1,3 +1,87 @@
+ .credential-section {
+  display: grid;
+  grid-template-columns: minmax(0, .78fr) minmax(440px, 1.22fr);
+  gap: clamp(42px, 7vw, 92px);
+  align-items: center;
+  padding-block: 18px 92px;
+ }
+
+ .credential-copy h2 {
+  margin: 0 0 24px;
+  font-family: var(--display);
+  font-size: clamp(40px, 4.7vw, 66px);
+  line-height: 1.02;
+  letter-spacing: -.04em;
+ }
+
+ .story-image.story-guide-card {
+  padding: 34px 24px 72px;
+ }
+
+ .story-image.story-guide-card img {
+  width: min(70%, 300px);
+  height: auto;
+  border-radius: 16px;
+  object-fit: contain;
+ }
+
+ .credential-copy > p:not(.eyebrow) {
+  color: #596760;
+  font-size: 18px;
+ }
+
+ .credential-copy dl {
+  margin: 30px 0 0;
+  border-top: 1px solid #cbc8bd;
+ }
+
+ .credential-copy dl div {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 20px;
+  padding: 13px 0;
+  border-bottom: 1px solid #cbc8bd;
+ }
+
+ .credential-copy dt {
+  color: #6a756f;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+ }
+
+ .credential-copy dd {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+ }
+
+ .credential-image {
+  width: min(100%, 440px);
+  justify-self: center;
+  margin: 0;
+  padding: 13px;
+  background: #fff;
+  box-shadow: 0 24px 65px rgba(7, 28, 22, .15);
+  transform: rotate(.7deg);
+ }
+
+ .credential-image img {
+  width: 100%;
+  height: auto;
+ }
+
+ .credential-image figcaption {
+  padding: 11px 6px 2px;
+  color: #67736d;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .13em;
+  text-align: center;
+  text-transform: uppercase;
+ }
+
 @media (max-width: 900px) {
   .page-hero {
     grid-template-columns: 1fr;
@@ -25,7 +109,33 @@
     height: 240px;
   }
 
+  .story-image.story-guide-card {
+    padding: 34px 20px 72px;
+  }
+
+  .story-image.story-guide-card img {
+    width: min(72%, 310px);
+    height: auto;
+  }
+
   .story-copy {
     padding: 42px 26px 46px;
+  }
+
+  .credential-section {
+    grid-template-columns: 1fr;
+    gap: 34px;
+    padding-block: 4px 64px;
+  }
+
+  .credential-image {
+    transform: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .credential-copy dl div {
+    grid-template-columns: 1fr;
+    gap: 3px;
   }
 }

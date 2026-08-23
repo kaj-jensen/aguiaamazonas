@@ -470,16 +470,20 @@ const paceBand = (slug: string) => {
       <div class="rating-row">
         <strong class="rating-score">4.9</strong>
         <span class="rating-dots" aria-label={isPt ? 'Avaliação excelente no Tripadvisor' : 'Excellent Tripadvisor rating'}>● ● ● ● ●</span>
-        <b>{isPt ? 'com base em 156 avaliações' : 'based on 156 traveller reviews'}</b>
+        <b>{isPt ? 'com base em 158 avaliações' : 'based on 158 traveller reviews'}</b>
       </div>
     </div>
     <a class="button trip-button" href="https://www.tripadvisor.com/Attraction_Review-g303235-d7940404-Reviews-Aguia_Amazonas_Turismo_Day_Tours-Manaus_Amazon_River_State_of_Amazonas.html" target="_blank" rel="noreferrer">{isPt ? 'Ler todas as avaliações' : 'Read all reviews'} ↗</a>
   </div>
   <div class="review-grid">
-    <article><span>“</span><p>{isPt ? 'Antonio nos deixou confortáveis e seguros desde o início. Uma experiência inesquecível para toda a família.' : 'Antonio made us feel comfortable and safe from the start. An unforgettable experience for our whole family.'}</p><footer><b>Maren R</b><small>Tripadvisor · May 2026</small></footer></article>
-    <article><span>“</span><p>{isPt ? 'Uma experiência única e muito autêntica na Amazônia, com atividades bem planejadas e acolhimento caloroso.' : 'A unique and truly authentic Amazon experience, with thoughtful daily activities and a wonderfully warm welcome.'}</p><footer><b>Roam37002819858</b><small>Tripadvisor · March 2026</small></footer></article>
-    <article><span>“</span><p>{isPt ? 'Seis dias incríveis com Antonio na selva. Recomendo absolutamente.' : 'Six amazing days with Antonio in the jungle. Absolutely, highly recommended.'}</p><footer><b>Henry N</b><small>Tripadvisor · May 2026</small></footer></article>
+    <a class="review-card" href="https://www.tripadvisor.com/Attraction_Review-g303235-d7940404-Reviews-Aguia_Amazonas_Turismo_Day_Tours-Manaus_Amazon_River_State_of_Amazonas.html" target="_blank" rel="noreferrer" aria-label={isPt ? 'Ler a avaliação de Leonard L no Tripadvisor' : 'Read Leonard L’s review on Tripadvisor'}><span>“</span><p>{isPt ? 'Antonio é um guia fantástico: muito experiente, acolhedor e uma ótima companhia. As caminhadas, o acampamento e a comida de sua esposa tornaram a viagem inesquecível.' : 'Antonio is a fantastic guide—knowledgeable, warm and wonderful company. The hiking, camping and his wife’s delicious cooking made this an unforgettable trip.'}</p><footer><b>Leonard L</b><small>Tripadvisor · June 2026</small></footer></a>
+    <a class="review-card" href="https://www.tripadvisor.com/Attraction_Review-g303235-d7940404-Reviews-Aguia_Amazonas_Turismo_Day_Tours-Manaus_Amazon_River_State_of_Amazonas.html" target="_blank" rel="noreferrer" aria-label={isPt ? 'Ler a avaliação de Oliver no Tripadvisor' : 'Read Oliver’s review on Tripadvisor'}><span>“</span><p>{isPt ? 'Três dias inesquecíveis na Amazônia. O roteiro superou todas as expectativas, e a noite em redes no acampamento da floresta foi o ponto alto.' : 'Three unforgettable days in the Amazon. The varied itinerary exceeded every expectation, and the hammock night at the jungle camp was the absolute highlight.'}</p><footer><b>Oliver</b><small>Tripadvisor · 2026</small></footer></a>
+    <a class="review-card" href="https://www.tripadvisor.com/Attraction_Review-g303235-d7940404-Reviews-Aguia_Amazonas_Turismo_Day_Tours-Manaus_Amazon_River_State_of_Amazonas.html" target="_blank" rel="noreferrer" aria-label={isPt ? 'Ler a avaliação de Maren R no Tripadvisor' : 'Read Maren R’s review on Tripadvisor'}><span>“</span><p>{isPt ? 'Antonio nos deixou confortáveis e seguros desde o início. Seu jeito calmo e tranquilo tornou a experiência inesquecível para toda a família.' : 'Antonio made us feel comfortable and safe from the start. His calm, peaceful personality made the experience unforgettable for our whole family.'}</p><footer><b>Maren R</b><small>Tripadvisor · May 2026</small></footer></a>
   </div>
+  <a class="reviews-cta" href="https://www.tripadvisor.com/Attraction_Review-g303235-d7940404-Reviews-Aguia_Amazonas_Turismo_Day_Tours-Manaus_Amazon_River_State_of_Amazonas.html" target="_blank" rel="noreferrer">
+    <span><small>Tripadvisor</small><strong>{isPt ? 'Leia todas as avaliações dos viajantes' : 'Read all traveller reviews'}</strong></span>
+    <b aria-hidden="true">↗</b>
+  </a>
   <div class="review-action">
     <img
       src="/images/reviews/tripadvisor-review-qr.webp"

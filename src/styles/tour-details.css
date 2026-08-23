@@ -66,6 +66,20 @@
   border-top: 1px solid #c9c7bd;
 }
 
+.guide-language-proof {
+  margin: 18px 0 0 !important;
+  padding: 12px 15px;
+  border-left: 3px solid var(--accent, var(--sun));
+  background: rgba(255, 255, 255, .5);
+  color: #405049 !important;
+  font-size: 13px !important;
+  line-height: 1.45 !important;
+}
+
+.guide-language-proof strong {
+  color: var(--ink);
+}
+
 .tour-booking-proof > * {
   min-width: 0;
   padding: 15px 15px 0 0;
@@ -186,6 +200,28 @@
   color: var(--sun);
   font-size: 10px;
   letter-spacing: .12em;
+}
+
+.tour-planning-links {
+  padding-block: 64px;
+}
+
+.tour-planning-links > a {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 17px 0;
+  border-top: 1px solid #cbc9c0;
+  font-family: var(--display);
+  font-size: clamp(20px, 2.5vw, 29px);
+}
+
+.tour-planning-links > a:last-child {
+  border-bottom: 1px solid #cbc9c0;
+}
+
+.tour-planning-links > a:hover {
+  color: var(--canopy);
 }
 
 @media (max-width: 900px) {

@@ -1,0 +1,60 @@
+---
+import type { PlanningGuide } from '../data/planningGuides';
+import { planningGuides } from '../data/planningGuides';
+import { tours } from '../data/tours';
+
+interface Props { guide: PlanningGuide; lang?: 'en' | 'pt-BR' }
+const { guide, lang = 'en' } = Astro.props;
+const isPt = lang === 'pt-BR';
+const sections = isPt ? guide.ptSections : guide.sections;
+const home = isPt ? '/pt/' : '/';
+const guideHub = isPt ? '/pt/guia-de-viagem-amazonia-brasileira/' : '/brazilian-amazon-travel-guide/';
+const relatedTours = guide.relatedTourSlugs.map((slug) => tours.find((tour) => tour.slug === slug)).filter(Boolean);
+const otherGuides = planningGuides.filter((item) => item.slug !== guide.slug).slice(0, 3);
+const message = encodeURIComponent(isPt
+  ? `Olá Antonio, gostaria de planejar um passeio na Amazônia.\n\nDatas:\nNúmero de viajantes:\nPrincipais interesses:`
+  : `Hello Antonio, I would like to plan an Amazon tour.\n\nTravel dates:\nNumber of travellers:\nMain interests:`);
+---
+
+<article class="planning-article">
+  <header class="planning-hero">
+    <div class="wrap">
+      <nav class="planning-breadcrumb" aria-label={isPt ? 'Navegação estrutural' : 'Breadcrumb'}><a href={home}>Águia Amazonas</a><span>→</span><a href={guideHub}>{isPt ? 'Guia da Amazônia' : 'Amazon travel guide'}</a></nav>
+      <p class="eyebrow light">{isPt ? guide.ptEyebrow : guide.eyebrow}</p>
+      <h1>{isPt ? guide.ptTitle : guide.title}</h1>
+      <p class="planning-lead">{isPt ? guide.ptLead : guide.lead}</p>
+      <div class="planning-byline"><span>{isPt ? 'Conhecimento local de' : 'Local expertise from'}</span><strong>Antonio · {isPt ? 'Guia credenciado no Amazonas desde 2003' : 'Licensed Amazonas guide since 2003'}</strong></div>
+    </div>
+  </header>
+
+  <div class="planning-layout wrap">
+    <div class="planning-content">
+      {sections.map((section, index) => <section>
+        <span class="planning-number">{String(index + 1).padStart(2, '0')}</span>
+        <h2>{section.heading}</h2>
+        {section.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+        {section.bullets && <ul>{section.bullets.map((item) => <li>{item}</li>)}</ul>}
+      </section>)}
+    </div>
+    <aside class="planning-aside">
+      <p class="eyebrow light">{isPt ? 'Converse com quem conhece' : 'Ask someone who knows'}</p>
+      <h2>{isPt ? 'Planeje diretamente com Antonio.' : 'Plan directly with Antonio.'}</h2>
+      <p>{isPt ? 'Compartilhe datas, grupo e interesses. Antonio sugere a rota adequada à estação e ao seu ritmo.' : 'Share your dates, group and interests. Antonio will suggest a route suited to the season and your pace.'}</p>
+      <a class="button pale" href={`https://wa.me/5592994587173?text=${message}`} target="_blank" rel="noreferrer">{isPt ? 'Perguntar no WhatsApp' : 'Ask on WhatsApp'}</a>
+    </aside>
+  </div>
+
+  <section class="planning-related">
+    <div class="wrap">
+      <div class="planning-heading"><p class="eyebrow">{isPt ? 'Experiências relacionadas' : 'Related journeys'}</p><h2>{isPt ? 'Transforme o planejamento em viagem.' : 'Turn the planning into a journey.'}</h2></div>
+      <div class="planning-card-grid">
+        {relatedTours.map((tour) => tour && <a href={isPt ? `/pt/experiencias/${tour.ptSlug}/` : `/experiences/${tour.slug}/`}><span>{isPt ? tour.ptDuration : tour.duration}</span><strong>{isPt ? tour.ptName : tour.name}</strong><small>{isPt ? 'Ver experiência →' : 'Explore journey →'}</small></a>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="planning-more wrap">
+    <p class="eyebrow">{isPt ? 'Continue planejando' : 'Continue planning'}</p>
+    <div>{otherGuides.map((item) => <a href={isPt ? `/pt/guia/${item.ptSlug}/` : `/guide/${item.slug}/`}>{isPt ? item.ptTitle : item.title}<span>→</span></a>)}</div>
+  </section>
+</article>

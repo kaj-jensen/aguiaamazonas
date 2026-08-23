@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { tours, type Tour } from '../../data/tours';
 import { getTourDetail } from '../../data/tourDetails';
+import { planningGuides } from '../../data/planningGuides';
 
 export function getStaticPaths() { return tours.map((tour) => ({ params: { slug: tour.slug }, props: { tour } })); }
 interface Props { tour: Tour }
@@ -54,12 +55,13 @@ const tourSchema = {
   ],
 };
 ---
-<BaseLayout title={tour.name} description={tour.seoDescription} image={tour.image} imageAlt={tour.imageAlt} alternateEn={englishPath} alternatePt={portuguesePath}>
+<BaseLayout title={tour.seoTitle} description={tour.seoDescription} image={tour.image} imageAlt={tour.imageAlt} alternateEn={englishPath} alternatePt={portuguesePath}>
   <script is:inline type="application/ld+json" set:html={JSON.stringify(tourSchema)}></script>
   <section class="tour-hero" style={`--accent:${tour.accent}`}>
     <div class="tour-hero-image"><img src={tour.image} srcset={imageSrcset} sizes="(max-width: 900px) 100vw, 50vw" width={tour.imageWidth} height={tour.imageHeight} alt={tour.imageAlt} fetchpriority="high" /><div class="image-index">AMZ / {String(tours.indexOf(tour)+1).padStart(2,'0')}</div></div>
     <div class="tour-hero-copy">
       <p class="eyebrow">{tour.eyebrow}</p><h1>{tour.name}</h1><p>{tour.summary}</p>
+      <p class="guide-language-proof"><strong>Led by Antonio</strong> · Licensed local Amazon guide · English &amp; Portuguese</p>
       <div class="tour-facts"><div><span>Duration</span><b>{tour.duration}</b></div><div><span>Style</span><b>{tour.group}</b></div></div>
       <a class="button primary" href={`https://wa.me/5592994587173?text=${message}`} target="_blank" rel="noreferrer">Check availability with Antonio</a>
       <div class="tour-booking-proof" aria-label="Why travellers book with Águia Amazonas">
@@ -84,4 +86,5 @@ const tourSchema = {
     </div>
   </section>}
   <section class="practical"><div class="wrap"><div class="practical-heading"><p class="eyebrow">Plan with confidence</p><h2>The useful details.</h2></div><div class="practical-list-grid"><div><p class="eyebrow">Included</p><ul>{tour.included.map((item)=><li>{item}</li>)}</ul></div><div><p class="eyebrow">Not included</p><ul>{detail.notIncluded.map((item)=><li>{item}</li>)}</ul></div><div><p class="eyebrow">What to bring</p><ul>{tour.bring.map((item)=><li>{item}</li>)}</ul></div></div><div class="practical-bottom"><div class="know-panel"><p class="eyebrow">Good to know</p><ul>{detail.goodToKnow.map((item)=><li>{item}</li>)}</ul></div><div class="book-panel"><p class="eyebrow light">Your next step</p><h2>Tell Antonio three things.</h2><p>Your dates, the number of travellers and what interests you most. Antonio will help shape the right route for the season and your group.</p><ol class="booking-prompts"><li><b>01</b> Travel dates</li><li><b>02</b> Group size</li><li><b>03</b> Interests</li></ol><a class="button pale" href={`https://wa.me/5592994587173?text=${message}`} target="_blank" rel="noreferrer">Check availability on WhatsApp</a><a href="mailto:atnguide@hotmail.com" class="email-link">or email Antonio</a></div></div></div></section>
+  <nav class="tour-planning-links wrap" aria-label="Amazon tour planning guides"><p class="eyebrow">Plan your Amazon visit</p>{planningGuides.map((guide) => <a href={`/guide/${guide.slug}/`}>{guide.title}<span>→</span></a>)}</nav>
 </BaseLayout>

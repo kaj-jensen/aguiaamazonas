@@ -32,16 +32,16 @@ export const tourDetails: Record<string, TourDetail> = {
   '2-day-amazon-experience-at-jardim-maravilha-guesthouse': {
     introduction: [
       'Jardim Maravilha is a simple, welcoming riverside guesthouse in the São José community on the Rio Preto da Eva, about 104 km from Manaus. It is suited to solo travellers, couples, families and small groups looking for a genuine forest stay rather than resort luxury.',
-      'The lodge has six air-conditioned chalets with private bathrooms and single or double beds. It also has 110V electricity, Wi-Fi and a restaurant, offering practical comfort while keeping the experience close to the river, forest and local community.',
+      'The lodge has six chalets with private bathrooms and single or double beds. It also has 110V electricity, Wi-Fi and a restaurant, offering practical comfort while keeping the experience close to the river, forest and local community.',
     ],
     ptIntroduction: [
       'O Jardim Maravilha é uma pousada simples e acolhedora à beira do Rio Preto da Eva, na comunidade de São José, a cerca de 104 km de Manaus. É indicada para viajantes individuais, casais, famílias e pequenos grupos que procuram uma vivência autêntica, não o luxo de um resort.',
-      'A pousada possui seis chalés climatizados com banheiro privativo e camas de solteiro ou casal. Também dispõe de energia 110V, Wi-Fi e restaurante, oferecendo conforto prático sem perder a proximidade com o rio, a floresta e a comunidade local.',
+      'A pousada possui seis chalés com banheiro privativo e camas de solteiro ou casal. Também dispõe de energia 110V, Wi-Fi e restaurante, oferecendo conforto prático sem perder a proximidade com o rio, a floresta e a comunidade local.',
     ],
     facts: [
       { label: 'Location', value: 'São José, Rio Preto da Eva', ptLabel: 'Localização', ptValue: 'São José, Rio Preto da Eva' },
       { label: 'From Manaus', value: 'About 104 km', ptLabel: 'Desde Manaus', ptValue: 'Cerca de 104 km' },
-      { label: 'Accommodation', value: 'Air-conditioned chalet with private bathroom', ptLabel: 'Hospedagem', ptValue: 'Chalé climatizado com banheiro privativo' },
+      { label: 'Accommodation', value: 'Chalet with private bathroom', ptLabel: 'Hospedagem', ptValue: 'Chalé com banheiro privativo' },
       { label: 'Facilities', value: '110V electricity, Wi-Fi, restaurant', ptLabel: 'Estrutura', ptValue: 'Energia 110V, Wi-Fi e restaurante' },
     ],
     notIncluded: ['Beer, caipirinhas and other alcoholic drinks', 'Optional gratuities', 'Personal purchases'],
@@ -52,14 +52,14 @@ export const tourDetails: Record<string, TourDetail> = {
   '3-days-2-nights-at-rio-preto-da-eva-lodge': {
     introduction: [
       'This three-day version allows the rhythm of the Rio Preto da Eva to unfold more naturally. Jardim Maravilha is a modest riverside lodge in the São José community, approximately 104 km from Manaus, with genuine local hospitality at the centre of the stay.',
-      'The lodge has six air-conditioned chalets with private bathrooms, plus 110V electricity, Wi-Fi and a restaurant. It becomes a comfortable base for sunrise outings, jungle walks, piranha fishing, caiman spotting and quiet canoe exploration.',
+      'The lodge has six chalets with private bathrooms, plus 110V electricity, Wi-Fi and a restaurant. It becomes a comfortable base for sunrise outings, jungle walks, piranha fishing, caiman spotting and quiet canoe exploration.',
     ],
     ptIntroduction: [
       'A versão de três dias permite acompanhar com mais calma o ritmo do Rio Preto da Eva. O Jardim Maravilha é uma pousada ribeirinha simples, na comunidade de São José, a aproximadamente 104 km de Manaus, onde a hospitalidade local faz parte da experiência.',
-      'A pousada possui seis chalés climatizados com banheiro privativo, além de energia 110V, Wi-Fi e restaurante. É uma base confortável para saídas ao amanhecer, caminhadas, pesca de piranhas, focagem de jacarés e exploração tranquila em canoas.',
+      'A pousada possui seis chalés com banheiro privativo, além de energia 110V, Wi-Fi e restaurante. É uma base confortável para saídas ao amanhecer, caminhadas, pesca de piranhas, focagem de jacarés e exploração tranquila em canoas.',
     ],
     facts: [
-      { label: 'Stay', value: '2 nights in an air-conditioned chalet', ptLabel: 'Pernoite', ptValue: '2 noites em chalé climatizado' },
+      { label: 'Stay', value: '2 nights in a chalet', ptLabel: 'Pernoite', ptValue: '2 noites em chalé' },
       { label: 'Meals', value: 'Breakfast, lunch and dinner', ptLabel: 'Refeições', ptValue: 'Café da manhã, almoço e jantar' },
       { label: 'Facilities', value: '110V electricity, Wi-Fi, restaurant', ptLabel: 'Estrutura', ptValue: 'Energia 110V, Wi-Fi e restaurante' },
       { label: 'Return', value: 'Late afternoon on Day 3', ptLabel: 'Retorno', ptValue: 'Fim da tarde no Dia 3' },
@@ -72,11 +72,11 @@ export const tourDetails: Record<string, TourDetail> = {
   '4-days-3-nights-at-jardim-maravilha-lodge': {
     introduction: [
       'Four days at Jardim Maravilha create space for both active exploration and the slower details of life beside the Rio Preto da Eva. The simple lodge sits in the São José community, around 104 km from Manaus, and welcomes individuals, families and small groups.',
-      'The lodge has six air-conditioned chalets with private bathrooms, plus 110V electricity, Wi-Fi and a restaurant. The longer programme adds a waterfall trek and the option to leave the lodge for a night in a hammock camp beneath the forest canopy.',
+      'The lodge has six chalets with private bathrooms, plus 110V electricity, Wi-Fi and a restaurant. The longer programme adds a waterfall trek and the option to leave the lodge for a night in a hammock camp beneath the forest canopy.',
     ],
     ptIntroduction: [
       'Quatro dias no Jardim Maravilha abrem espaço tanto para a exploração ativa quanto para os detalhes tranquilos da vida às margens do Rio Preto da Eva. A pousada simples fica na comunidade de São José, a cerca de 104 km de Manaus, e recebe viajantes individuais, famílias e pequenos grupos.',
-      'A pousada possui seis chalés climatizados com banheiro privativo, além de energia 110V, Wi-Fi e restaurante. O programa mais longo acrescenta uma caminhada até a cachoeira e a opção de sair da pousada para passar uma noite em redes sob a copa da floresta.',
+      'A pousada possui seis chalés com banheiro privativo, além de energia 110V, Wi-Fi e restaurante. O programa mais longo acrescenta uma caminhada até a cachoeira e a opção de sair da pousada para passar uma noite em redes sob a copa da floresta.',
     ],
     facts: [
       { label: 'Stay', value: 'Chalet plus optional hammock camp', ptLabel: 'Pernoite', ptValue: 'Chalé e acampamento opcional em redes' },
@@ -106,8 +106,8 @@ export const tourDetails: Record<string, TourDetail> = {
     ],
     notIncluded: ['Alcoholic and soft drinks', 'Guide and crew gratuities', 'Personal travel insurance'],
     ptNotIncluded: ['Bebidas alcoólicas e refrigerantes', 'Gorjetas para guia e tripulação', 'Seguro pessoal de viagem'],
-    goodToKnow: ['Original scheduled departures are the 10th and 20th of each month; confirm current availability with Antonio.', 'Giant water lilies and flooded forest are seasonal, generally strongest during higher water.', 'Facilities are practical and communal, in the style of a traditional Amazon regional boat.'],
-    ptGoodToKnow: ['As saídas tradicionais são nos dias 10 e 20 de cada mês; confirme a disponibilidade atual com Antonio.', 'Vitórias-régias e floresta alagada são sazonais, geralmente melhores na cheia.', 'A estrutura é prática e compartilhada, no estilo de um barco regional amazônico.'],
+    goodToKnow: ['Giant water lilies and flooded forest are seasonal, generally strongest during higher water.', 'Facilities are practical and communal, in the style of a traditional Amazon regional boat.'],
+    ptGoodToKnow: ['Vitórias-régias e floresta alagada são sazonais, geralmente melhores na cheia.', 'A estrutura é prática e compartilhada, no estilo de um barco regional amazônico.'],
   },
   'amazon-cruise-4-days-3-nights': {
     introduction: [

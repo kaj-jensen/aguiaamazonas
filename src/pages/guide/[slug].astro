@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PlanningArticle from '../../components/PlanningArticle.astro';
+import { planningGuides, type PlanningGuide } from '../../data/planningGuides';
+
+export function getStaticPaths() { return planningGuides.map((guide) => ({ params: { slug: guide.slug }, props: { guide } })); }
+interface Props { guide: PlanningGuide }
+const { guide } = Astro.props;
+const englishPath = `/guide/${guide.slug}/`;
+const portuguesePath = `/pt/guia/${guide.ptSlug}/`;
+const pageUrl = new URL(englishPath, Astro.site).href;
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    { '@type': 'Article', headline: guide.title, description: guide.description, url: pageUrl, inLanguage: 'en', author: { '@type': 'Person', name: 'Antonio', jobTitle: 'Licensed regional tourism guide in Amazonas' }, publisher: { '@id': new URL('/#travel-agency', Astro.site).href }, mainEntityOfPage: pageUrl },
+    { '@type': 'BreadcrumbList', itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Águia Amazonas', item: new URL('/', Astro.site).href },
+      { '@type': 'ListItem', position: 2, name: 'Brazilian Amazon travel guide', item: new URL('/brazilian-amazon-travel-guide/', Astro.site).href },
+      { '@type': 'ListItem', position: 3, name: guide.title, item: pageUrl },
+    ] },
+  ],
+};
+---
+<BaseLayout title={guide.title} description={guide.description} alternateEn={englishPath} alternatePt={portuguesePath}>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)}></script>
+  <PlanningArticle guide={guide} />
+</BaseLayout>

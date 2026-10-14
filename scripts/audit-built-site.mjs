@@ -36,7 +36,8 @@ if (!existsSync(dist)) {
   process.exit(1);
 }
 
-const htmlFiles = walk(dist).filter((file) => file.endsWith('.html'));
+// Partytown's same-origin sandbox is a runtime asset, not a content page.
+const htmlFiles = walk(dist).filter((file) => file.endsWith('.html') && relative(dist, file).replaceAll('\\', '/') !== '~partytown/partytown-sandbox-sw.html');
 
 for (const file of htmlFiles) {
   const html = readFileSync(file, 'utf8');

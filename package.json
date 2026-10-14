@@ -5,12 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro check && astro build && node scripts/audit-built-site.mjs",
+    "build": "astro check && astro build && node scripts/patch-partytown.mjs && node scripts/audit-built-site.mjs",
     "preview": "astro preview",
     "check": "astro check",
     "audit": "node scripts/audit-built-site.mjs"
   },
   "dependencies": {
+    "@astrojs/partytown": "2.1.8",
     "@astrojs/sitemap": "3.7.3",
     "astro": "7.2.8"
   },

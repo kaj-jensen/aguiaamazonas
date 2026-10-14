@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
+import partytown from '@astrojs/partytown';
 
 export default defineConfig({
   site: 'https://www.aguiaamazonas.com.br',
@@ -8,5 +9,5 @@ export default defineConfig({
   build: {
     inlineStylesheets: 'always',
   },
-  integrations: [sitemap()],
+  integrations: [sitemap(), partytown({ config: { forward: ['dataLayer.push'] } })],
 });

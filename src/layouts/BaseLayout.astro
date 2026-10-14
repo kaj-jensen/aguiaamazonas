@@ -54,7 +54,7 @@ const travelAgencySchema = {
     <meta name="description" content={description} />
     <meta name="robots" content={robots} />
     <meta name="theme-color" content="#071c16" />
-    {(Astro.url.pathname === '/' || Astro.url.pathname === '/pt/') && <link rel="preload" as="image" href="/images/amazon-river-hero-phone.avif" type="image/avif" media="(max-width: 560px)" fetchpriority="high" />}
+    {(Astro.url.pathname === '/' || Astro.url.pathname === '/pt/') && <link rel="preload" as="image" href="/images/amazon-river-hero-phone-v2.avif" type="image/avif" media="(max-width: 560px)" fetchpriority="high" />}
     <link rel="preload" href="/fonts/dm-sans-latin-400-700-v1.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/playfair-display-intro-600-italic-v1.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/playfair-display-intro-600-v1.woff2" as="font" type="font/woff2" crossorigin />
@@ -78,31 +78,12 @@ const travelAgencySchema = {
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={socialImage} />
     <meta name="twitter:image:alt" content={imageAlt ?? 'Amazon river and rainforest in Amazonas, Brazil'} />
-    <script is:inline>
+    <script is:inline type="text/partytown" src="https://www.googletagmanager.com/gtag/js?id=G-SKR93ZM6BV"></script>
+    <script is:inline type="text/partytown">
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-SKR93ZM6BV');
-      // Queue the page view immediately; load analytics after the page has painted.
-      function loadAnalytics() {
-        const script = document.createElement('script');
-        script.async = true;
-        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-SKR93ZM6BV';
-        document.head.appendChild(script);
-      }
-      window.addEventListener('load', async () => {
-        // An asynchronously decoded hero can still be waiting to paint at load.
-        // Finish critical images and give the browser a frame before analytics.
-        const criticalImages = [...document.images].filter(image => image.fetchPriority === 'high');
-        await Promise.all(criticalImages.map(image => image.decode().catch(() => {})));
-        window.requestAnimationFrame(() => window.requestAnimationFrame(() => {
-          if ('requestIdleCallback' in window) {
-            window.requestIdleCallback(loadAnalytics, { timeout: 2000 });
-          } else {
-            window.setTimeout(loadAnalytics, 0);
-          }
-        }));
-      }, { once: true });
     </script>
     <script is:inline type="application/ld+json" set:html={JSON.stringify(travelAgencySchema)}></script>
     <title>{pageTitle}</title>

@@ -18,3 +18,11 @@ Astro website for Cloudflare Pages, replacing the current WordPress/WooCommerce 
 pnpm install
 pnpm dev
 ```
+
+## Analytics and first-screen performance
+
+GA4 uses Astro's official Partytown integration, with the same `G-SKR93ZM6BV` measurement ID. The analytics script executes in a web worker so it does not block page rendering. GA4 `page_view` delivery must be checked after deployment; a loaded script alone is insufficient. Partytown's automatic page-exit `user_engagement` event is less reliable than the main-thread integration: https://partytown.qwik.dev/google-tag-manager/.
+
+The build excludes only Partytown's internal sandbox HTML from content metadata checks and filters the deprecated fenced-frame interfaces out of the runtime's browser API inventory. It still audits every content page. If the vendor runtime changes, the patch step fails for review.
+
+The CSP allows the same-origin analytics sandbox and its blob worker. Keep the domain's Cloudflare `Browser security headers` report-only policy aligned with `public/_headers`, excluding `upgrade-insecure-requests` because that directive is not valid in reporting mode. Bot Fight Mode was disabled with the owner's approval; DDoS protection, managed rules, and browser integrity checks remain enabled.

@@ -90,12 +90,18 @@ const travelAgencySchema = {
         script.src = 'https://www.googletagmanager.com/gtag/js?id=G-SKR93ZM6BV';
         document.head.appendChild(script);
       }
-      window.addEventListener('load', () => {
-        if ('requestIdleCallback' in window) {
-          window.requestIdleCallback(loadAnalytics, { timeout: 2000 });
-        } else {
-          window.setTimeout(loadAnalytics, 0);
-        }
+      window.addEventListener('load', async () => {
+        // An asynchronously decoded hero can still be waiting to paint at load.
+        // Finish critical images and give the browser a frame before analytics.
+        const criticalImages = [...document.images].filter(image => image.fetchPriority === 'high');
+        await Promise.all(criticalImages.map(image => image.decode().catch(() => {})));
+        window.requestAnimationFrame(() => window.requestAnimationFrame(() => {
+          if ('requestIdleCallback' in window) {
+            window.requestIdleCallback(loadAnalytics, { timeout: 2000 });
+          } else {
+            window.setTimeout(loadAnalytics, 0);
+          }
+        }));
       }, { once: true });
     </script>
     <script is:inline type="application/ld+json" set:html={JSON.stringify(travelAgencySchema)}></script>

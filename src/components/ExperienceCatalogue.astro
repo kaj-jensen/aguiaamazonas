@@ -101,13 +101,16 @@ const paceBand = (slug: string) => {
 
 
 
-<script is:inline>
-  document.querySelectorAll('[data-tour-finder]').forEach((form) => {
-    const section = form.closest('.tour-finder');
-    const items = [...section.querySelectorAll('.tour-filter-item')];
-    const count = section.querySelector('#tour-result-count');
-    const empty = section.querySelector('.finder-empty');
-    const query = form.querySelector('[name="query"]');
+<script>
+  document.querySelectorAll<HTMLFormElement>('[data-tour-finder]').forEach((form) => {
+    const section = form.closest<HTMLElement>('.tour-finder');
+    if (!section) return;
+    const items = [...section.querySelectorAll<HTMLElement>('.tour-filter-item')];
+    const count = section.querySelector<HTMLElement>('#tour-result-count');
+    const empty = section.querySelector<HTMLElement>('.finder-empty');
+    const query = form.querySelector<HTMLInputElement>('[name="query"]');
+    const reset = form.querySelector<HTMLButtonElement>('[data-reset]');
+    if (!query || !count || !empty || !reset) return;
     const selects = [...form.querySelectorAll('select')];
     const update = () => {
       const term = query.value.trim().toLocaleLowerCase();
@@ -115,7 +118,7 @@ const paceBand = (slug: string) => {
       let visible = 0;
       items.forEach((item) => {
         const matches =
-          (!term || item.dataset.search.includes(term)) &&
+          (!term || (item.dataset.search ?? '').includes(term)) &&
           (values.kind === 'all' || item.dataset.kind === values.kind) &&
           (values.duration === 'all' || item.dataset.duration === values.duration) &&
           (values.pace === 'all' || item.dataset.pace === values.pace);
@@ -126,7 +129,7 @@ const paceBand = (slug: string) => {
       empty.hidden = visible !== 0;
     };
     form.addEventListener('input', update);
-    form.querySelector('[data-reset]').addEventListener('click', () => {
+    reset.addEventListener('click', () => {
       query.value = '';
       selects.forEach((select) => select.value = 'all');
       update();

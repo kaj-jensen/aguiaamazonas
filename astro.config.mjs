@@ -9,5 +9,6 @@ export default defineConfig({
   build: {
     inlineStylesheets: 'always',
   },
+  vite: { build: { assetsInlineLimit: 0 } },
   integrations: [sitemap(), partytown({ config: { forward: ['dataLayer.push'] } })],
 });

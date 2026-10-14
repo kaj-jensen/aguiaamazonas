@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro check && astro build && node scripts/patch-partytown.mjs && node scripts/audit-built-site.mjs",
+    "build": "astro check && astro build && node scripts/defer-home-styles.mjs && node scripts/patch-partytown.mjs && node scripts/audit-built-site.mjs",
     "preview": "astro preview",
     "check": "astro check",
     "audit": "node scripts/audit-built-site.mjs"

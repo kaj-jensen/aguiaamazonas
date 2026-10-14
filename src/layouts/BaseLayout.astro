@@ -7,6 +7,7 @@ import globalStyles from '../styles/global.css?raw';
 import globalStylesUrl from '../styles/global.css?url';
 import catalogueStylesUrl from '../styles/catalogue.css?url';
 import { criticalStyles } from '../lib/criticalStyles';
+import { phoneHeroDataUrl } from '../lib/phoneHero';
 
 interface Props {
   title: string;
@@ -98,6 +99,7 @@ const travelAgencySchema = {
       gtag('config', 'G-SKR93ZM6BV');
     </script>
     <script is:inline type="application/ld+json" set:html={JSON.stringify(travelAgencySchema)}></script>
+    {Astro.url.pathname === '/pt/' && <link rel="preload" as="image" href={phoneHeroDataUrl} type="image/avif" media="(max-width: 560px)" fetchpriority="high" />}
     <title>{pageTitle}</title>
   </head>
   <body>

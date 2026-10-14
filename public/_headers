@@ -11,3 +11,6 @@ https://aguiaamazonas.pages.dev/*
 
 https://:version.aguiaamazonas.pages.dev/*
   X-Robots-Tag: noindex
+
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable

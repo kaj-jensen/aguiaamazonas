@@ -23,7 +23,7 @@ const tourListSchema = {
   <script is:inline type="application/ld+json" set:html={JSON.stringify(tourListSchema)}></script>
   <section class="hero">
     <picture class="hero-media" aria-hidden="true">
-      <source media="(max-width: 900px)" srcset={heroImageMobile} />
+      <source media="(max-width: 900px)" srcset="/images/amazon-river-hero-960.avif" type="image/avif" /><source media="(max-width: 900px)" srcset={heroImageMobile} />
       <img src={heroImage} alt="" width="1823" height="863" fetchpriority="high" decoding="async" />
     </picture>
     <div class="hero-shade"></div>

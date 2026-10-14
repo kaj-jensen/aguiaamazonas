@@ -2,6 +2,7 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import FloatingContact from '../components/FloatingContact.astro';
+import '../styles/fonts.css';
 import '../styles/global.css';
 import '../styles/tour-gallery.css';
 import '../styles/tour-details.css';
@@ -56,15 +57,10 @@ const travelAgencySchema = {
     <meta name="description" content={description} />
     <meta name="robots" content={robots} />
     <meta name="theme-color" content="#071c16" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap"
-      media="print"
-      onload="this.removeAttribute('media')"
-    />
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" /></noscript>
+    <link rel="preload" href="/fonts/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu0-K4.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/nuFRD-vYSZviVYUb_rj3ij__anPXDTnCjmHKM4nYO7KN_naUXtHA-Q.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/nuFvD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKebunDXbtM.woff2" as="font" type="font/woff2" crossorigin />
+    {(Astro.url.pathname === '/' || Astro.url.pathname === '/pt/') && <link rel="preload" as="image" href="/images/amazon-river-hero-960.avif" type="image/avif" media="(max-width: 900px)" fetchpriority="high" />}
     <link rel="canonical" href={canonical} />
     {alternateEn && <link rel="alternate" hreflang="en" href={new URL(alternateEn, Astro.site)} />}
     {alternatePt && <link rel="alternate" hreflang="pt-BR" href={new URL(alternatePt, Astro.site)} />}
@@ -85,12 +81,25 @@ const travelAgencySchema = {
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={socialImage} />
     <meta name="twitter:image:alt" content={imageAlt ?? 'Amazon river and rainforest in Amazonas, Brazil'} />
-    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-SKR93ZM6BV"></script>
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-SKR93ZM6BV');
+      // Queue the page view immediately; load analytics after the page has painted.
+      function loadAnalytics() {
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-SKR93ZM6BV';
+        document.head.appendChild(script);
+      }
+      window.addEventListener('load', () => {
+        if ('requestIdleCallback' in window) {
+          window.requestIdleCallback(loadAnalytics, { timeout: 2000 });
+        } else {
+          window.setTimeout(loadAnalytics, 0);
+        }
+      }, { once: true });
     </script>
     <script is:inline type="application/ld+json" set:html={JSON.stringify(travelAgencySchema)}></script>
     <title>{pageTitle}</title>

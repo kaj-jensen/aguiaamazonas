@@ -9,7 +9,7 @@ const imageSrcset = tour.imageSmall && tour.imageMedium
   : undefined;
 ---
 <article class="tour-card" style={`--accent:${tour.accent}`}>
-  <a href={href} class="tour-image" aria-label={isPt ? tour.ptName : tour.name}>
+  <a href={href} class="tour-image" aria-label={`${isPt ? tour.ptName : tour.name} — ${isPt ? tour.ptDuration : tour.duration}`}>
     <img
       src={tour.image}
       srcset={imageSrcset}

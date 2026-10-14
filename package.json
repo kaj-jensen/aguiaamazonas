@@ -17,6 +17,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "0.9.6",
+    "postcss": "8.5.29",
     "typescript": "5.9.3"
   }
 }

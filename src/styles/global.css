@@ -23,3 +23,6 @@
 @media(max-width:900px){.antonio-certificate{padding:35px 20px 70px;min-height:0}.antonio-certificate img{width:100%}}
 .antonio-guide-card{padding:42px 30px 72px}.antonio-guide-card img{width:min(72%,360px);height:auto;border-radius:18px;object-fit:contain;border:6px solid rgba(255,255,255,.92);box-shadow:0 25px 70px rgba(0,0,0,.4)}
 @media(max-width:900px){.antonio-guide-card{padding:36px 20px 72px;min-height:0}.antonio-guide-card img{width:min(78%,390px)}}
+
+/* The first screen uses the same display font with only its required glyphs. */
+.brand strong,.hero h1,.hero-note span{font-family:'Playfair Display Intro',var(--display)}

@@ -1,0 +1,23 @@
+---
+interface Props { lang?: 'en' | 'pt-BR' }
+const { lang = 'en' } = Astro.props;
+const isPt = lang === 'pt-BR';
+const reviewUrl = 'https://www.tripadvisor.com/Attraction_Review-g303235-d7940404-Reviews-Aguia_Amazonas_Turismo_Day_Tours-Manaus_Amazon_River_State_of_Amazonas.html';
+---
+<aside class="trust-banner wrap" aria-label={isPt ? 'Avaliação dos viajantes no Tripadvisor' : 'Traveller rating on Tripadvisor'}>
+  <a href={reviewUrl} target="_blank" rel="noopener noreferrer">
+    <div class="trust-brand"><span class="trust-bubbles" aria-hidden="true">●●●●●</span><b>Tripadvisor</b></div>
+    <div class="trust-score"><strong>{isPt ? '4,9' : '4.9'}<small> / 5</small></strong><span>{isPt ? 'Excelente' : 'Excellent'}</span></div>
+    <p>{isPt ? '165 avaliações de viajantes' : '165 traveller reviews'}</p>
+    <span class="trust-link">{isPt ? 'Leia as avaliações' : 'Read our reviews'} <span aria-hidden="true">↗</span></span>
+  </a>
+</aside>
+<style>
+  .trust-banner{position:relative;z-index:1;margin-top:-24px;background:var(--paper);border:1px solid #cddbd0;border-left:4px solid #16865c;box-shadow:0 8px 24px #071c160b}
+  .trust-banner a{display:flex;align-items:center;justify-content:center;gap:30px;min-height:84px;padding:16px 28px;color:var(--ink);text-decoration:none}
+  .trust-brand{display:flex;flex-direction:column;gap:2px;line-height:1.2}.trust-brand b{font-size:15px;letter-spacing:-.025em}.trust-bubbles{color:#087c56;letter-spacing:3px;font-size:18px;white-space:nowrap}
+  .trust-score{display:flex;align-items:center;gap:12px;padding-left:30px;border-left:1px solid #d6ded6}.trust-score strong{font-size:30px;line-height:1;font-weight:700;white-space:nowrap}.trust-score small{font-size:15px;font-weight:400;color:#526059}.trust-score>span{font-size:14px;font-weight:700}
+  .trust-banner p{margin:0;color:#526059;font-size:14px}.trust-link{color:#087c56;font-size:13px;font-weight:700;white-space:nowrap}.trust-link>span{margin-left:6px}.trust-banner a:hover .trust-link{text-decoration:underline;text-underline-offset:4px}.trust-banner a:focus-visible{outline:3px solid #087c56;outline-offset:4px}
+  @media(max-width:900px){.trust-banner a{gap:18px;padding:15px 18px;flex-wrap:wrap}.trust-score{padding-left:18px}.trust-banner p{font-size:13px}}
+  @media(max-width:560px){.trust-banner{margin-top:-18px}.trust-banner a{display:grid;grid-template-columns:1fr auto;gap:10px 14px;padding:16px}.trust-brand b{font-size:14px}.trust-score{padding-left:14px;gap:7px;flex-direction:column;align-items:flex-start}.trust-score strong{font-size:27px}.trust-score>span{font-size:12px}.trust-banner p{font-size:12px}.trust-link{font-size:12px;text-align:right}}
+</style>

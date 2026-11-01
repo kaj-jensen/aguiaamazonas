@@ -1,0 +1,34 @@
+---
+interface Props { lang?: 'en' | 'pt-BR' }
+const { lang = 'en' } = Astro.props;
+const pt = lang === 'pt-BR';
+---
+<aside class="analytics-consent" data-analytics-panel hidden aria-label={pt ? 'Preferências de cookies' : 'Cookie preferences'}>
+  <p>{pt ? 'Usamos cookies opcionais do Google Analytics para entender as visitas. Você pode recusar e usar todo o site.' : 'We use optional Google Analytics cookies to understand visits. You can decline and use the whole website.'}</p>
+  <div>
+    <button type="button" data-analytics-choice="denied">{pt ? 'Recusar' : 'Decline'}</button>
+    <button type="button" data-analytics-choice="granted">{pt ? 'Permitir análise' : 'Allow analytics'}</button>
+  </div>
+</aside>
+<template data-analytics-scripts>
+  <script is:inline type="text/partytown" src="https://www.googletagmanager.com/gtag/js?id=G-SKR93ZM6BV"></script>
+  <script is:inline type="text/partytown">
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {analytics_storage: 'granted', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied'});
+    gtag('js', new Date());
+    gtag('config', 'G-SKR93ZM6BV', {allow_google_signals: false, allow_ad_personalization_signals: false, cookie_flags: 'SameSite=Lax;Secure'});
+  </script>
+</template>
+<script is:inline src="/analytics-consent.js" defer></script>
+<style is:global>
+  .analytics-consent[hidden] { display: none !important; }
+  .analytics-consent { position: fixed; z-index: 1000; bottom: 12px; left: 12px; right: 12px; margin: auto; max-width: 700px; padding: 16px 20px; background: #fbfaf6; color: #071c16; border: 1px solid #0b3b2e; border-radius: 10px; box-shadow: 0 4px 24px #071c1626; font: 14px/1.5 Arial, sans-serif; }
+  .analytics-consent p { margin: 0 0 12px; }
+  .analytics-consent > div { display: flex; gap: 12px; flex-wrap: wrap; }
+  .analytics-consent button { flex: 1; min-height: 44px; padding: 8px 16px; border: 1px solid #0b3b2e; border-radius: 5px; background: #fbfaf6; color: #071c16; font: inherit; font-weight: 600; cursor: pointer; }
+  .analytics-consent button:hover { background: #e7ede7; }
+  .analytics-consent button:focus-visible, [data-analytics-preferences]:focus-visible { outline: 3px solid #2e9eb3; outline-offset: 3px; }
+  [data-analytics-preferences] { background: transparent; border: 0; color: inherit; font: inherit; text-decoration: underline; cursor: pointer; padding: 8px 0; min-height: 44px; }
+  body:has([data-analytics-panel]:not([hidden])) .floating-contact { visibility: hidden; }
+</style>

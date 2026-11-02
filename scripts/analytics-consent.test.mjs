@@ -84,6 +84,6 @@ test('rejection returns keyboard focus and preference changes in another tab rel
   b.events.preferences();
   b.events.denied();
   assert.equal(b.focused(), true);
-  b.events.storage({ key: 'analytics-consent-v1' });
+  b.events.storage({ key: 'analytics-consent-v2' });
   assert.equal(b.reloads(), 1);
 });

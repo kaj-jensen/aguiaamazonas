@@ -1,10 +1,13 @@
 ---
+import ClarityAnalytics from "./ClarityAnalytics.astro";
 interface Props { lang?: 'en' | 'pt-BR' }
 const { lang = 'en' } = Astro.props;
 const pt = lang === 'pt-BR';
 ---
 <aside class="analytics-consent" data-analytics-panel hidden aria-label={pt ? 'Preferências de cookies' : 'Cookie preferences'}>
+  <ClarityAnalytics project="z78hk57fiy" hosts="aguiaamazonas.com.br,www.aguiaamazonas.com.br" language={pt ? 'pt' : 'en'} />
   <p>{pt ? 'Usamos cookies opcionais do Google Analytics para entender as visitas. Você pode recusar e usar todo o site.' : 'We use optional Google Analytics cookies to understand visits. You can decline and use the whole website.'}</p>
+  <p><a href={pt ? "/pt/privacidade/" : "/privacy/"}>{pt ? "Privacidade e cookies" : "Privacy and cookies"}</a></p>
   <div>
     <button type="button" data-analytics-choice="denied">{pt ? 'Recusar' : 'Decline'}</button>
     <button type="button" data-analytics-choice="granted">{pt ? 'Permitir análise' : 'Allow analytics'}</button>

@@ -2,7 +2,7 @@
   const panel = document.querySelector('[data-analytics-panel]');
   const template = document.querySelector('[data-analytics-scripts]');
   if (!panel || !template) return;
-  const key = 'analytics-consent-v1';
+  const key = 'analytics-consent-v2';
   const lifetime = 180 * 24 * 60 * 60 * 1000;
   let loaded = false;
   let opener;

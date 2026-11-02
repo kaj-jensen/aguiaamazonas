@@ -17,6 +17,7 @@ const isPt = lang === 'pt-BR';
   <div class="footer-bottom">
     <span>Manaus · Amazonas · Brazil</span>
     <span>© {new Date().getFullYear()} Águia Amazonas Turismo</span>
+    <a href={isPt ? "/pt/privacidade/" : "/privacy/"}>{isPt ? "Privacidade" : "Privacy"}</a>
     <button type="button" data-analytics-preferences hidden>{isPt ? 'Preferências de cookies' : 'Cookie preferences'}</button>
   </div>
 </footer>

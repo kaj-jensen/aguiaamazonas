@@ -1,0 +1,18 @@
+---
+interface Props { project: string; hosts: string; language?: string; disclosureOnly?: boolean; }
+const {project, hosts, language = 'en', disclosureOnly = false} = Astro.props;
+const texts: Record<string,string> = {
+ en: 'With your permission, Microsoft Clarity records clicks, scrolling and page interactions to help us find website problems. Form content is masked. Declining does not affect your use of the site.',
+ da: 'Med dit samtykke registrerer Microsoft Clarity klik, rulning og sideinteraktioner, så vi kan finde fejl på hjemmesiden. Formularindhold skjules. Du kan afvise og stadig bruge hele siden.',
+ pt: 'Com sua permissão, o Microsoft Clarity registra cliques, rolagem e interações para nos ajudar a encontrar problemas no site. O conteúdo dos formulários é ocultado. Você pode recusar e continuar usando todo o site.',
+ de: 'Mit Ihrer Zustimmung zeichnet Microsoft Clarity Klicks, Scrollen und Seiteninteraktionen auf, damit wir Website-Probleme finden können. Formularinhalte werden maskiert. Sie können ablehnen und die gesamte Website weiter nutzen.',
+ fr: 'Avec votre accord, Microsoft Clarity enregistre les clics, le défilement et les interactions pour nous aider à détecter les problèmes du site. Le contenu des formulaires est masqué. Vous pouvez refuser et utiliser tout le site.',
+ es: 'Con tu permiso, Microsoft Clarity registra clics, desplazamientos e interacciones para ayudarnos a detectar problemas del sitio. El contenido de los formularios se oculta. Puedes rechazarlo y seguir usando todo el sitio.',
+ sv: 'Med ditt samtycke registrerar Microsoft Clarity klick, rullning och sidinteraktioner så att vi kan hitta problem på webbplatsen. Formulärinnehåll maskeras. Du kan tacka nej och ändå använda hela webbplatsen.',
+ eo: 'Kun via konsento, Microsoft Clarity registras klakojn, rulumadon kaj paĝajn interagojn por helpi nin trovi retejan problemojn. Formulara enhavo estas kaŝita. Vi povas rifuzi kaj plu uzi la tutan retejon.',
+ hr: 'Uz vaš pristanak Microsoft Clarity bilježi klikove, pomicanje i interakcije kako bismo pronašli probleme na web-mjestu. Sadržaj obrazaca je skriven. Možete odbiti i nastaviti koristiti cijelo web-mjesto.',
+ ru: 'С вашего согласия Microsoft Clarity записывает нажатия, прокрутку и взаимодействия для поиска проблем на сайте. Содержимое форм скрывается. Вы можете отказаться и продолжить пользоваться всем сайтом.',
+};
+---
+<p data-clarity-description>{texts[language === 'pt-BR' ? 'pt' : language] ?? texts.en} <a href="https://privacy.microsoft.com/privacystatement" target="_blank" rel="noreferrer">Microsoft Privacy</a></p>
+{!disclosureOnly && <script is:inline defer src="/clarity-consent.js" data-project={project} data-hosts={hosts}></script>}

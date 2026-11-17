@@ -64,9 +64,9 @@ const travelAgencySchema = {
     <meta name="theme-color" content="#071c16" />
     <style is:inline set:html={firstScreenStyles}></style>
     {isHome && <>
-      <link rel="stylesheet" href={catalogueStylesUrl} media="print" onload="this.removeAttribute('media')" />
+      <link rel="stylesheet" href={catalogueStylesUrl} />
       <noscript><link rel="stylesheet" href={catalogueStylesUrl} /></noscript>
-      <link rel="stylesheet" href={globalStylesUrl} media="print" onload="this.removeAttribute('media')" />
+      <link rel="stylesheet" href={globalStylesUrl} />
       <noscript><link rel="stylesheet" href={globalStylesUrl} /></noscript>
     </>}
     <link rel="preload" href="/fonts/dm-sans-latin-400-700-v1.woff2" as="font" type="font/woff2" crossorigin />

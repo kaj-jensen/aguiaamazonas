@@ -21,7 +21,7 @@ for (const page of ['dist/index.html', 'dist/pt/index.html']) {
   const hash = createHash('sha256').update(css).digest('hex').slice(0,12);
   const href = `/assets/home-components-${hash}.css`;
   await writeFile(`dist${href}`, css);
-  const replacement = `<style>${fonts}</style><link rel="stylesheet" href="${href}" media="print" onload="this.removeAttribute('media')"><noscript><link rel="stylesheet" href="${href}"></noscript>`;
+  const replacement = `<style>${fonts}</style><link rel="stylesheet" href="${href}"><noscript><link rel="stylesheet" href="${href}"></noscript>`;
   html = html.replace(match[0], replacement);
   await writeFile(page, html);
   console.log(`${page}: deferred ${Buffer.byteLength(css)} bytes of below-fold component styles.`);

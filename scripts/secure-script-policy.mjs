@@ -12,7 +12,7 @@ const hashes=new Set();
 for(const file of await files("dist")) {
   const html=await readFile(file,"utf8");
   if(/\son[a-z]+\s*=/i.test(html))throw new Error(`Inline event handler in ${file}`);
-  for(const match of html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script\s*>/gi)) {
+  for(const match of html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script\b[^>]*>/gi)) {
     if(/\bsrc\s*=/i.test(match[1]) || !match[2].trim())continue;
     hashes.add(`'sha256-${createHash("sha256").update(match[2]).digest("base64")}'`);
   }

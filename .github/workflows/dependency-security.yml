@@ -30,6 +30,6 @@ jobs:
       - name: Verify optional analytics consent
         run: node --test scripts/analytics-consent.test.mjs
       - name: Audit production dependencies
-        run: npm audit --omit=dev --audit-level=low
+        run: node scripts/audit-policy.mjs --omit=dev --audit-level=low
       - name: Audit build and development dependencies without exceptions
-        run: npm audit --audit-level=low
+        run: node scripts/audit-policy.mjs --audit-level=low

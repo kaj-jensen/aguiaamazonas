@@ -5,6 +5,11 @@ const POLICY = "default-src 'self'; base-uri 'self'; object-src 'none'; frame-an
 export async function onRequest(context) {
   const path = new URL(context.request.url).pathname;
   let response = await context.next();
+  if (response.status === 304) {
+    const headers=new Headers(response.headers);
+    headers.delete("Content-Security-Policy");
+    return new Response(null,{status:304,headers});
+  }
   if (response.body && response.headers.get('Content-Type')?.includes('text/html')) {
     const html = await response.text();
     const secured = new Headers(response.headers);

@@ -5,11 +5,14 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro check && astro build && node scripts/defer-home-styles.mjs && node scripts/patch-partytown.mjs && node scripts/audit-built-site.mjs && node scripts/secure-script-policy.mjs",
+    "build": "node scripts/pages-browser-gate.mjs",
     "preview": "astro preview",
     "check": "astro check",
     "audit": "node scripts/audit-built-site.mjs",
-    "prebuild": "node scripts/check-framework-policy.mjs"
+    "prebuild": "node scripts/check-framework-policy.mjs",
+    "test:browser": "playwright test",
+    "build:cloudflare": "node scripts/pages-browser-gate.mjs",
+    "build:assets": "astro check && astro build && node scripts/defer-home-styles.mjs && node scripts/patch-partytown.mjs && node scripts/audit-built-site.mjs && node scripts/secure-script-policy.mjs"
   },
   "dependencies": {
     "@astrojs/partytown": "2.1.8",
@@ -19,6 +22,8 @@
   "devDependencies": {
     "@astrojs/check": "0.9.6",
     "postcss": "8.5.29",
-    "typescript": "5.9.3"
+    "typescript": "5.9.3",
+    "@playwright/test": "1.65.1",
+    "wrangler": "4.164.0"
   }
 }

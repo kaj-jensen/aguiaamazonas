@@ -12,7 +12,8 @@
     "prebuild": "node scripts/check-framework-policy.mjs",
     "test:browser": "playwright test",
     "build:cloudflare": "node scripts/pages-browser-gate.mjs",
-    "build:assets": "astro check && astro build && node scripts/defer-home-styles.mjs && node scripts/patch-partytown.mjs && node scripts/audit-built-site.mjs && node scripts/secure-script-policy.mjs"
+    "build:assets": "astro check && astro build && node scripts/defer-home-styles.mjs && node scripts/patch-partytown.mjs && node scripts/audit-built-site.mjs && node scripts/secure-script-policy.mjs",
+    "test:security-errors": "node --test scripts/unexpected-error.test.mjs"
   },
   "dependencies": {
     "@astrojs/partytown": "2.1.8",

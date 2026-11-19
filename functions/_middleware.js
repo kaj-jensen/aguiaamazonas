@@ -1,8 +1,9 @@
+import { handleUnexpected } from '../lib/unexpected-error.js';
 import { scriptPolicy } from "../lib/script-policy.js";
 const POLICY = "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self'; script-src 'self' https://www.clarity.ms https://scripts.clarity.ms https://www.googletagmanager.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' https://*.clarity.ms https://c.bing.com data: https:; connect-src 'self' https://*.clarity.ms https://www.googletagmanager.com https://www.google-analytics.com https://region1.google-analytics.com https://analytics.google.com https://cloudflareinsights.com; frame-src 'self'; manifest-src 'self'; media-src 'self'; worker-src 'self' blob:; upgrade-insecure-requests";
 // Keep the two public homepages compressed while preventing proxy script injection.
 // All content continues to come from the deployment's GitHub-built static assets.
-export async function onRequest(context) {
+async function serve(context) {
   const path = new URL(context.request.url).pathname;
   let response = await context.next();
   if (response.status === 304) {
@@ -37,4 +38,8 @@ export async function onRequest(context) {
   const vary = headers.get('Vary');
   if (!vary?.toLowerCase().split(',').some(value => value.trim() === 'accept-encoding')) headers.set('Vary', vary ? `${vary}, Accept-Encoding` : 'Accept-Encoding');
   return new Response(body, { status: response.status, statusText: response.statusText, headers, encodeBody: 'manual' });
+}
+
+export async function onRequest(context) {
+  return handleUnexpected(() => serve(context), 'Ocorreu um erro inesperado. Tente novamente mais tarde.');
 }

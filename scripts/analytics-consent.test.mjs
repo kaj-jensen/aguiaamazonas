@@ -21,6 +21,8 @@ function browser({ saved = null, unavailable = false } = {}) {
   ];
   const template = { content: { querySelectorAll: () => originals } };
   const document = {
+    addEventListener: (name, handler) => { events[name] = handler; },
+    documentElement: { lang: 'en' },
     querySelector: selector => selector === '[data-analytics-panel]' ? panel : template,
     querySelectorAll: () => [preferences],
     createElement: () => ({ setAttribute() {} }),
@@ -28,17 +30,19 @@ function browser({ saved = null, unavailable = false } = {}) {
     get cookie() { return '_ga=old; _ga_EXAMPLE=old; cf_clearance=preserve'; },
     set cookie(value) { deleted.push(value); },
   };
+  const win = { addEventListener: (name, handler) => { events[name] = handler; }, dispatchEvent() {} };
   vm.runInNewContext(source, {
     document,
-    location: { hostname: 'www.example.com', protocol: 'https:', reload: () => { reloads++; } },
+    location: { hostname: 'www.example.com', protocol: 'https:', origin: 'https://www.example.com', pathname: '/tour/', reload: () => { reloads++; } },
     localStorage: {
       getItem() { if (unavailable) throw new Error('Blocked'); return stored; },
       setItem(_key, value) { if (unavailable) throw new Error('Blocked'); stored = value; },
     },
-    window: { addEventListener: (name, handler) => { events[name] = handler; }, dispatchEvent() {} },
+    window: win,
+    URL,
     CustomEvent: class {},
   });
-  return { panel, events, scripts, deleted, preferences, stored: () => stored, reloads: () => reloads, focused: () => focused };
+  return { win, panel, events, scripts, deleted, preferences, stored: () => stored, reloads: () => reloads, focused: () => focused };
 }
 const preference = choice => JSON.stringify({ choice, expires: Date.now() + 60000 });
 
@@ -86,4 +90,23 @@ test('rejection returns keyboard focus and preference changes in another tab rel
   assert.equal(b.focused(), true);
   b.events.storage({ key: 'analytics-consent-v2' });
   assert.equal(b.reloads(), 1);
+});
+
+test('contact clicks require consent and send no contact destination or message', () => {
+  const b = browser();
+  const click = href => b.events.click({ button: 0, target: { closest: () => ({ href }) } });
+  click('https://wa.me/5592994587173?text=private');
+  assert.equal(b.win.dataLayer, undefined);
+  b.events.granted();
+  click('https://wa.me/5592994587173?text=private');
+  click('mailto:private@example.com?body=secret');
+  click('https://example.com/');
+  assert.equal(b.win.dataLayer.length, 2);
+  assert.deepEqual(Array.from(b.win.dataLayer, event => event[1]), ['whatsapp_click', 'email_click']);
+  const serialized = JSON.stringify(b.win.dataLayer);
+  assert.ok(!/private|secret|559299/.test(serialized));
+  assert.equal(b.win.dataLayer[0][2].page_path, '/tour/');
+  b.events.denied();
+  click('mailto:private@example.com');
+  assert.equal(b.win.dataLayer.length, 2);
 });

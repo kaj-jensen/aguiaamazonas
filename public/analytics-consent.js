@@ -5,7 +5,6 @@
   const key = 'analytics-consent-v2';
   const lifetime = 180 * 24 * 60 * 60 * 1000;
   let loaded = false;
-  let allowed = false;
   let opener;
 
   function preference() {
@@ -32,7 +31,6 @@
   function startAnalytics() {
     if (loaded) return;
     loaded = true;
-    allowed = true;
     for (const original of template.content.querySelectorAll('script')) {
       const script = document.createElement('script');
       for (const { name, value } of original.attributes) script.setAttribute(name, value);
@@ -48,7 +46,6 @@
     panel.hidden = true;
     if (choice === 'granted') startAnalytics();
     else {
-      allowed = false;
       clearAnalyticsCookies();
       // A reload also stops analytics running in a worker or another script.
       if (loaded) { location.reload(); return; }
@@ -69,33 +66,6 @@
   }
   window.addEventListener('storage', event => {
     if (event.key === key || event.key === null) location.reload();
-  });
-  // Only record contact intent after consent. Never send the destination,
-  // prefilled message, email address, query string or link text to Analytics.
-  document.addEventListener('click', event => {
-    if (!allowed || (event.button !== undefined && event.button !== 0)) return;
-    const link = event.target?.closest?.('a[href]');
-    if (!link) return;
-    let url;
-    try { url = new URL(link.href); } catch { return; }
-    const method = url.protocol === 'mailto:' ? 'email'
-      : url.protocol === 'https:' && ['wa.me', 'api.whatsapp.com', 'web.whatsapp.com'].includes(url.hostname) ? 'whatsapp' : null;
-    if (!method) return;
-    const parameters = {
-      send_to: 'G-SKR93ZM6BV',
-      contact_method: method,
-      page_location: `${location.origin}${location.pathname}`,
-      page_path: location.pathname,
-      page_language: document.documentElement.lang === 'pt-BR' ? 'pt-BR' : 'en',
-    };
-    // Forward the command itself so gtag creates its Arguments object inside
-    // the worker. Nested Arguments objects lose their length when serialized.
-    const send = (attempt = 0) => {
-      if (!allowed) return;
-      if (typeof window.gtag === 'function') window.gtag('event', `${method}_click`, parameters);
-      else if (attempt < 100) setTimeout(() => send(attempt + 1), 100);
-    };
-    send();
   });
   const choice = preference();
   if (choice === 'granted') startAnalytics();

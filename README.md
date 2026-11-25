@@ -39,6 +39,6 @@ The Portuguese homepage embeds a 9 KB, 360-pixel phone AVIF using 4:2:0 chroma s
 
 ## Contact intent measurement
 
-After analytics consent, `analytics-consent.js` records `whatsapp_click` and `email_click` for contact links on every English and Portuguese page. Parameters contain only contact method, page path, query-free page location and page language; no address, phone number, prefilled message or form content is added. These events measure intent, not messages sent or bookings. Mark both names as GA4 key events, counted once per event.
+Inside the Analytics worker after analytics consent, `contact-events.js` records `whatsapp_click` and `email_click` for contact links on every English and Portuguese page. Parameters contain only contact method, page path, query-free page location and page language; no address, phone number, prefilled message or form content is added. These events measure intent, not messages sent or bookings. Mark both names as GA4 key events, counted once per event.
 
 There is currently no contact form or submission endpoint. Do not count a click or generic `submit` event as a successful enquiry. If a form is introduced, emit `generate_lead` only after the server confirms success, once per accepted submission, and mark it as a key event then.

@@ -94,39 +94,24 @@ test('rejection returns keyboard focus and preference changes in another tab rel
   assert.equal(b.reloads(), 1);
 });
 
-test('contact clicks require consent and send no contact destination or message', () => {
-  const b = browser();
-  const click = href => b.events.click({ button: 0, target: { closest: () => ({ href }) } });
-  click('https://wa.me/5592994587173?text=private');
-  assert.equal(b.win.dataLayer.length, 0);
-  b.events.granted();
-  click('https://wa.me/5592994587173?text=private');
-  click('mailto:private@example.com?body=secret');
-  click('https://example.com/');
-  assert.equal(b.win.dataLayer.length, 2);
-  assert.deepEqual(Array.from(b.win.dataLayer, event => event[1]), ['whatsapp_click', 'email_click']);
-  const serialized = JSON.stringify(b.win.dataLayer);
-  assert.ok(!/private|secret|559299/.test(serialized));
-  assert.equal(b.win.dataLayer[0][2].page_path, '/tour/');
-  b.events.denied();
-  click('mailto:private@example.com');
-  assert.equal(b.win.dataLayer.length, 2);
+test('contact listener runs within consent-gated analytics scripts', () => {
+  const component = readFileSync(new URL('../src/components/AnalyticsConsent.astro', import.meta.url), 'utf8');
+  assert.match(component, /<template data-analytics-scripts>[\s\S]*type="text\/partytown" src="\/contact-events.js\?v=1"[\s\S]*<\/template>/);
 });
-
-test('early contact clicks wait for the worker forwarding function and respect withdrawal', () => {
-  const b = browser({ saved: preference('granted') });
-  const gtag = b.win.gtag;
-  delete b.win.gtag;
-  const click = () => b.events.click({ button: 0, target: { closest: () => ({ href: 'https://wa.me/123' }) } });
-  click();
-  assert.equal(b.win.dataLayer.length, 0);
-  b.win.gtag = gtag;
-  b.timers.shift()();
-  assert.equal(b.win.dataLayer[0][1], 'whatsapp_click');
-  delete b.win.gtag;
-  click();
-  b.events.denied();
-  b.win.gtag = gtag;
-  b.timers.shift()();
-  assert.equal(b.win.dataLayer.length, 1);
+test('contact events send method and page context without destinations or messages', () => {
+  const source = readFileSync(new URL('../public/contact-events.js', import.meta.url), 'utf8');
+  const calls = [];
+  let click;
+  vm.runInNewContext(source, {
+    document: { addEventListener: (_name, handler) => { click = handler; }, documentElement: { lang: 'pt-BR' } },
+    location: { origin: 'https://www.example.com', pathname: '/pt/' },
+    URL, gtag: (...args) => calls.push(args),
+  });
+  for (const href of ['https://wa.me/123?text=private', 'mailto:private@example.com?body=secret', 'https://example.com/', 'https://wa.me.evil.test/']) {
+    click({ target: { closest: () => ({ href }) } });
+  }
+  assert.deepEqual(calls.map(call => call[1]), ['whatsapp_click', 'email_click']);
+  assert.equal(calls[0][2].page_path, '/pt/');
+  assert.equal(calls[0][2].page_language, 'pt-BR');
+  assert.ok(!/private|secret|123/.test(JSON.stringify(calls)));
 });

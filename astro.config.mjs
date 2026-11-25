@@ -4,7 +4,7 @@ import partytown from '@astrojs/partytown';
 
 // Analytics is noncritical: let the hero paint before starting its worker.
 // Keep the official integration's runtime and copying/build hooks intact.
-const analytics = partytown({ config: { forward: ['dataLayer.push', 'gtag'] } });
+const analytics = partytown({ config: { forward: ['dataLayer.push'] } });
 const setupAnalytics = analytics.hooks['astro:config:setup'];
 analytics.hooks['astro:config:setup'] = options => setupAnalytics({
   ...options,

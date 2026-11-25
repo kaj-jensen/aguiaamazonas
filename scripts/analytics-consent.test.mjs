@@ -6,6 +6,7 @@ import assert from 'node:assert/strict';
 const source = readFileSync(new URL('../public/analytics-consent.js', import.meta.url), 'utf8');
 function browser({ saved = null, unavailable = false } = {}) {
   const events = {};
+  const timers = [];
   const deleted = [];
   const scripts = [];
   let reloads = 0;
@@ -30,7 +31,7 @@ function browser({ saved = null, unavailable = false } = {}) {
     get cookie() { return '_ga=old; _ga_EXAMPLE=old; cf_clearance=preserve'; },
     set cookie(value) { deleted.push(value); },
   };
-  const win = { addEventListener: (name, handler) => { events[name] = handler; }, dispatchEvent() {} };
+  const win = { dataLayer: [], gtag: function() { this.dataLayer.push(arguments); }, addEventListener: (name, handler) => { events[name] = handler; }, dispatchEvent() {} };
   vm.runInNewContext(source, {
     document,
     location: { hostname: 'www.example.com', protocol: 'https:', origin: 'https://www.example.com', pathname: '/tour/', reload: () => { reloads++; } },
@@ -39,10 +40,11 @@ function browser({ saved = null, unavailable = false } = {}) {
       setItem(_key, value) { if (unavailable) throw new Error('Blocked'); stored = value; },
     },
     window: win,
+    setTimeout: callback => timers.push(callback),
     URL,
     CustomEvent: class {},
   });
-  return { win, panel, events, scripts, deleted, preferences, stored: () => stored, reloads: () => reloads, focused: () => focused };
+  return { win, timers, panel, events, scripts, deleted, preferences, stored: () => stored, reloads: () => reloads, focused: () => focused };
 }
 const preference = choice => JSON.stringify({ choice, expires: Date.now() + 60000 });
 
@@ -96,7 +98,7 @@ test('contact clicks require consent and send no contact destination or message'
   const b = browser();
   const click = href => b.events.click({ button: 0, target: { closest: () => ({ href }) } });
   click('https://wa.me/5592994587173?text=private');
-  assert.equal(b.win.dataLayer, undefined);
+  assert.equal(b.win.dataLayer.length, 0);
   b.events.granted();
   click('https://wa.me/5592994587173?text=private');
   click('mailto:private@example.com?body=secret');
@@ -109,4 +111,22 @@ test('contact clicks require consent and send no contact destination or message'
   b.events.denied();
   click('mailto:private@example.com');
   assert.equal(b.win.dataLayer.length, 2);
+});
+
+test('early contact clicks wait for the worker forwarding function and respect withdrawal', () => {
+  const b = browser({ saved: preference('granted') });
+  const gtag = b.win.gtag;
+  delete b.win.gtag;
+  const click = () => b.events.click({ button: 0, target: { closest: () => ({ href: 'https://wa.me/123' }) } });
+  click();
+  assert.equal(b.win.dataLayer.length, 0);
+  b.win.gtag = gtag;
+  b.timers.shift()();
+  assert.equal(b.win.dataLayer[0][1], 'whatsapp_click');
+  delete b.win.gtag;
+  click();
+  b.events.denied();
+  b.win.gtag = gtag;
+  b.timers.shift()();
+  assert.equal(b.win.dataLayer.length, 1);
 });

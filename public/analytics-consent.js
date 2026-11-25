@@ -81,16 +81,21 @@
     const method = url.protocol === 'mailto:' ? 'email'
       : url.protocol === 'https:' && ['wa.me', 'api.whatsapp.com', 'web.whatsapp.com'].includes(url.hostname) ? 'whatsapp' : null;
     if (!method) return;
-    window.dataLayer = window.dataLayer || [];
-    function track() { window.dataLayer.push(arguments); }
-    track('event', `${method}_click`, {
+    const parameters = {
       send_to: 'G-SKR93ZM6BV',
       contact_method: method,
       page_location: `${location.origin}${location.pathname}`,
       page_path: location.pathname,
       page_language: document.documentElement.lang === 'pt-BR' ? 'pt-BR' : 'en',
-      transport_type: 'beacon',
-    });
+    };
+    // Forward the command itself so gtag creates its Arguments object inside
+    // the worker. Nested Arguments objects lose their length when serialized.
+    const send = (attempt = 0) => {
+      if (!allowed) return;
+      if (typeof window.gtag === 'function') window.gtag('event', `${method}_click`, parameters);
+      else if (attempt < 100) setTimeout(() => send(attempt + 1), 100);
+    };
+    send();
   });
   const choice = preference();
   if (choice === 'granted') startAnalytics();

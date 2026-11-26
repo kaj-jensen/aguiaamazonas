@@ -8,7 +8,8 @@ document.addEventListener('click', event => {
   const method = url.protocol === 'mailto:' ? 'email'
     : url.protocol === 'https:' && ['wa.me', 'api.whatsapp.com', 'web.whatsapp.com'].includes(url.hostname) ? 'whatsapp' : null;
   if (!method) return;
-  gtag('event', `${method}_click`, {
+  function track() { window.dataLayer.push(arguments); }
+  track('event', `${method}_click`, {
     send_to: 'G-SKR93ZM6BV',
     contact_method: method,
     page_location: `${location.origin}${location.pathname}`,

@@ -96,7 +96,7 @@ test('rejection returns keyboard focus and preference changes in another tab rel
 
 test('contact listener runs within consent-gated analytics scripts', () => {
   const component = readFileSync(new URL('../src/components/AnalyticsConsent.astro', import.meta.url), 'utf8');
-  assert.match(component, /<template data-analytics-scripts>[\s\S]*type="text\/partytown" src="\/contact-events.js\?v=1"[\s\S]*<\/template>/);
+  assert.match(component, /<template data-analytics-scripts>[\s\S]*type="text\/partytown" src="\/contact-events.js\?v=2"[\s\S]*<\/template>/);
 });
 test('contact events send method and page context without destinations or messages', () => {
   const source = readFileSync(new URL('../public/contact-events.js', import.meta.url), 'utf8');
@@ -105,7 +105,7 @@ test('contact events send method and page context without destinations or messag
   vm.runInNewContext(source, {
     document: { addEventListener: (_name, handler) => { click = handler; }, documentElement: { lang: 'pt-BR' } },
     location: { origin: 'https://www.example.com', pathname: '/pt/' },
-    URL, gtag: (...args) => calls.push(args),
+    URL, window: { dataLayer: { push: args => calls.push(args) } },
   });
   for (const href of ['https://wa.me/123?text=private', 'mailto:private@example.com?body=secret', 'https://example.com/', 'https://wa.me.evil.test/']) {
     click({ target: { closest: () => ({ href }) } });
